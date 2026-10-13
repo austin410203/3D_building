@@ -16,7 +16,9 @@
 	"scenes":[
 		{
 			"extras":{
-				"night":true
+				"night":true,
+				"tk_roads":"[[\"x\", 0.0, -240, 240], [\"y\", 0.0, -170, 50], [\"x\", -62.0, -240, 240], [\"x\", -118.0, -228, 228], [\"x\", -170.0, -190, 190], [\"x\", 50.0, -240, 240], [\"x\", 100.0, -235, -42], [\"x\", 100.0, 42, 235], [\"x\", 150.0, -215, 215]]",
+				"tk_isl":"[300.0, 240.0]"
 			},
 			"name":"Scene",
 			"nodes":[
@@ -416,7 +418,7 @@
 				"interior_doors":11,
 				"spawns":"[{\"name\": \"front_door\", \"local\": [3.7, -6.1, 0]}, {\"name\": \"shop_door\", \"local\": [0.1, -6.1, 0]}]",
 				"objects":505,
-				"triangles_approx":141232,
+				"triangles_approx":141208,
 				"lights":40,
 				"interactables":"[\"cook\", \"open\", \"shop\", \"sit\", \"sleep\", \"use\", \"wash\", \"work\"]",
 				"furniture":129,

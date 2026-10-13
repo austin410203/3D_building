@@ -16,7 +16,9 @@
 	"scenes":[
 		{
 			"extras":{
-				"night":true
+				"night":true,
+				"tk_roads":"[[\"x\", 0.0, -240, 240], [\"y\", 0.0, -170, 50], [\"x\", -62.0, -240, 240], [\"x\", -118.0, -228, 228], [\"x\", -170.0, -190, 190], [\"x\", 50.0, -240, 240], [\"x\", 100.0, -235, -42], [\"x\", 100.0, 42, 235], [\"x\", 150.0, -215, 215]]",
+				"tk_isl":"[300.0, 240.0]"
 			},
 			"name":"Scene",
 			"nodes":[
@@ -952,7 +954,7 @@
 				"interior_doors":31,
 				"spawns":"[{\"name\": \"arcade\", \"local\": [0.0, -7.5, 0]}]",
 				"objects":929,
-				"triangles_approx":223348,
+				"triangles_approx":223504,
 				"lights":62,
 				"interactables":"[\"cook\", \"open\", \"shop\", \"sit\", \"sleep\", \"use\", \"wash\", \"work\"]",
 				"furniture":312,

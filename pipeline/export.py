@@ -64,7 +64,7 @@ for r in roots:
         r.location = (0, 0, 0); r.rotation_euler = (0, 0, 0)
         bpy.context.view_layer.update()
     path = os.path.join(GLB, "%s.glb" % aid)
-    size = export(path, game)
+    size = export(path, game) if "--catalog-only" not in argv else (os.path.getsize(path) if os.path.exists(path) else 0)
     r.location = loc; r.rotation_euler = ro
     bpy.context.view_layer.update()
     d = meta(r)
@@ -79,7 +79,7 @@ for r in roots:
     cat.append(d)
     print("[export] %-24s %6d KB" % (aid, size // 1024))
 
-if "--notown" not in argv and not ONLY:
+if "--notown" not in argv and not ONLY and "--catalog-only" not in argv:
     allobjs = [o for o in bpy.data.objects if o.type in ("MESH", "EMPTY", "LIGHT") and o.name != "TK_Cam"]
     print("[export] town_full", export(os.path.join(GLB, "town_full.glb"), allobjs) // 1024, "KB")
 

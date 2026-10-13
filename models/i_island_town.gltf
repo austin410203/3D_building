@@ -14,7 +14,9 @@
 	"scenes":[
 		{
 			"extras":{
-				"night":true
+				"night":true,
+				"tk_roads":"[[\"x\", 0.0, -240, 240], [\"y\", 0.0, -170, 50], [\"x\", -62.0, -240, 240], [\"x\", -118.0, -228, 228], [\"x\", -170.0, -190, 190], [\"x\", 50.0, -240, 240], [\"x\", 100.0, -235, -42], [\"x\", 100.0, 42, 235], [\"x\", 150.0, -215, 215]]",
+				"tk_isl":"[300.0, 240.0]"
 			},
 			"name":"Scene",
 			"nodes":[
@@ -125,80 +127,80 @@
 	"accessors":[
 		{
 			"componentType":5126,
-			"count":15808,
+			"count":39520,
 			"max":[
-				157.14999389648438,
+				229.14999389648438,
 				5.150000095367432,
-				124.52000427246094
+				176.51998901367188
 			],
 			"min":[
-				-159.14999389648438,
+				-234.14999389648438,
 				0.15000000596046448,
-				-56.52000045776367
+				-156.51998901367188
 			],
 			"type":"VEC3"
 		},
 		{
 			"componentType":5126,
-			"count":15808,
+			"count":39520,
 			"type":"VEC3"
 		},
 		{
 			"componentType":5126,
-			"count":15808,
+			"count":39520,
 			"type":"VEC2"
 		},
 		{
 			"componentType":5123,
-			"count":32448,
+			"count":81120,
 			"type":"SCALAR"
 		},
 		{
 			"componentType":5126,
-			"count":2496,
+			"count":6240,
 			"max":[
-				157.1300048828125,
+				229.1300048828125,
 				5,
-				123.52999877929688
+				175.52999877929688
 			],
 			"min":[
-				-159.1300048828125,
+				-234.1300048828125,
 				4.980000019073486,
-				-55.53000259399414
+				-155.52999877929688
 			],
 			"type":"VEC3"
 		},
 		{
 			"componentType":5126,
-			"count":2496,
+			"count":6240,
 			"type":"VEC3"
 		},
 		{
 			"componentType":5126,
-			"count":2496,
+			"count":6240,
 			"type":"VEC2"
 		},
 		{
 			"componentType":5123,
-			"count":3744,
+			"count":9360,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":52548,
+			"byteLength":130430,
 			"byteOffset":0
 		},
 		{
 			"buffer":0,
-			"byteLength":5118,
-			"byteOffset":52548
+			"byteLength":12498,
+			"byteOffset":130432
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":57668,
+			"byteLength":142932,
 			"uri":"i_island_town.bin"
 		}
 	]

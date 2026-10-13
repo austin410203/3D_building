@@ -89,7 +89,7 @@ def h_island(x, y):
     return max(h, -6)
 
 HILL = (0.0, 86.0, 10.0, 34.0, 7.0)    # cx, cy, plateau r, foot r, height
-ISL = (200.0, 160.0)                    # island superellipse radii (v2: enlarged for 64 buildings)
+ISL = (300.0, 240.0)                    # island superellipse radii (v3: enlarged for 167 buildings)
 
 def build_island():
     begin_building("island_town", "海港小鎮島", "Harbor Town Island", "Environment", "環境", "template", "environment",
@@ -97,7 +97,7 @@ def build_island():
     CUR.root.name = "ENV_island"
     import bmesh
     bm = bmesh.new()
-    S = 2.0; NX = 230; NY = 190
+    S = 2.0; NX = 330; NY = 270
     vs = {}
     for j in range(NY + 1):
         for i in range(NX + 1):
@@ -121,7 +121,8 @@ def build_island():
     return CUR
 
 # carriageways (8 m) as (axis, centre, a1, a2): 'x' = runs along X at y=centre
-ROADS = [("x", 0.0, -160, 160), ("y", 0.0, -118, 50), ("x", -62.0, -165, 165), ("x", -118.0, -118, 118), ("x", 50.0, -165, 165)]
+ROADS = [("x", 0.0, -240, 240), ("y", 0.0, -170, 50), ("x", -62.0, -240, 240), ("x", -118.0, -228, 228), ("x", -170.0, -190, 190),
+         ("x", 50.0, -240, 240), ("x", 100.0, -235, -42), ("x", 100.0, 42, 235), ("x", 150.0, -215, 215)]
 
 def _minus(a, b, cuts):
     segs = [(a, b)]
@@ -173,12 +174,12 @@ def roads():
     ob("Markings", mk, ["White"], kind="trim")
     rr = random.Random(3)
     # beach palms + hill pines
-    for i in range(110):
+    for i in range(160):
         a = rr.uniform(0, 2 * math.pi)
         x = math.cos(a) * ISL[0] * 0.86; y = math.sin(a) * ISL[1] * 0.86
         x += rr.uniform(-6, 6); y += rr.uniform(-6, 6)
         z = h_island(x, y)
-        if -0.25 < z < 0.4 and math.hypot(x - 160, y + 118) > 26:
+        if -0.25 < z < 0.4 and math.hypot(x - 237, y + 190) > 30:
             tree(x, y, z, rr.uniform(0.8, 1.2), "palm", seed=100 + i)
     for i in range(40):
         a = rr.uniform(0, 2 * math.pi); r = rr.uniform(13, 30)

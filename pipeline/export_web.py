@@ -171,6 +171,7 @@ for r in roots:
                pos=list(r.matrix_world.translation), rotz=r.rotation_euler.z,
                name_zh=meta.get("name_zh", ""), name_en=meta.get("name_en", ""), style=meta.get("style", ""),
                style_zh=meta.get("style_zh", ""), tier=meta.get("tier", ""), size=json.loads(meta.get("size_m", "[0,0,0]")),
+               description=meta.get("description", ""), category=meta.get("category", ""),
                spawns=json.loads(meta.get("spawns", "[]")) if "spawns" in meta else [])
     if bid == "island_town":
         manifest["env"] = ent
@@ -212,6 +213,8 @@ for r in roots:
         export(os.path.join(OUT, "i_%s.gltf" % bid), it)
     print("exported", bid)
 manifest["env"]["shell"] = "env.gltf"
+sc = bpy.context.scene
+manifest["roads"] = json.loads(sc.get("tk_roads", "[]")); manifest["isl"] = json.loads(sc.get("tk_isl", "[300, 240]"))
 export(os.path.join(OUT, "collider.glb"), [colo], fmt="GLB", textures=False)
 json.dump(manifest, open(os.path.join(OUT, "manifest.json"), "w", encoding="utf8"), ensure_ascii=False)
 print("done", OUT)

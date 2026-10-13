@@ -266,6 +266,35 @@ def fillroom(kind, x1, y1, x2, y2, z, h=2.8, door="S", light=True, var=0):
     elif kind == "dining":
         put(dining_set, W / 2, D / 2, 0, min(2.0, W - 1.6), 0.9, "WoodDark")
         put(cabinet_low, W / 2, D - 0.25, 0, min(2.0, W - 1), 0.85, 0.45, "WoodDark")
+    elif kind == "forge":
+        mb = MB(); mb.box(-0.8, -0.6, 0, 0.8, 0.6, 1.1, "BrickDark"); mb.box(-0.5, -0.61, 0.3, 0.5, -0.4, 0.8, "NeonOrange")
+        mb.box(-0.3, -0.3, 1.1, 0.3, 0.3, 2.4, "BrickDark"); px, py = P(1.0, D - 0.7); furn("Furnace", mb, px, py, z, ra, "use")
+        mb = MB(); mb.box(-0.15, -0.15, 0, 0.15, 0.15, 0.55, "WoodDark"); mb.box(-0.35, -0.12, 0.55, 0.35, 0.12, 0.75, "MetalDark")
+        mb.cyl(0.35, 0, 0.62, 0.68, 0.1, "MetalDark", seg=8, r2=0.02); px, py = P(W / 2, D / 2); furn("Anvil", mb, px, py, z, ra, "use")
+        put(workbench, W - 1.2, D - 0.4, 0, min(2.0, W - 1.6)); put(barrel, 0.5, 1.2, 0, "WoodLight")
+        lamp("ForgeGlow", *P(1.0, D - 1.2), z + 1.0, 60, (1.0, 0.45, 0.15), kind="point", fixture=False)
+    elif kind == "farm":
+        for i in range(max(1, int((W - 0.4) / 1.2))):
+            for j in range(max(1, int((D - 1.6) / 1.4))):
+                mb = MB(); mb.box(-0.5, -0.25, 0, 0.5, 0.25, 2.0, "MetalDark")
+                for k in range(4):
+                    zz = 0.25 + k * 0.45
+                    mb.box(-0.48, -0.23, zz, 0.48, 0.23, zz + 0.06, "White"); mb.sph(0, 0, zz + 0.14, 0.12, "PlantGreen", sx=3.6, sy=1.4, sz=0.7)
+                    mb.box(-0.46, -0.21, zz + 0.38, 0.46, 0.21, zz + 0.4, "NeonPurple")
+                px, py = P(0.8 + i * 1.2, D - 0.5 - j * 1.4); furn("FarmRack", mb, px, py, z, ra, "use")
+    elif kind == "aquarium":
+        for i in range(max(1, int((W - 0.4) / 2.2))):
+            mb = MB(); mb.box(-1.0, -0.4, 0, 1.0, 0.4, 0.7, "PanelDark"); mb.box(-1.0, -0.4, 0.7, 1.0, 0.4, 2.2, "GlassBlue")
+            mb.box(-0.95, -0.35, 0.72, 0.95, 0.35, 2.0, "PoolWater")
+            for k in range(5):
+                mb.sph(RNG.uniform(-0.8, 0.8), RNG.uniform(-0.2, 0.2), RNG.uniform(1.0, 1.9), 0.06, RNG.choice(["PlasticYellow", "PlasticRed", "NeonCyan"]), sx=2.0)
+            px, py = P(1.2 + i * 2.2, D - 0.5); furn("FishTank", mb, px, py, z, ra, "use")
+        lamp("AquaGlow", *P(W / 2, D - 1.0), z + 2.4, 50, (0.3, 0.7, 1.0), kind="point", fixture=False)
+        put(bench, W / 2, 1.5, 180, min(2.4, W - 1))
+    elif kind == "onsen":
+        mb = MB(); mb.box(-1.4, -1.0, 0, 1.4, 1.0, 0.5, "Stone"); mb.box(-1.25, -0.85, 0.3, 1.25, 0.85, 0.46, "PoolWater")
+        px, py = P(W / 2, D / 2 + 0.3); furn("HotSpring", mb, px, py, z, ra, "wash")
+        put(bench, 1.2, 0.8, 180, 1.6, "WoodLight", "WoodDark")
     elif kind == "none":
         pass
     if light and kind != "none":
@@ -641,6 +670,15 @@ def std(S):
         dome("Dome", 0, 0, zr + 1.0, r, rm, g("dome_sz", 1.0))
         top = zr + 1.0 + r * g("dome_sz", 1.0)
         mb = MB(); mb.cyl(0, 0, top - 0.05, top + 0.6, 0.12, "Brass", seg=10, r2=0.02); mb.sph(0, 0, top + 0.2, 0.15, "Brass"); mb.obj("DomeFinial", kind="trim")
+    elif rk == "gambrel":                       # barn roof: steep lower + shallow upper slopes, ridge along x
+        hw = D / 2 + ov; kz1, kz2 = 2.0, 3.2; ki = hw * 0.45
+        mb = MB()
+        for sg in (-1, 1):
+            mb.quad([(x1 - ov, sg * hw, zr), (x2 + ov, sg * hw, zr), (x2 + ov, sg * ki, zr + kz1), (x1 - ov, sg * ki, zr + kz1)], rm, 0.12)
+            mb.quad([(x1 - ov, sg * ki, zr + kz1), (x2 + ov, sg * ki, zr + kz1), (x2 + ov, 0, zr + kz2), (x1 - ov, 0, zr + kz2)], rm, 0.12)
+        for xx in (x1, x2 - 0.2):
+            mb.prism([(-D / 2, zr), (D / 2, zr), (D / 2 * 0.45, zr + kz1 - 0.05), (0, zr + kz2 - 0.1), (-D / 2 * 0.45, zr + kz1 - 0.05)], xx, xx + 0.2, g("gable_m", ext), plane="yz")
+        mb.obj("Roof", kind="roof"); top = zr + kz2
     elif rk == "sawtooth":
         k = max(2, int(W / 4.0)); sw_ = W / k
         mb = MB()
@@ -824,3 +862,26 @@ def halftimber(ctx, z1, z2, m="WoodDark", step=1.6):
             yy = y1 + (y2 - y1) * i / k
             mb.box(xa, yy - 0.06, z1, xb, yy + 0.06, z2, m)
     return mb.obj("HalfTimber_%d" % int(z1 * 10), kind="trim")
+
+
+# ============================================================== v3 helpers
+def false_front(ctx, m="WoodLight", h=2.2, sign=None, glow="NeonYellow"):
+    """western saloon false-front parapet"""
+    x1, x2, y1, zr = ctx["x1"], ctx["x2"], ctx["y1"], ctx["roof_z"]
+    mb = MB(); mb.box(x1, y1 - 0.15, zr - 0.1, x2, y1, zr + h, m)
+    mb.box(x1 - 0.1, y1 - 0.3, zr + h, x2 + 0.1, y1 + 0.05, zr + h + 0.15, "WoodDark"); mb.obj("FalseFront", kind="wall")
+    ctx["top"] = max(ctx["top"], zr + h + 0.2)
+    if sign:
+        sign_board("FrontSign", sign, 0.0, y1 - 0.2, zr + h * 0.55, min(ctx["W"] - 1.0, len(sign) * 0.4 + 1.0), 0.7, 0, "WoodDark", glow, 0.42)
+
+def round_door(x, y, z, r=1.1, m="PaintTeal", frame="WoodLight"):
+    mb = MB(); mb.cyl(0, 0, -r - 0.1, r + 0.1, r + 0.12, frame, seg=24, axis="y") if False else None
+    mb = MB(); mb.cyl(0, -0.06, 0, 0.0, r + 0.12, frame, seg=28, axis="y"); mb.cyl(0, -0.1, 0, 0, r, m, seg=28, axis="y")
+    mb.sph(0, -0.16, 0, 0.08, "Brass")
+    return mb.obj("RoundDoor_%d" % int(x * 10), x, y, z + r, kind="trim")
+
+def skirt_ring(ctx, z, over=1.0, m="SlateDark", curl=0.4, inset=0.6):
+    """extra pagoda-style roof skirt around the building at height z (castle / pagoda tiers)"""
+    x1, x2, y1, y2 = ctx["x1"], ctx["x2"], ctx["y1"], ctx["y2"]
+    hip_roof("Skirt_%d" % int(z * 10), x1, y1, x2, y2, z, 24, over, m, "PaintRed", curl=curl, cap=None,
+             inner=(x1 + 0.0, y1 + 0.0, x2 - 0.0, y2 - 0.0, z + 0.8))

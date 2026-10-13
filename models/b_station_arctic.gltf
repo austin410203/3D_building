@@ -16,7 +16,9 @@
 	"scenes":[
 		{
 			"extras":{
-				"night":true
+				"night":true,
+				"tk_roads":"[[\"x\", 0.0, -240, 240], [\"y\", 0.0, -170, 50], [\"x\", -62.0, -240, 240], [\"x\", -118.0, -228, 228], [\"x\", -170.0, -190, 190], [\"x\", 50.0, -240, 240], [\"x\", 100.0, -235, -42], [\"x\", 100.0, 42, 235], [\"x\", 150.0, -215, 215]]",
+				"tk_isl":"[300.0, 240.0]"
 			},
 			"name":"Scene",
 			"nodes":[
@@ -110,7 +112,7 @@
 				"interior_doors":0,
 				"spawns":"[{\"name\": \"stairs_left\", \"local\": [-5.5, -6.14, 0]}]",
 				"objects":203,
-				"triangles_approx":110954,
+				"triangles_approx":111014,
 				"lights":14,
 				"interactables":"[\"cook\", \"open\", \"sit\", \"sleep\", \"use\", \"work\"]",
 				"furniture":31,
@@ -2499,10 +2501,10 @@
 		},
 		{
 			"componentType":5126,
-			"count":480,
+			"count":336,
 			"max":[
 				-10.468242645263672,
-				11.130000114440918,
+				10.360000610351562,
 				-90.30999755859375
 			],
 			"min":[
@@ -2514,47 +2516,47 @@
 		},
 		{
 			"componentType":5126,
-			"count":480,
+			"count":336,
 			"type":"VEC3"
 		},
 		{
 			"componentType":5126,
-			"count":480,
+			"count":336,
 			"type":"VEC2"
 		},
 		{
 			"componentType":5123,
-			"count":1080,
+			"count":756,
 			"type":"SCALAR"
 		},
 		{
 			"componentType":5126,
-			"count":96,
+			"count":240,
 			"max":[
 				-11.167269706726074,
 				11.130000114440918,
-				-91.04499816894531
+				-90.55500030517578
 			],
 			"min":[
-				-13.232730865478516,
-				10.010000228881836,
-				-91.95500183105469
+				-14.665740013122559,
+				8.470000267028809,
+				-92.44499969482422
 			],
 			"type":"VEC3"
 		},
 		{
 			"componentType":5126,
-			"count":96,
+			"count":240,
 			"type":"VEC3"
 		},
 		{
 			"componentType":5126,
-			"count":96,
+			"count":240,
 			"type":"VEC2"
 		},
 		{
 			"componentType":5123,
-			"count":216,
+			"count":540,
 			"type":"SCALAR"
 		}
 	],
@@ -2716,13 +2718,13 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":3274,
+			"byteLength":2434,
 			"byteOffset":114388
 		},
 		{
 			"buffer":0,
-			"byteLength":938,
-			"byteOffset":117664
+			"byteLength":1849,
+			"byteOffset":116824
 		}
 	],
 	"samplers":[
@@ -2733,7 +2735,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":118604,
+			"byteLength":118676,
 			"uri":"b_station_arctic.bin"
 		}
 	]

@@ -40,20 +40,21 @@ export class HUD {
     if (car.kmh >= 299) { x.fillStyle = "#fc3"; x.font = "bold 13px sans-serif"; x.fillText("LIMITER 300", cx, cy + 82); }
   }
   minimap(p, yaw, carPos) {
-    const x = this.mm, W = x.canvas.width, S = W / 2, scale = W / 420;          // ~420 m across
+    const x = this.mm, W = x.canvas.width, S = W / 2, scale = W / (this.mapRange || 420);
     const toM = (wx, wz) => [S + (wx - p.x) * scale, S + (wz - p.z) * scale];
     x.clearRect(0, 0, W, W);
     x.save(); x.beginPath(); x.arc(S, S, S - 2, 0, Math.PI * 2); x.clip();
     x.fillStyle = "#1f4f6e"; x.fillRect(0, 0, W, W);
     // island + ring
     x.fillStyle = "#3d6b3a"; x.beginPath();
+    const I = this.world.isl || [300, 240];
     for (let i = 0; i <= 64; i++) { const t = i / 64 * Math.PI * 2, c = Math.cos(t), s = Math.sin(t);
-      const bx = 200 * 0.95 * Math.sign(c) * Math.abs(c) ** 0.5, by = 160 * 0.95 * Math.sign(s) * Math.abs(s) ** 0.5;
+      const bx = I[0] * 0.95 * Math.sign(c) * Math.abs(c) ** 0.5, by = I[1] * 0.95 * Math.sign(s) * Math.abs(s) ** 0.5;
       const [mx, my] = toM(bx, -by); i ? x.lineTo(mx, my) : x.moveTo(mx, my); }
     x.fill();
     if (this.world.ring) { x.strokeStyle = "#999"; x.lineWidth = 3; x.beginPath(); this.world.ring.forEach((q, i) => { const [mx, my] = toM(q.x, q.z); i ? x.lineTo(mx, my) : x.moveTo(mx, my); }); x.closePath(); x.stroke(); }
     x.strokeStyle = "#888"; x.lineWidth = 3;
-    for (const [ax, c, a1, a2] of [["x", 0, -160, 3200], ["y", 0, -118, 50], ["x", -62, -165, 165], ["x", -118, -118, 118], ["x", 50, -165, 165]]) {
+    for (const [ax, c, a1, a2] of [["x", 0, 240, 3200], ...(this.world.roads || [])]) {
       x.beginPath();
       const [m1x, m1y] = ax === "x" ? toM(a1, -c) : toM(c, -a1); const [m2x, m2y] = ax === "x" ? toM(a2, -c) : toM(c, -a2);
       x.moveTo(m1x, m1y); x.lineTo(m2x, m2y); x.stroke();

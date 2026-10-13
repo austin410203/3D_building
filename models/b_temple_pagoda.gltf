@@ -16,7 +16,9 @@
 	"scenes":[
 		{
 			"extras":{
-				"night":true
+				"night":true,
+				"tk_roads":"[[\"x\", 0.0, -240, 240], [\"y\", 0.0, -170, 50], [\"x\", -62.0, -240, 240], [\"x\", -118.0, -228, 228], [\"x\", -170.0, -190, 190], [\"x\", 50.0, -240, 240], [\"x\", 100.0, -235, -42], [\"x\", 100.0, 42, 235], [\"x\", 150.0, -215, 215]]",
+				"tk_isl":"[300.0, 240.0]"
 			},
 			"name":"Scene",
 			"nodes":[
@@ -204,7 +206,7 @@
 				"interior_doors":0,
 				"spawns":"[{\"name\": \"gate\", \"local\": [0.0, -18.0, 0]}]",
 				"objects":243,
-				"triangles_approx":133308,
+				"triangles_approx":133392,
 				"lights":11,
 				"interactables":"[\"open\", \"sit\", \"use\"]",
 				"furniture":18,
@@ -525,12 +527,12 @@
 			"extras":{
 				"tile":1
 			},
-			"name":"PlantGreen",
+			"name":"PlantDark",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0.03310476616024971,
-					0.1473190039396286,
-					0.021980946883559227,
+					0.010022825561463833,
+					0.05497173219919205,
+					0.010022825561463833,
 					1
 				],
 				"metallicFactor":0,
@@ -542,12 +544,12 @@
 			"extras":{
 				"tile":1
 			},
-			"name":"PlantDark",
+			"name":"PlantGreen",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0.010022825561463833,
-					0.05497173219919205,
-					0.010022825561463833,
+					0.03310476616024971,
+					0.1473190039396286,
+					0.021980946883559227,
 					1
 				],
 				"metallicFactor":0,
@@ -2439,11 +2441,11 @@
 		},
 		{
 			"componentType":5126,
-			"count":960,
+			"count":720,
 			"max":[
 				-16.044883728027344,
 				5.460000038146973,
-				36.529998779296875
+				36.21500015258789
 			],
 			"min":[
 				-39.955116271972656,
@@ -2454,22 +2456,22 @@
 		},
 		{
 			"componentType":5126,
-			"count":960,
+			"count":720,
 			"type":"VEC3"
 		},
 		{
 			"componentType":5126,
-			"count":960,
+			"count":720,
 			"type":"VEC2"
 		},
 		{
 			"componentType":5123,
-			"count":2160,
+			"count":1620,
 			"type":"SCALAR"
 		},
 		{
 			"componentType":5126,
-			"count":576,
+			"count":816,
 			"max":[
 				-16.044883728027344,
 				5.460000038146973,
@@ -2478,23 +2480,23 @@
 			"min":[
 				-39.955116271972656,
 				1.0499999523162842,
-				10.470001220703125
+				10.785000801086426
 			],
 			"type":"VEC3"
 		},
 		{
 			"componentType":5126,
-			"count":576,
+			"count":816,
 			"type":"VEC3"
 		},
 		{
 			"componentType":5126,
-			"count":576,
+			"count":816,
 			"type":"VEC2"
 		},
 		{
 			"componentType":5123,
-			"count":1296,
+			"count":1836,
 			"type":"SCALAR"
 		}
 	],
@@ -2661,13 +2663,13 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":5683,
+			"byteLength":4491,
 			"byteOffset":257912
 		},
 		{
 			"buffer":0,
-			"byteLength":3748,
-			"byteOffset":263596
+			"byteLength":5074,
+			"byteOffset":262404
 		}
 	],
 	"samplers":[
@@ -2678,7 +2680,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":267344,
+			"byteLength":267480,
 			"uri":"b_temple_pagoda.bin"
 		}
 	]

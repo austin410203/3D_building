@@ -9,6 +9,7 @@ import { Car } from "./car.js";
 import { CarAudio } from "./audio.js";
 import { HUD } from "./hud.js";
 import { TouchControls, isTouch } from "./touch.js";
+import { GodView } from "./god.js";
 const MOBILE = isTouch();
 
 const $ = id => document.getElementById(id);
@@ -56,7 +57,7 @@ const world = new World(scene, renderer, (f, label) => {
 });
 const hud = new HUD(world);
 const audio = new CarAudio();
-let player, car, started = false, mode = "foot";
+let player, car, started = false, mode = "foot", god = null, preGod = "foot";
 let camYaw = Math.PI, camPitch = 0.25, camDist = 4.2, firstPerson = false;
 const camPos = new THREE.Vector3(), camLook = new THREE.Vector3();
 
@@ -66,6 +67,7 @@ async function boot() {
   player = new Player(scene, world, hero);
   car = new Car(scene, world, carG);
   car.onShift = up => audio.blip(up);
+  god = new GodView(world, camera, canvas, input, goFromGod);
   // spawn: by the central crossroads, car parked on the main avenue facing east (toward the causeway)
   const sp = world.groundAt(12, 9, 50); player.teleport(new THREE.Vector3(12, sp ? sp.point.y : 0.2, 9), Math.PI / 2);
   car.place(new THREE.Vector3(16, 0, 2.2), Math.PI / 2);
@@ -74,7 +76,8 @@ async function boot() {
   $("loadtxt").textContent = "可以開始了！其餘建築會在背景持續載入（滑鼠會被鎖定，Esc 釋放）";
 }
 $("start").addEventListener("click", () => {
-  started = true; $("loading").classList.add("hidden"); hud.show(); hud.building(null);
+  started = true; $("loading").classList.add("hidden"); hud.show(); hud.building(null); godBtn.classList.remove("hidden");
+  if (MOBILE) godBtn.textContent = "\u{1F310} 上帝";
   audio.start();
   if (MOBILE) {
     touch.show(); touch.setMode("foot");
@@ -101,6 +104,44 @@ function exitCar() {
   const p = car.pos.clone().addScaledVector(left, 1.8); p.y += 0.5;
   player.teleport(p, car.yaw); car.throttle = 0;
 }
+// ---------------------------------------------------------------- god view
+const godBtn = document.createElement("button"); godBtn.id = "godbtn"; godBtn.textContent = "\u{1F310} 上帝視角 (G)"; godBtn.className = "hidden";
+document.body.appendChild(godBtn);
+godBtn.addEventListener("click", e => { e.stopPropagation(); toggleGod(); });
+godBtn.addEventListener("touchstart", e => { e.stopPropagation(); }, { passive: true });
+function toggleGod() {
+  if (!god || !started) return;
+  if (mode !== "god") {
+    preGod = mode; mode = "god"; world.godLabels = true;
+    god.enter(preGod === "car" ? car.pos : player.pos);
+    hud.setDriving(false); hud.mapRange = 900; if (touch) touch.root.classList.add("hidden");
+    godBtn.textContent = MOBILE ? "返回" : "返回遊戲 (G)";
+  } else {
+    god.exit(); mode = preGod; world.godLabels = false; hud.mapRange = 420;
+    if (mode === "car") hud.setDriving(true);
+    if (touch) { touch.root.classList.remove("hidden"); touch.setMode(mode); }
+    godBtn.textContent = MOBILE ? "\u{1F310} 上帝" : "\u{1F310} 上帝視角 (G)";
+    if (!MOBILE) lockPointer();
+  }
+}
+function goFromGod(b, how) {
+  // front of the building = its spawn point (Blender local coords) rotated + translated; else 3 m in front of the facade
+  const rz = b.rotz || 0, sp = (b.spawns && b.spawns[0]) ? b.spawns[0].local : [0, -((b.size && b.size[1]) || 10) / 2 - 3, 0];
+  const lx = sp[0], ly = sp[1];
+  const wx = b.pos[0] + lx * Math.cos(rz) - ly * Math.sin(rz), wy = b.pos[1] + lx * Math.sin(rz) + ly * Math.cos(rz);
+  const p = B2T(wx, wy, 0); const g = world.groundAt(p.x, p.z, 60); p.y = g ? g.point.y + 0.05 : 0.2;
+  // outward facade direction: Blender local -Y rotated by rz, converted to three (x, -y)
+  const dir = new THREE.Vector3(Math.sin(rz), 0, Math.cos(rz)); const yawOut = Math.atan2(dir.x, dir.z);
+  toggleGod();
+  if (how === "car") {
+    const cp = p.clone().addScaledVector(dir, 4); const gg = world.groundAt(cp.x, cp.z, 60); cp.y = gg ? gg.point.y : p.y;
+    car.place(cp, yawOut + Math.PI / 2);
+    if (mode === "foot") { player.teleport(cp.clone(), 0); enterCar(); }
+  } else {
+    if (mode === "car") exitCar();
+    player.teleport(p, yawOut + Math.PI); camYaw = yawOut;
+  }
+}
 function loop() {
   requestAnimationFrame(loop);
   const dt = Math.min(0.05, clock.getDelta());
@@ -108,13 +149,16 @@ function loop() {
   if (started) {
     // global keys
     if (input.pressed("KeyN")) { world.setNight(!world.night); bloom.enabled = world.night; }
+    if (input.pressed("KeyG")) toggleGod();
     if (input.pressed("KeyV")) firstPerson = !firstPerson;
     if (input.pressed("KeyH")) $("help").classList.toggle("hidden");
     if (input.pressed("KeyP")) { shadows = !shadows; world.sun.castShadow = shadows; }
     camYaw -= input.mdx * 0.0025; camPitch = THREE.MathUtils.clamp(camPitch + input.mdy * 0.002, -0.6, 1.2);
     camDist = THREE.MathUtils.clamp(camDist + input.wheel * 0.6, 1.8, 14);
     const nearCar = player.pos.distanceTo(car.pos) < 3.2;
-    if (mode === "foot") {
+    if (mode === "god") {
+      god.update(dt); player.mixer.update(dt); hud.prompt(null);
+    } else if (mode === "foot") {
       player.update(dt, input, camYaw);
       car.update(dt, input, false);
       if (touch) touch.setNearCar(nearCar);
@@ -130,7 +174,9 @@ function loop() {
     audio.update(car, mode === "car");
   }
   // ---- camera
-  if (mode === "foot") {
+  if (mode === "god") {
+    // camera placed by god.update
+  } else if (mode === "foot") {
     const head = player.pos.clone(); head.y += 1.55;
     if (firstPerson) {
       camera.position.copy(head);
@@ -166,12 +212,12 @@ function loop() {
     camera.fov += ((62 + Math.min(1, car.kmh / 300) * 22) - camera.fov) * 0.08;
   }
   camera.updateProjectionMatrix();
-  const actor = mode === "foot" ? player.pos : car.pos;
+  const actor = mode === "god" ? god.target : (mode === "foot" ? player.pos : car.pos);
   world.update(dt, mode === "foot" ? player.pos : null, camera.position);
   world.followSun(actor);
   if (started) {
     hud.building(world.nearestBuilding(actor));
-    const yaw = mode === "foot" ? player.obj.rotation.y : car.yaw;
+    const yaw = mode === "god" ? god.yaw + Math.PI : (mode === "foot" ? player.obj.rotation.y : car.yaw);
     hud.minimap(actor, yaw, mode === "foot" ? car.pos : null);
   }
   input.endFrame();

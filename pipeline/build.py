@@ -25,7 +25,7 @@ LAYOUT = [
     ("b_shop_neon_corner.py",   (62.5, 14.6, 0.15), 0),
     ("b_pod_solar.py",          (56.0, -17.0, 0.15), 180),
     ("b_station_arctic.py",     (-2.0, 86.0, 7.0), 0),
-    ("b_canal_twin_tower.py",   (160.0, -125.0, 0.15), 180),
+    ("b_canal_twin_tower.py",   (237.0, -190.0, 0.15), 180),
     ("b_temple_pagoda.py",      (-28.0, -27.0, 0.15), 180),
 ]
 
@@ -60,7 +60,8 @@ for f, loc, rot in LAYOUT:
     g["end_building"](loc, rot)
     print("   built %s in %.1fs" % (bid, time.time() - t1))
 # ---------------------------------------------------------------- v2 districts (auto-placed along avenues)
-DISTRICTS = ["d1_world.py", "d2_civic.py", "d3_commerce.py", "d4_modern.py", "d5_fantasy.py"]
+DISTRICTS = ["d1_world.py", "d2_civic.py", "d3_commerce.py", "d4_modern.py", "d5_fantasy.py",
+             "d6_asia.py", "d7_west.py", "d8_future.py", "d9_legend.py"]
 from mathutils import Vector
 def world_rect(root):
     pts = []
@@ -118,6 +119,7 @@ for bid, R_ in g["REG"].items():
     except Exception as e:
         import traceback; traceback.print_exc(); print("!! FAILED", bid, e)
 g["set_lights_mode"](NIGHT)
+bpy.context.scene["tk_roads"] = json.dumps(g["ROADS"]); bpy.context.scene["tk_isl"] = json.dumps(g["ISL"])
 with open(os.path.join(ROOT, "export", "catalog_build.json"), "w", encoding="utf8") as fp:
     json.dump(g["BUILDINGS"], fp, ensure_ascii=False, indent=1)
 bpy.ops.wm.save_as_mainfile(filepath=OUT)

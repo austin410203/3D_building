@@ -63,3 +63,30 @@ body.mobile #bname { font-size: 16px; }
 body.mobile #help, body.mobile #fps { display: none; }
 @media (orientation: portrait) { body.mobile #tbtns-car { right: 12px; bottom: 200px; } }
 @media (max-height: 420px) { .tb.gas { width: 90px; height: 90px; } .tb.brake { width: 74px; height: 74px; } .tb.sm { width: 54px; height: 54px; } .tb.big { width: 80px; height: 80px; } }
+
+/* ---------------- god view ---------------- */
+#godbtn { position: fixed; z-index: 8; left: 50%; transform: translateX(-50%); bottom: 14px; border: 2px solid #fff6; background: #1d4fa0d8;
+  color: #fff; font-weight: 800; font-size: 14px; padding: 8px 18px; border-radius: 22px; cursor: pointer; font-family: inherit; }
+body.mobile #godbtn { bottom: auto; top: 52px; left: auto; right: 140px; transform: none; padding: 6px 12px; font-size: 13px; }
+#god { position: fixed; inset: 0; z-index: 7; pointer-events: none; }
+#godbar { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); background: #000b; padding: 7px 16px; border-radius: 18px; font-size: 13px; white-space: nowrap; }
+body.mobile #godbar .desk, body:not(.mobile) #godbar .mob { display: none; }
+#godlist { pointer-events: auto; position: absolute; left: 12px; top: 56px; bottom: 16px; width: 290px; background: #0a0f1cd8; border-radius: 12px;
+  padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+#godq { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid #fff3; background: #ffffff12; color: #fff; font-size: 14px; font-family: inherit; }
+#goditems { overflow-y: auto; flex: 1; }
+.gi { padding: 7px 8px; border-radius: 7px; cursor: pointer; font-size: 13px; line-height: 1.35; border-bottom: 1px solid #ffffff10; }
+.gi:hover { background: #3a8bff40; }
+.gi span { opacity: .75; } .gi i { display: block; font-style: normal; font-size: 11px; opacity: .6; }
+#godcard { pointer-events: auto; position: absolute; right: 16px; top: 250px; width: 330px; background: #0a0f1ce8; border: 1px solid #ffd34d80;
+  border-radius: 12px; padding: 14px 16px; }
+#gc-name { font-size: 22px; font-weight: 800; } #gc-en { opacity: .85; margin-bottom: 6px; }
+#gc-style { color: #ffd34d; font-size: 13px; margin-bottom: 8px; } #gc-desc { font-size: 13px; line-height: 1.55; opacity: .9; }
+#gc-meta { font-size: 11px; opacity: .55; margin-top: 8px; }
+.gc-btns { display: flex; gap: 8px; margin-top: 12px; }
+.gc-btns button { flex: 1; border: 0; border-radius: 8px; padding: 9px 6px; font-weight: 700; cursor: pointer; background: #3a8bff; color: #fff; font-family: inherit; }
+.gc-btns #gc-close { flex: 0 0 38px; background: #444b; }
+#godtip { position: absolute; background: #000c; padding: 4px 10px; border-radius: 6px; font-size: 13px; pointer-events: none; }
+body.mobile #godlist { width: 200px; top: 90px; bottom: 10px; font-size: 12px; }
+body.mobile #godcard { right: 8px; top: auto; bottom: 10px; width: min(330px, 60vw); }
+@media (orientation: portrait) { body.mobile #godlist { width: auto; right: 10px; top: auto; bottom: auto; height: 34vh; top: 90px; } body.mobile #godcard { width: auto; left: 10px; } }

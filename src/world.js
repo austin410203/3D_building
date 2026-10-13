@@ -12,7 +12,8 @@ export const loader = new GLTFLoader().setDRACOLoader(draco);
 const B2T = (x, y, z) => new THREE.Vector3(x, z, -y);          // Blender (Z-up) -> three (Y-up)
 
 // island ring road + 3 km causeway (Blender coords, metres) — must match TownKit/scripts/world.py
-const ISL = [200, 160], RING_D = 0.815, ROAD_Z = 0.17;
+let ISL = [300, 240];
+const RING_D = 0.815, ROAD_Z = 0.17;
 function superellipse(t, d) {
   const c = Math.cos(t), s = Math.sin(t);
   return [ISL[0] * d * Math.sign(c) * Math.abs(c) ** 0.5, ISL[1] * d * Math.sign(s) * Math.abs(s) ** 0.5];
@@ -29,6 +30,8 @@ export class World {
   async load() {
     const t0 = performance.now();
     this.manifest = await (await fetch("models/manifest.json")).json();
+    if (this.manifest.isl) ISL = this.manifest.isl;
+    this.isl = ISL; this.roads = this.manifest.roads || [];
     this.setupSky();
     this.setupSea();
     const prog = { done: 0, total: 3 + this.manifest.buildings.length };
@@ -62,8 +65,56 @@ export class World {
     // play can start once the nearest buildings are in; the rest keep streaming in the background
     this.allLoaded = Promise.all([worker(), worker(), worker(), worker(), worker(), worker()]).then(() => {
       console.log("world loaded in", ((performance.now() - t0) / 1000).toFixed(1), "s"); this.onProgress(1, "全部建築已載入");
+      setTimeout(() => this.batchStatic(), 50);
     });
     await new Promise(res => { const iv = setInterval(() => { if (this.buildings.length >= 12 || i >= list.length) { clearInterval(iv); res(); } }, 100); });
+  }
+
+  // Merge every static building mesh by material + 250 m grid cell -> a few hundred draw calls instead of thousands.
+  // Doors (D_* nodes, animated), interiors (loaded later) and label sprites stay separate.
+  batchStatic() {
+    const t0 = performance.now(), CELL = 250, groups = new Map();
+    const c = new THREE.Vector3();
+    for (const b of this.buildings) {
+      b.shell.updateMatrixWorld(true);
+      b.box = new THREE.Box3().setFromObject(b.shell);
+      const take = [];
+      b.shell.traverse(o => {
+        if (!o.isMesh || Array.isArray(o.material)) return;
+        for (let p = o; p && p !== b.shell; p = p.parent) if (p.name && p.name.startsWith("D_")) return;
+        take.push(o);
+      });
+      for (const o of take) {
+        const src = o.geometry;
+        if (!src.attributes.position) continue;
+        if (!src.boundingSphere) src.computeBoundingSphere();
+        c.copy(src.boundingSphere.center).applyMatrix4(o.matrixWorld);
+        const key = o.material.uuid + "|" + Math.floor(c.x / CELL) + "|" + Math.floor(c.z / CELL);
+        const g = new THREE.BufferGeometry();
+        g.setAttribute("position", src.attributes.position.clone());
+        g.setAttribute("normal", src.attributes.normal ? src.attributes.normal.clone() : null);
+        if (!src.attributes.normal) { g.deleteAttribute("normal"); g.computeVertexNormals(); }
+        const n = src.attributes.position.count;
+        g.setAttribute("uv", src.attributes.uv ? src.attributes.uv.clone() : new THREE.BufferAttribute(new Float32Array(n * 2), 2));
+        if (src.index) g.setIndex(src.index.clone()); else { const ix = new Uint32Array(n); for (let i = 0; i < n; i++) ix[i] = i; g.setIndex(new THREE.BufferAttribute(ix, 1)); }
+        g.applyMatrix4(o.matrixWorld);
+        let grp = groups.get(key); if (!grp) groups.set(key, grp = { mat: o.material, geos: [] });
+        grp.geos.push(g);
+        o.removeFromParent(); src.dispose();
+      }
+    }
+    let n = 0;
+    for (const { mat, geos } of groups.values()) {
+      const merged = BGU.mergeGeometries(geos, false);
+      for (const g of geos) g.dispose();
+      if (!merged) continue;
+      merged.computeBoundingSphere();
+      const m = new THREE.Mesh(merged, mat);
+      m.castShadow = !this.glassMats.has(mat); m.receiveShadow = true; m.matrixAutoUpdate = false;
+      this.root.add(m); n++;
+    }
+    console.log("batched static buildings into", n, "meshes in", ((performance.now() - t0) / 1000).toFixed(1), "s");
+    this.batched = true;
   }
 
   prepVisual(root) {
@@ -174,9 +225,18 @@ export class World {
     dashes(ring, true, yellow, Y + 0.012, 4, 4);
     for (const s of [-1, 1]) { const e = offset(ring, s * 5.7, true); dashes(e, true, white, Y + 0.012, 1000, 0.01, 0.15); }
     this.ring = ring;
-    // --- connectors from avenue ends to the ring (Blender coords)
-    const conn = [[[118, -118], [125, -118]], [[-118, -118], [-125, -118]], [[0, -118], [0, -131]], [[0, 50], [0, 60]]];
-    for (const [a, b] of conn) ribbon([B2T(a[0], a[1], Y), B2T(b[0], b[1], Y)], 8, Y - 0.005, asphalt, false);
+    // --- connectors: extend every avenue end that stops short of the ring road (Blender coords)
+    const rx = y => ISL[0] * RING_D * Math.max(0, 1 - (Math.abs(y) / (ISL[1] * RING_D)) ** 4) ** 0.25;
+    const ry = x => ISL[1] * RING_D * Math.max(0, 1 - (Math.abs(x) / (ISL[0] * RING_D)) ** 4) ** 0.25;
+    for (const [ax, c, a1, a2] of this.roads) {
+      for (const e of [a1, a2]) {
+        const lim = ax === "x" ? rx(c) : ry(c), sgn = Math.sign(e);
+        if (Math.abs(e) < lim - 1 && Math.abs(e) > 30) {
+          const a = ax === "x" ? [e, c] : [c, e], b = ax === "x" ? [sgn * (lim + 1), c] : [c, sgn * (lim + 1)];
+          ribbon([B2T(a[0], a[1], Y), B2T(b[0], b[1], Y)], 8, Y - 0.005, asphalt, false);
+        }
+      }
+    }
     // --- causeway: from the ring's east point 3 km out to sea + turnaround loop
     const x0 = ISL[0] * RING_D - 2, x1 = 3200;
     const cw = [];
@@ -266,10 +326,18 @@ export class World {
   // ------------------------------------------------------------- per-frame: interiors, labels
   update(dt, actorPos, camPos) {
     this.updateDoors(dt, actorPos);
+    // doors are separate (animated) draw calls: only show the ones near the camera
+    this._doorTick = (this._doorTick || 0) + 1;
+    if (this._doorTick % 15 === 0) for (const d of this.doors) d.o.visible = d.center.distanceToSquared(camPos) < 85 * 85;
     for (const b of this.buildings) {
       const d = b.p.distanceTo(camPos);
-      if (b.label) { b.label.visible = d < 260; const s = THREE.MathUtils.clamp(d / 40, 0.6, 3); b.label.scale.set(12 * s, 3 * s, 1); }
-      const want = d < 70;
+      if (b.label) {
+        b.label.visible = this.godLabels ? true : d < 260;
+        const s = this.godLabels ? THREE.MathUtils.clamp(d / 110, 0.5, 4) : THREE.MathUtils.clamp(d / 40, 0.6, 3);
+        if (this.godLabels) b.label.visible = d < 520;
+        b.label.scale.set(12 * s, 3 * s, 1);
+      }
+      const want = d < 70 && !this.godLabels;
       if (want && !b.interior && b.interiorUrl && !b.loadingInt) {
         b.loadingInt = true;
         loader.loadAsync("models/" + b.interiorUrl).then(g => { this.prepVisual(g.scene); this.root.add(g.scene); b.interior = g.scene; })
