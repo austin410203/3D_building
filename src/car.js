@@ -52,6 +52,7 @@ export class Car {
     const hb = driving && input.key("Space");
     let st = 0;
     if (driving) { if (input.key("KeyA") || input.key("ArrowLeft")) st += 1; if (input.key("KeyD") || input.key("ArrowRight")) st -= 1; }
+    if (driving && input.axis && input.axis.active) st = -Math.sign(input.axis.x) * Math.min(1, Math.abs(input.axis.x) * 1.15) ** 1.4;   // analog touch steering
     if (driving && input.pressed("KeyM")) this.auto = !this.auto;
     if (driving && !this.auto) { if (input.pressed("KeyE")) this.shift(this.gear + 1); if (input.pressed("KeyQ")) this.shift(this.gear - 1); }
 

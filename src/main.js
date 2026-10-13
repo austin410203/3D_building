@@ -8,12 +8,14 @@ import { Player } from "./player.js";
 import { Car } from "./car.js";
 import { CarAudio } from "./audio.js";
 import { HUD } from "./hud.js";
+import { TouchControls, isTouch } from "./touch.js";
+const MOBILE = isTouch();
 
 const $ = id => document.getElementById(id);
 // ---------------------------------------------------------------- renderer / scene
 const canvas = $("c");
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: "high-performance" });
-renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+renderer.setPixelRatio(Math.min(devicePixelRatio, MOBILE ? 1.0 : 1.5));
 renderer.setSize(innerWidth, innerHeight);
 renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.75;
@@ -39,7 +41,14 @@ addEventListener("keyup", e => input.down.delete(e.code));
 addEventListener("blur", () => input.down.clear());
 addEventListener("mousemove", e => { if (document.pointerLockElement === canvas) { input.mdx += e.movementX; input.mdy += e.movementY; } });
 addEventListener("wheel", e => { input.wheel += Math.sign(e.deltaY); }, { passive: true });
-canvas.addEventListener("click", () => { if (started && document.pointerLockElement !== canvas) canvas.requestPointerLock(); });
+canvas.addEventListener("click", () => { if (!MOBILE && started && document.pointerLockElement !== canvas) lockPointer(); });
+const touch = MOBILE ? new TouchControls(input) : null;
+function lockPointer() { try { const r = canvas.requestPointerLock(); if (r && r.catch) r.catch(() => {}); } catch (e) {} }
+if (MOBILE) {
+  document.body.classList.add("mobile");
+  document.querySelector("#loading .keys").innerHTML = "<b>手機操作</b> 左下搖桿 移動/轉向（推到底=跑步）· 右半邊拖曳 轉視角<br>"
+    + "步行：跳 / 跑 / 上車　開車：油門 / 煞車 / 手煞 / 檔± / 下車<br>建議橫向全螢幕遊玩";
+}
 
 // ---------------------------------------------------------------- world + actors
 const world = new World(scene, renderer, (f, label) => {
@@ -66,21 +75,27 @@ async function boot() {
 }
 $("start").addEventListener("click", () => {
   started = true; $("loading").classList.add("hidden"); hud.show(); hud.building(null);
-  audio.start(); canvas.requestPointerLock();
+  audio.start();
+  if (MOBILE) {
+    touch.show(); touch.setMode("foot");
+    world.sun.shadow.mapSize.set(1024, 1024);
+    const el = document.documentElement;
+    (el.requestFullscreen ? el.requestFullscreen() : Promise.resolve()).then(() => screen.orientation && screen.orientation.lock && screen.orientation.lock("landscape").catch(() => {})).catch(() => {});
+  } else lockPointer();
 });
 boot().catch(e => { console.error(e); $("loadtxt").textContent = "載入失敗：" + e.message; });
 
 // ---------------------------------------------------------------- game loop
 const clock = new THREE.Clock(); let fpsAcc = 0, fpsN = 0, shadows = true;
 function enterCar() {
-  mode = "car"; hud.setDriving(true);
+  mode = "car"; hud.setDriving(true); if (touch) touch.setMode("car");
   player.obj.removeFromParent(); car.obj.add(player.obj);
   const s = car.seat ? car.seat.position : new THREE.Vector3(0.38, 0.44, -0.25);
   player.obj.position.set(s.x, s.y - 0.98, s.z); player.obj.rotation.set(0, 0, 0);
   player.play("Drive", 0.1); camYaw = car.yaw + Math.PI;
 }
 function exitCar() {
-  mode = "foot"; hud.setDriving(false);
+  mode = "foot"; hud.setDriving(false); if (touch) touch.setMode("foot");
   car.obj.remove(player.obj); scene.add(player.obj);
   const f = car.fwd, left = new THREE.Vector3(f.z, 0, -f.x);
   const p = car.pos.clone().addScaledVector(left, 1.8); p.y += 0.5;
@@ -102,7 +117,8 @@ function loop() {
     if (mode === "foot") {
       player.update(dt, input, camYaw);
       car.update(dt, input, false);
-      if (nearCar) { hud.prompt("按 F 上車"); if (input.pressed("KeyF")) enterCar(); } else hud.prompt(null);
+      if (touch) touch.setNearCar(nearCar);
+      if (nearCar) { hud.prompt(MOBILE ? "點「上車」" : "按 F 上車"); if (input.pressed("KeyF")) enterCar(); } else hud.prompt(null);
     } else {
       car.update(dt, input, true);
       player.mixer.update(dt);

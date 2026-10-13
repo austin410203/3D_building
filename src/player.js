@@ -34,9 +34,14 @@ export class Player {
     const wish = new THREE.Vector3();
     if (input.key("KeyW")) wish.add(fwd); if (input.key("KeyS")) wish.sub(fwd);
     if (input.key("KeyD")) wish.add(right); if (input.key("KeyA")) wish.sub(right);
+    let scale = 1;
+    if (input.axis && input.axis.active) {                      // touch joystick (analog)
+      wish.set(0, 0, 0).addScaledVector(fwd, -input.axis.y).addScaledVector(right, input.axis.x);
+      scale = Math.min(1, input.axis.mag * 1.25);
+    }
     const moving = wish.lengthSq() > 0;
-    const run = input.key("ShiftLeft") || input.key("ShiftRight");
-    const speed = run ? 6.2 : 2.0;
+    const run = input.key("ShiftLeft") || input.key("ShiftRight") || input.key("TouchRun");
+    const speed = (run ? 6.2 : 2.0) * (run ? 1 : Math.max(0.35, scale));
     if (moving) {
       wish.normalize();
       this.facing = Math.atan2(wish.x, wish.z);
