@@ -26,7 +26,7 @@
 | 開車 | `W` 油門 · `S` 煞車（停住後倒車）· `A/D` 轉向 · `Space` 手煞車甩尾 · `R` 車輛重置 |
 | 變速箱 | 預設自排；`M` 切手排，`Q/E` 降/升檔 |
 | 其他 | `N` 日/夜 · `V` 第一/第三人稱 · `P` 陰影開關 · `H` 說明 |
-| 上帝視角 | `G` 進入/離開（或畫面下方按鈕）· 左鍵拖曳平移 · 右鍵拖曳旋轉/俯仰 · 滾輪縮放 · `WASD/方向鍵` 平移 · `Q/E` 旋轉 · `Shift` 加速 · 滑鼠停在建築上顯示名稱 · 點建築看資訊卡 →「走過去 / 開車過去」· 左側清單可搜尋 167 棟建築（名稱、風格、等級） |
+| 上帝視角 | `G` 進入/離開（或畫面下方按鈕）· 左鍵拖曳平移 · 右鍵（或 Shift+左鍵）拖曳旋轉/俯仰 · 滾輪往游標處縮放 · 雙擊飛到該點 · `WASD/方向鍵` 平移 · `Q/E` 旋轉 · `Shift` 加速 · 滑鼠停在建築上顯示名稱 · 點建築看資訊卡 →「走過去 / 開車過去」· 左側清單可搜尋 167 棟建築（名稱、風格、等級） |
 
 ### 手機 / 平板（觸控）
 自動偵測觸控裝置（或網址加 `?touch=1` 強制開啟）。建議橫向，開始時會嘗試全螢幕 + 鎖定橫向。
@@ -77,7 +77,7 @@ python -m http.server 8000
 
 ## 重新產生資產（需要 Blender 5.2）
 ```bash
-blender -b --factory-startup -P pipeline/build.py               # 建 TownKit.blend（67 棟）
+blender -b --factory-startup -P pipeline/build.py               # 建 TownKit.blend（167 棟）
 blender -b TownKit.blend -P pipeline/export_web.py -- models    # 匯出網頁版模型
 blender -b --factory-startup -P pipeline/make_actors.py -- models
 ```

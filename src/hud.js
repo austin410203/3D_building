@@ -13,7 +13,7 @@ export class HUD {
   building(b) {
     if (b === this.lastB) return; this.lastB = b;
     $("bname").textContent = b ? `${b.name_zh}  ${b.name_en}` : "海港小鎮島 Harbor Town Island";
-    $("bstyle").textContent = b ? `${b.style_zh} · ${b.style} · ${b.tier}` : "TownKit · 67 棟建築";
+    $("bstyle").textContent = b ? `${b.style_zh} · ${b.style} · ${b.tier}` : `TownKit · ${this.world.buildings.length} 棟建築`;
   }
   car(car) {
     $("kmh").textContent = Math.round(car.kmh);

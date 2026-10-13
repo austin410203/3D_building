@@ -29,7 +29,9 @@ export class World {
 
   async load() {
     const t0 = performance.now();
-    this.manifest = await (await fetch("models/manifest.json")).json();
+    this.manifest = await (await fetch("models/manifest.json?v=" + Date.now(), { cache: "no-store" })).json();
+    const V = this.manifest.build || "";
+    this.v = V ? "?v=" + V : "";
     if (this.manifest.isl) ISL = this.manifest.isl;
     this.isl = ISL; this.roads = this.manifest.roads || [];
     this.setupSky();
@@ -37,8 +39,8 @@ export class World {
     const prog = { done: 0, total: 3 + this.manifest.buildings.length };
     const tick = (label) => { prog.done++; this.onProgress(prog.done / prog.total, label); };
     const [env, col] = await Promise.all([
-      loader.loadAsync("models/" + this.manifest.env.shell).then(g => { tick("地形"); return g; }),
-      loader.loadAsync("models/collider.glb").then(g => { tick("碰撞"); return g; }),
+      loader.loadAsync("models/" + this.manifest.env.shell + this.v).then(g => { tick("地形"); return g; }),
+      loader.loadAsync("models/collider.glb" + this.v).then(g => { tick("碰撞"); return g; }),
     ]);
     this.prepVisual(env.scene); this.root.add(env.scene);
     const roads = this.buildExtraRoads();
@@ -52,7 +54,7 @@ export class World {
       while (i < list.length) {
         const b = list[i++];
         try {
-          const g = await loader.loadAsync("models/" + b.shell);
+          const g = await loader.loadAsync("models/" + b.shell + this.v);
           this.prepVisual(g.scene); this.root.add(g.scene);
           const rec = { ...b, shell: g.scene, interior: null, interiorUrl: b.interior, loadingInt: false };
           this.registerDoors(g.scene, rec);
@@ -340,7 +342,7 @@ export class World {
       const want = d < 70 && !this.godLabels;
       if (want && !b.interior && b.interiorUrl && !b.loadingInt) {
         b.loadingInt = true;
-        loader.loadAsync("models/" + b.interiorUrl).then(g => { this.prepVisual(g.scene); this.root.add(g.scene); b.interior = g.scene; })
+        loader.loadAsync("models/" + b.interiorUrl + this.v).then(g => { this.prepVisual(g.scene); this.root.add(g.scene); b.interior = g.scene; })
           .catch(e => console.warn(e));
       }
       if (b.interior) b.interior.visible = d < 90;

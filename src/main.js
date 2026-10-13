@@ -42,7 +42,7 @@ addEventListener("keyup", e => input.down.delete(e.code));
 addEventListener("blur", () => input.down.clear());
 addEventListener("mousemove", e => { if (document.pointerLockElement === canvas) { input.mdx += e.movementX; input.mdy += e.movementY; } });
 addEventListener("wheel", e => { input.wheel += Math.sign(e.deltaY); }, { passive: true });
-canvas.addEventListener("click", () => { if (!MOBILE && started && document.pointerLockElement !== canvas) lockPointer(); });
+canvas.addEventListener("click", () => { if (!MOBILE && started && mode !== "god" && document.pointerLockElement !== canvas) lockPointer(); });
 const touch = MOBILE ? new TouchControls(input) : null;
 function lockPointer() { try { const r = canvas.requestPointerLock(); if (r && r.catch) r.catch(() => {}); } catch (e) {} }
 if (MOBILE) {
@@ -153,8 +153,8 @@ function loop() {
     if (input.pressed("KeyV")) firstPerson = !firstPerson;
     if (input.pressed("KeyH")) $("help").classList.toggle("hidden");
     if (input.pressed("KeyP")) { shadows = !shadows; world.sun.castShadow = shadows; }
-    camYaw -= input.mdx * 0.0025; camPitch = THREE.MathUtils.clamp(camPitch + input.mdy * 0.002, -0.6, 1.2);
-    camDist = THREE.MathUtils.clamp(camDist + input.wheel * 0.6, 1.8, 14);
+    if (mode !== "god") { camYaw -= input.mdx * 0.0025; camPitch = THREE.MathUtils.clamp(camPitch + input.mdy * 0.002, -0.6, 1.2); }
+    if (mode !== "god") camDist = THREE.MathUtils.clamp(camDist + input.wheel * 0.6, 1.8, 14);
     const nearCar = player.pos.distanceTo(car.pos) < 3.2;
     if (mode === "god") {
       god.update(dt); player.mixer.update(dt); hud.prompt(null);

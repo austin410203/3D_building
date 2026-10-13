@@ -16,21 +16,40 @@ export class GodView {
     this.buildUI();
     const c = canvas;
     c.addEventListener("contextmenu", e => { if (this.active) e.preventDefault(); });
-    c.addEventListener("mousedown", e => { if (!this.active) return; this.drag = { b: e.button, x: e.clientX, y: e.clientY, moved: 0 }; });
+    c.addEventListener("mousedown", e => {
+      if (!this.active) return;
+      if (document.pointerLockElement) document.exitPointerLock();
+      e.preventDefault();
+      this.drag = { b: (e.button === 0 && (e.shiftKey || e.ctrlKey || e.altKey)) ? 2 : e.button, moved: 0 };
+      this.canvas.style.cursor = this.drag.b === 0 ? "grabbing" : "move";
+    });
+    c.addEventListener("dblclick", e => {
+      if (!this.active) return;
+      const p = this.groundPoint(e.clientX, e.clientY);
+      if (p) this.fly = { from: this.target.clone(), to: p, d0: this.dist, d1: Math.max(40, this.dist * 0.6), t: 0 };
+    });
     addEventListener("mouseup", e => {
       if (!this.active || !this.drag) return;
       if (this.drag.moved < 5 && this.drag.b === 0) this.pick(e.clientX, e.clientY, true);
-      this.drag = null;
+      this.drag = null; this.canvas.style.cursor = "grab";
     });
     addEventListener("mousemove", e => {
       if (!this.active) return;
       if (this.drag) {
-        const dx = e.clientX - this.drag.x, dy = e.clientY - this.drag.y; this.drag.x = e.clientX; this.drag.y = e.clientY;
+        const dx = e.movementX || 0, dy = e.movementY || 0;
         this.drag.moved += Math.abs(dx) + Math.abs(dy);
-        if (this.drag.b === 0) this.pan(-dx, -dy); else { this.yaw -= dx * 0.005; this.pitch = THREE.MathUtils.clamp(this.pitch + dy * 0.004, 0.25, 1.52); }
+        if (this.drag.b === 0) this.pan(-dx, -dy);
+        else { this.yaw -= dx * 0.005; this.pitch = THREE.MathUtils.clamp(this.pitch + dy * 0.004, 0.2, 1.54); this.fly = null; }
       } else if (performance.now() - this.lastHover > 80) { this.lastHover = performance.now(); this.pick(e.clientX, e.clientY, false); }
     });
-    c.addEventListener("wheel", e => { if (this.active) this.dist = THREE.MathUtils.clamp(this.dist * (e.deltaY > 0 ? 1.12 : 0.89), 15, 1400); }, { passive: true });
+    c.addEventListener("wheel", e => {
+      if (!this.active) return;
+      // zoom towards the point under the cursor
+      const before = this.dist, after = THREE.MathUtils.clamp(this.dist * (e.deltaY > 0 ? 1.12 : 0.89), 15, 1400);
+      const p = this.groundPoint(e.clientX, e.clientY);
+      if (p && after < before) this.target.lerp(p, 1 - after / before);
+      this.dist = after; this.fly = null;
+    }, { passive: true });
     // touch: 1 finger pan, 2 fingers pinch-zoom + twist, tap = pick
     c.addEventListener("touchstart", e => {
       if (!this.active) return;
@@ -66,7 +85,7 @@ export class GodView {
   buildUI() {
     const wrap = document.createElement("div"); wrap.id = "god"; wrap.className = "hidden";
     wrap.innerHTML = `
-      <div id="godbar">🌐 上帝視角 · <span class="desk">拖曳平移 · 右鍵旋轉 · 滾輪縮放 · WASD/QE ·</span><span class="mob">單指平移 · 雙指縮放旋轉 ·</span> 點建築看資訊 · <b>G</b> 返回</div>
+      <div id="godbar">🌐 上帝視角 · <span class="desk">左鍵拖曳平移 · 右鍵(或Shift+左鍵)拖曳旋轉視角 · 滾輪縮放 · 雙擊飛到該處 · WASD/QE ·</span><span class="mob">單指平移 · 雙指縮放旋轉 ·</span> 點建築看資訊 · <b>G</b> 返回</div>
       <div id="godlist"><input id="godq" placeholder="搜尋 167 棟建築 / 風格…"><div id="goditems"></div></div>
       <div id="godcard" class="hidden">
         <div id="gc-name"></div><div id="gc-en"></div><div id="gc-style"></div><div id="gc-desc"></div><div id="gc-meta"></div>
@@ -94,10 +113,10 @@ export class GodView {
   enter(from) {
     this.active = true; this.ui.classList.remove("hidden");
     if (document.pointerLockElement) document.exitPointerLock();
-    this.target.copy(from); this.target.y = 0; this.dist = 140; this.pitch = 0.9;
+    this.target.copy(from); this.target.y = 0; this.dist = 140; this.pitch = 0.9; this.canvas.style.cursor = "grab";
     this.renderList();
   }
-  exit() { this.active = false; this.ui.classList.add("hidden"); this.select(null); $("godtip").classList.add("hidden"); }
+  exit() { this.active = false; this.ui.classList.add("hidden"); this.select(null); $("godtip").classList.add("hidden"); this.canvas.style.cursor = ""; this.drag = null; }
 
   pan(dx, dy) {
     const s = this.dist * 0.0018;
@@ -106,6 +125,12 @@ export class GodView {
     this.fly = null;
   }
 
+  groundPoint(cx, cy) {
+    this.mouse.set(cx / innerWidth * 2 - 1, -(cy / innerHeight) * 2 + 1);
+    this.ray.setFromCamera(this.mouse, this.camera);
+    const p = new THREE.Vector3();
+    return this.ray.ray.intersectPlane(new THREE.Plane(new THREE.Vector3(0, 1, 0), 0), p) ? p : null;
+  }
   pickBuilding(cx, cy) {
     this.mouse.set(cx / innerWidth * 2 - 1, -(cy / innerHeight) * 2 + 1);
     this.ray.setFromCamera(this.mouse, this.camera);
