@@ -1,0 +1,7638 @@
+{
+ "kit": "TownKit",
+ "version": 1,
+ "units": "metres",
+ "up_axis_blend": "Z",
+ "up_axis_glb": "Y",
+ "conventions": {
+  "front": "local -Y in Blender (glTF +Z); plot centre at origin; ground level z=0",
+  "object_name": "<asset_id>.<part>  e.g. cafe_container.Cafe_WallS",
+  "custom_props (glTF extras)": {
+   "kind": "wall|floor|stair|door|window|railing|collider|furniture|light|light_fixture|sign|label|trim|structure|roof|elevator|spawn|vegetation|terrain|water|cable|ladder",
+   "walkable": "true on floors / stairs / ramps / decks",
+   "collider": "'ramp' (invisible stair ramp) or 'wall' (invisible rail blocker)",
+   "interact": "sit|sleep|open|use|cook|wash|shop|play|work|elevator|elevator_call|climb",
+   "openable": "hinge (rotate Z by open_angle deg from closed_rot_z) | slide (move by open_offset) | drawer | tilt",
+   "use_points": "JSON list of local [x,y,z] seat/use anchors",
+   "levels": "elevator car: JSON list of floor heights"
+  }
+ },
+ "assets": [
+  {
+   "asset_id": "a_frame_cabin",
+   "name_zh": "森林A字木屋",
+   "name_en": "Forest A-Frame Cabin",
+   "style": "A-Frame Cabin",
+   "style_zh": "A字型木屋",
+   "tier": "standard",
+   "category": "cabin",
+   "game_styles": [
+    "cozy",
+    "horror",
+    "survival",
+    "realistic",
+    "winter"
+   ],
+   "description": "Steep A-frame timber cabin: glazed front gable with door, living + kitchenette below, sleeping loft reached by a centre stair, deck.",
+   "floors": 2,
+   "plot": [
+    [
+     153.0,
+     -78.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    153.0,
+    -78.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    15.76,
+    16.37,
+    8.0
+   ],
+   "height_m": 7.6,
+   "entrances": [
+    {
+     "name": "a_frame_cabin.FrontDoor",
+     "side": "S",
+     "a": 0.0,
+     "z": 0.35,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      0.0,
+      -7.5,
+      0
+     ]
+    }
+   ],
+   "objects": 48,
+   "triangles_approx": 50688,
+   "lights": 3,
+   "interactables": [
+    "cook",
+    "open",
+    "sit",
+    "sleep",
+    "use"
+   ],
+   "furniture": 12,
+   "collection": "BLD_a_frame_cabin",
+   "root_object": "BLD_a_frame_cabin",
+   "labels_collection": "LBL_a_frame_cabin",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_a_frame_cabin",
+    "glb": "export/glb/a_frame_cabin.glb",
+    "glb_kb": 8151,
+    "preview_day": "renders/a_frame_cabin_front_day.png",
+    "preview_night": "renders/a_frame_cabin_front.png",
+    "preview_plan": "renders/a_frame_cabin_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "roof": 1,
+    "furniture": 12,
+    "light": 3,
+    "light_fixture": 3,
+    "floor": 3,
+    "trim": 2,
+    "door": 1,
+    "wall": 1,
+    "label": 7,
+    "railing": 6,
+    "collider": 3,
+    "stair": 1,
+    "terrain": 1,
+    "spawn": 1,
+    "vegetation": 3
+   }
+  },
+  {
+   "asset_id": "american_diner",
+   "name_zh": "海港餐車",
+   "name_en": "Harborline Diner",
+   "style": "1950s American Diner",
+   "style_zh": "美式復古餐車",
+   "tier": "budget",
+   "category": "diner",
+   "game_styles": [
+    "retro",
+    "realistic",
+    "horror",
+    "road-movie",
+    "cartoon"
+   ],
+   "description": "Single-storey steel diner: counter with stools, booth tables, kitchen, striped awning, big neon roof sign.",
+   "floors": 1,
+   "plot": [
+    [
+     -32.5,
+     -45.2,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -32.5,
+    -45.2,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    19.0,
+    16.0,
+    6.33
+   ],
+   "height_m": 5.93,
+   "entrances": [
+    {
+     "name": "american_diner.F1_S2",
+     "side": "S",
+     "a": -0.5,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -0.5,
+      -7.0,
+      0
+     ]
+    }
+   ],
+   "objects": 87,
+   "triangles_approx": 65672,
+   "lights": 2,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "use"
+   ],
+   "furniture": 47,
+   "collection": "BLD_american_diner",
+   "root_object": "BLD_american_diner",
+   "labels_collection": "LBL_american_diner",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_american_diner",
+    "glb": "export/glb/american_diner.glb",
+    "glb_kb": 8851,
+    "preview_day": "renders/american_diner_front_day.png",
+    "preview_night": "renders/american_diner_front.png",
+    "preview_plan": "renders/american_diner_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "trim": 4,
+    "furniture": 47,
+    "wall": 10,
+    "window": 8,
+    "floor": 3,
+    "door": 1,
+    "light": 2,
+    "light_fixture": 2,
+    "label": 7,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "apt_block_6f",
+   "name_zh": "朝陽社區公寓",
+   "name_en": "Sunrise Walk-up Apartments",
+   "style": "Taiwanese Walk-up Apartment",
+   "style_zh": "台式公寓",
+   "tier": "standard",
+   "category": "apartment block",
+   "game_styles": [
+    "realistic",
+    "slice-of-life",
+    "anime",
+    "urban-survival"
+   ],
+   "description": "6-storey mosaic-tile walk-up: arcade with convenience store + breakfast shop, 10 one-bedroom flats (2 per floor), central U-stair, grilled windows, balconies with laundry, rooftop iron-sheet addition with water tanks.",
+   "floors": 6,
+   "plot": [
+    [
+     -50.0,
+     14.6,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -50.0,
+    14.6,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    19.0,
+    15.1,
+    22.41
+   ],
+   "height_m": 22.01,
+   "entrances": [
+    {
+     "name": "apt_block_6f.F1_S1",
+     "side": "S",
+     "a": -1.95,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "apt_block_6f.F1_S2",
+     "side": "S",
+     "a": 0.0,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "apt_block_6f.F1_S3",
+     "side": "S",
+     "a": 1.95,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "apt_block_6f.F1_S4",
+     "side": "S",
+     "a": 5.1,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "apt_block_6f.F2_S1",
+     "side": "S",
+     "a": -3.7,
+     "z": 3.6,
+     "interior": false
+    },
+    {
+     "name": "apt_block_6f.F2_S3",
+     "side": "S",
+     "a": 3.7,
+     "z": 3.6,
+     "interior": false
+    },
+    {
+     "name": "apt_block_6f.F3_S1",
+     "side": "S",
+     "a": -3.7,
+     "z": 6.6,
+     "interior": false
+    },
+    {
+     "name": "apt_block_6f.F3_S3",
+     "side": "S",
+     "a": 3.7,
+     "z": 6.6,
+     "interior": false
+    },
+    {
+     "name": "apt_block_6f.F4_S1",
+     "side": "S",
+     "a": -3.7,
+     "z": 9.6,
+     "interior": false
+    },
+    {
+     "name": "apt_block_6f.F4_S3",
+     "side": "S",
+     "a": 3.7,
+     "z": 9.6,
+     "interior": false
+    },
+    {
+     "name": "apt_block_6f.F5_S1",
+     "side": "S",
+     "a": -3.7,
+     "z": 12.6,
+     "interior": false
+    },
+    {
+     "name": "apt_block_6f.F5_S3",
+     "side": "S",
+     "a": 3.7,
+     "z": 12.6,
+     "interior": false
+    },
+    {
+     "name": "apt_block_6f.F6_S1",
+     "side": "S",
+     "a": -3.7,
+     "z": 15.6,
+     "interior": false
+    },
+    {
+     "name": "apt_block_6f.F6_S3",
+     "side": "S",
+     "a": 3.7,
+     "z": 15.6,
+     "interior": false
+    },
+    {
+     "name": "apt_block_6f.Shack_S0",
+     "side": "S",
+     "a": -0.7,
+     "z": 18.6,
+     "interior": false
+    }
+   ],
+   "interior_doors": 31,
+   "spawns": [
+    {
+     "name": "arcade",
+     "local": [
+      0.0,
+      -7.5,
+      0
+     ]
+    }
+   ],
+   "objects": 929,
+   "triangles_approx": 223348,
+   "lights": 62,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 312,
+   "collection": "BLD_apt_block_6f",
+   "root_object": "BLD_apt_block_6f",
+   "labels_collection": "LBL_apt_block_6f",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_apt_block_6f",
+    "glb": "export/glb/apt_block_6f.glb",
+    "glb_kb": 46683,
+    "preview_day": "renders/apt_block_6f_front_day.png",
+    "preview_night": "renders/apt_block_6f_front.png",
+    "preview_plan": "renders/apt_block_6f_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 312,
+    "floor": 41,
+    "structure": 1,
+    "trim": 65,
+    "sign": 7,
+    "wall": 106,
+    "light": 62,
+    "light_fixture": 62,
+    "window": 65,
+    "door": 85,
+    "stair": 12,
+    "railing": 60,
+    "collider": 42,
+    "label": 7,
+    "roof": 1,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "apt_urban_5f",
+   "name_zh": "夜巷住商公寓",
+   "name_en": "Night Alley Mixed-Use Apartment",
+   "style": "Urban Asian Mixed-Use",
+   "style_zh": "都市亞洲住商",
+   "tier": "standard",
+   "category": "apartment",
+   "game_styles": [
+    "realistic",
+    "anime",
+    "slice-of-life",
+    "cyberpunk-lite"
+   ],
+   "description": "5F walk-up: G/F ramen shop with counter seating, 2F-4F one-bedroom flats with balcony, 5F loft studio, roof terrace with water tank. Shared U-stair core.",
+   "floors": 5,
+   "plot": [
+    [
+     -26.0,
+     14.3,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -26.0,
+    14.3,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    13.2,
+    13.4,
+    22.9
+   ],
+   "height_m": 22.5,
+   "entrances": [
+    {
+     "name": "apt_urban_5f.F1_S1",
+     "side": "S",
+     "a": 0.1,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "apt_urban_5f.F1_S3",
+     "side": "S",
+     "a": 3.7,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "apt_urban_5f.F1_N1",
+     "side": "N",
+     "a": -0.35,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "apt_urban_5f.F2_S1",
+     "side": "S",
+     "a": -1.4,
+     "z": 3.6,
+     "interior": false
+    },
+    {
+     "name": "apt_urban_5f.F3_S1",
+     "side": "S",
+     "a": -1.4,
+     "z": 6.8,
+     "interior": false
+    },
+    {
+     "name": "apt_urban_5f.F4_S1",
+     "side": "S",
+     "a": -1.4,
+     "z": 10.0,
+     "interior": false
+    },
+    {
+     "name": "apt_urban_5f.F5_S1",
+     "side": "S",
+     "a": 0.9,
+     "z": 13.2,
+     "interior": false
+    },
+    {
+     "name": "apt_urban_5f.PH_S0",
+     "side": "S",
+     "a": 4.0,
+     "z": 16.4,
+     "interior": false
+    }
+   ],
+   "interior_doors": 11,
+   "spawns": [
+    {
+     "name": "front_door",
+     "local": [
+      3.7,
+      -6.1,
+      0
+     ]
+    },
+    {
+     "name": "shop_door",
+     "local": [
+      0.1,
+      -6.1,
+      0
+     ]
+    }
+   ],
+   "objects": 505,
+   "triangles_approx": 141232,
+   "lights": 40,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 129,
+   "collection": "BLD_apt_urban_5f",
+   "root_object": "BLD_apt_urban_5f",
+   "labels_collection": "LBL_apt_urban_5f",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_apt_urban_5f",
+    "glb": "export/glb/apt_urban_5f.glb",
+    "glb_kb": 28201,
+    "preview_day": "renders/apt_urban_5f_front_day.png",
+    "preview_night": "renders/apt_urban_5f_front.png",
+    "preview_plan": "renders/apt_urban_5f_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 129,
+    "trim": 40,
+    "sign": 7,
+    "cable": 20,
+    "light": 40,
+    "light_fixture": 40,
+    "wall": 58,
+    "floor": 26,
+    "window": 32,
+    "door": 35,
+    "stair": 10,
+    "railing": 37,
+    "collider": 22,
+    "label": 7,
+    "spawn": 2
+   }
+  },
+  {
+   "asset_id": "bakery_corner",
+   "name_zh": "麥香麵包坊",
+   "name_en": "Wheat & Hearth Bakery",
+   "style": "European Bakery",
+   "style_zh": "歐式麵包店",
+   "tier": "standard",
+   "category": "bakery + flat",
+   "game_styles": [
+    "cozy",
+    "anime",
+    "slice-of-life",
+    "realistic",
+    "ghibli"
+   ],
+   "description": "Cream-brick 2-storey bakery: bread display, oven, café table, striped awning; baker's flat upstairs.",
+   "floors": 2,
+   "plot": [
+    [
+     -15.0,
+     -46.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -15.0,
+    -46.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    14.0,
+    15.0,
+    11.12
+   ],
+   "height_m": 10.72,
+   "entrances": [
+    {
+     "name": "bakery_corner.F1_S2",
+     "side": "S",
+     "a": -2.4,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "bakery_corner.F1_E1",
+     "side": "E",
+     "a": 0.64,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 4,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -2.4,
+      -7.5,
+      0
+     ]
+    }
+   ],
+   "objects": 123,
+   "triangles_approx": 82772,
+   "lights": 6,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 26,
+   "collection": "BLD_bakery_corner",
+   "root_object": "BLD_bakery_corner",
+   "labels_collection": "LBL_bakery_corner",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_bakery_corner",
+    "glb": "export/glb/bakery_corner.glb",
+    "glb_kb": 17914,
+    "preview_day": "renders/bakery_corner_front_day.png",
+    "preview_night": "renders/bakery_corner_front.png",
+    "preview_plan": "renders/bakery_corner_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "trim": 12,
+    "furniture": 26,
+    "wall": 22,
+    "floor": 7,
+    "light": 6,
+    "light_fixture": 6,
+    "door": 8,
+    "window": 16,
+    "stair": 2,
+    "railing": 5,
+    "collider": 2,
+    "label": 7,
+    "roof": 1,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "bank_classical",
+   "name_zh": "海港儲蓄銀行",
+   "name_en": "Harbor Savings Bank",
+   "style": "Neoclassical Bank",
+   "style_zh": "新古典銀行",
+   "tier": "luxury",
+   "category": "bank",
+   "game_styles": [
+    "realistic",
+    "heist",
+    "noir",
+    "western",
+    "civic"
+   ],
+   "description": "Granite neoclassical bank on a podium: columned portico with pediment, banking hall with teller counter, vault/server room, offices upstairs.",
+   "floors": 2,
+   "plot": [
+    [
+     -70.5,
+     -41.2,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -70.5,
+    -41.2,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    19.0,
+    22.0,
+    10.86
+   ],
+   "height_m": 10.46,
+   "entrances": [
+    {
+     "name": "bank_classical.F1_S2",
+     "side": "S",
+     "a": -1.0,
+     "z": 1.2,
+     "interior": false
+    },
+    {
+     "name": "bank_classical.F1_E1",
+     "side": "E",
+     "a": 0.74,
+     "z": 1.2,
+     "interior": false
+    }
+   ],
+   "interior_doors": 5,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -1.0,
+      -9.0,
+      0
+     ]
+    }
+   ],
+   "objects": 171,
+   "triangles_approx": 89940,
+   "lights": 7,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 60,
+   "collection": "BLD_bank_classical",
+   "root_object": "BLD_bank_classical",
+   "labels_collection": "LBL_bank_classical",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_bank_classical",
+    "glb": "export/glb/bank_classical.glb",
+    "glb_kb": 15674,
+    "preview_day": "renders/bank_classical_front_day.png",
+    "preview_night": "renders/bank_classical_front.png",
+    "preview_plan": "renders/bank_classical_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 60,
+    "trim": 14,
+    "floor": 9,
+    "wall": 24,
+    "light": 7,
+    "light_fixture": 7,
+    "door": 8,
+    "window": 20,
+    "stair": 3,
+    "railing": 5,
+    "collider": 3,
+    "label": 7,
+    "structure": 2,
+    "roof": 1,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "bauhaus_house",
+   "name_zh": "包浩斯白宅",
+   "name_en": "Bauhaus White House",
+   "style": "Bauhaus Modernism",
+   "style_zh": "包浩斯",
+   "tier": "upscale",
+   "category": "house",
+   "game_styles": [
+    "realistic",
+    "modern",
+    "architectural",
+    "anime"
+   ],
+   "description": "Crisp white cubic 2-storey house: ribbon windows, flat roof terrace, cantilever entrance canopy, red accent panel.",
+   "floors": 2,
+   "plot": [
+    [
+     -25.5,
+     -77.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    -25.5,
+    -77.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    17.81,
+    15.58,
+    9.9
+   ],
+   "height_m": 9.5,
+   "entrances": [
+    {
+     "name": "bauhaus_house.F1_S1",
+     "side": "S",
+     "a": -2.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "bauhaus_house.F1_E1",
+     "side": "E",
+     "a": 0.64,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "bauhaus_house.PH_W0",
+     "side": "W",
+     "a": 0.64,
+     "z": 6.6,
+     "interior": false
+    }
+   ],
+   "interior_doors": 8,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -2.0,
+      -7.5,
+      0
+     ]
+    }
+   ],
+   "objects": 196,
+   "triangles_approx": 79004,
+   "lights": 11,
+   "interactables": [
+    "cook",
+    "open",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 55,
+   "collection": "BLD_bauhaus_house",
+   "root_object": "BLD_bauhaus_house",
+   "labels_collection": "LBL_bauhaus_house",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_bauhaus_house",
+    "glb": "export/glb/bauhaus_house.glb",
+    "glb_kb": 21129,
+    "preview_day": "renders/bauhaus_house_front_day.png",
+    "preview_night": "renders/bauhaus_house_front.png",
+    "preview_plan": "renders/bauhaus_house_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 55,
+    "structure": 1,
+    "floor": 10,
+    "wall": 31,
+    "light": 11,
+    "light_fixture": 11,
+    "trim": 17,
+    "door": 17,
+    "window": 14,
+    "stair": 4,
+    "railing": 10,
+    "collider": 4,
+    "label": 7,
+    "terrain": 1,
+    "spawn": 1,
+    "vegetation": 2
+   }
+  },
+  {
+   "asset_id": "bookstore_cafe",
+   "name_zh": "書與咖啡",
+   "name_en": "Books & Beans",
+   "style": "Brick Bookshop Café",
+   "style_zh": "紅磚書店咖啡",
+   "tier": "standard",
+   "category": "bookstore + café",
+   "game_styles": [
+    "cozy",
+    "anime",
+    "slice-of-life",
+    "realistic",
+    "mystery"
+   ],
+   "description": "3-storey brick bookshop: G/F bookstacks, 2F café with counter and tables, 3F reading loft flat, green awning.",
+   "floors": 3,
+   "plot": [
+    [
+     -90.5,
+     -77.8,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    -90.5,
+    -77.8,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    15.0,
+    16.0,
+    10.86
+   ],
+   "height_m": 10.46,
+   "entrances": [
+    {
+     "name": "bookstore_cafe.F1_S2",
+     "side": "S",
+     "a": -2.4,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "bookstore_cafe.F1_E1",
+     "side": "E",
+     "a": 1.14,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 8,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -2.4,
+      -8.0,
+      0
+     ]
+    }
+   ],
+   "objects": 211,
+   "triangles_approx": 102426,
+   "lights": 11,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 58,
+   "collection": "BLD_bookstore_cafe",
+   "root_object": "BLD_bookstore_cafe",
+   "labels_collection": "LBL_bookstore_cafe",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_bookstore_cafe",
+    "glb": "export/glb/bookstore_cafe.glb",
+    "glb_kb": 21712,
+    "preview_day": "renders/bookstore_cafe_front_day.png",
+    "preview_night": "renders/bookstore_cafe_front.png",
+    "preview_plan": "renders/bookstore_cafe_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "trim": 18,
+    "furniture": 58,
+    "floor": 12,
+    "wall": 36,
+    "light": 11,
+    "light_fixture": 11,
+    "door": 12,
+    "window": 25,
+    "stair": 4,
+    "railing": 10,
+    "collider": 4,
+    "label": 7,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "cafe_container",
+   "name_zh": "貨櫃森林咖啡館",
+   "name_en": "Container Grove Café",
+   "style": "Industrial Container Modern",
+   "style_zh": "工業貨櫃現代",
+   "tier": "upscale",
+   "category": "café / commercial",
+   "game_styles": [
+    "realistic",
+    "modern",
+    "slice-of-life",
+    "anime"
+   ],
+   "description": "Raised concrete podium, timber post-and-beam café with full glazing, 20ft black container kitchen, outdoor stair to a planted terrace, 40ft yellow container lounge with sliding glass wall, timber canopy roof.",
+   "floors": 2,
+   "plot": [
+    [
+     85.0,
+     15.6,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    85.0,
+    15.6,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    23.08,
+    14.84,
+    10.13
+   ],
+   "height_m": 9.73,
+   "entrances": [
+    {
+     "name": "cafe_container.Cafe_S1",
+     "side": "S",
+     "a": -1.25,
+     "z": 0.6,
+     "interior": false
+    },
+    {
+     "name": "cafe_container.Kitchen_N0",
+     "side": "N",
+     "a": -7.4,
+     "z": 0.72,
+     "interior": false
+    },
+    {
+     "name": "cafe_container.Lounge_S1",
+     "side": "S",
+     "a": 0.3,
+     "z": 4.12,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front_steps",
+     "local": [
+      -4.3,
+      -7.06,
+      0
+     ]
+    }
+   ],
+   "objects": 172,
+   "triangles_approx": 109328,
+   "lights": 15,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "use"
+   ],
+   "furniture": 55,
+   "collection": "BLD_cafe_container",
+   "root_object": "BLD_cafe_container",
+   "labels_collection": "LBL_cafe_container",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_cafe_container",
+    "glb": "export/glb/cafe_container.glb",
+    "glb_kb": 17075,
+    "preview_day": "renders/cafe_container_front_day.png",
+    "preview_night": "renders/cafe_container_front.png",
+    "preview_plan": "renders/cafe_container_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 55,
+    "wall": 22,
+    "window": 10,
+    "trim": 7,
+    "door": 5,
+    "floor": 8,
+    "light": 15,
+    "light_fixture": 12,
+    "structure": 3,
+    "stair": 2,
+    "railing": 12,
+    "collider": 8,
+    "label": 7,
+    "sign": 3,
+    "spawn": 1,
+    "vegetation": 2
+   }
+  },
+  {
+   "asset_id": "canal_twin_tower",
+   "name_zh": "運河雙子樓",
+   "name_en": "Canal Twin Houses",
+   "style": "Harbour Canal Townhouses",
+   "style_zh": "港灣運河樓房",
+   "tier": "standard",
+   "category": "mixed-use townhouses",
+   "game_styles": [
+    "realistic",
+    "anime",
+    "ghibli",
+    "fantasy-port",
+    "slice-of-life"
+   ],
+   "description": "Stone quay platform in the water with a teal 5-storey and an ochre 6-storey tower sharing one U-stair; G/F grocery + noodle bar, flats above, roof terrace, lanterns, jetty with two rowing boats, boardwalk to shore.",
+   "floors": 6,
+   "plot": [
+    [
+     160.0,
+     -125.0,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    160.0,
+    -125.0,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    22.9,
+    36.18,
+    25.03
+   ],
+   "height_m": 21.83,
+   "entrances": [
+    {
+     "name": "canal_twin_tower.B1_S1",
+     "side": "S",
+     "a": 3.4,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "canal_twin_tower.A1_S1",
+     "side": "S",
+     "a": -2.6,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "canal_twin_tower.A2_S1",
+     "side": "S",
+     "a": -2.7,
+     "z": 3.2,
+     "interior": false
+    },
+    {
+     "name": "canal_twin_tower.A3_S1",
+     "side": "S",
+     "a": -2.7,
+     "z": 6.4,
+     "interior": false
+    },
+    {
+     "name": "canal_twin_tower.A4_S1",
+     "side": "S",
+     "a": -2.7,
+     "z": 9.600000000000001,
+     "interior": false
+    },
+    {
+     "name": "canal_twin_tower.A5_S1",
+     "side": "S",
+     "a": -2.7,
+     "z": 12.8,
+     "interior": false
+    }
+   ],
+   "interior_doors": 11,
+   "spawns": [
+    {
+     "name": "boardwalk",
+     "local": [
+      0.0,
+      -26.0,
+      -0.02
+     ]
+    }
+   ],
+   "objects": 558,
+   "triangles_approx": 154586,
+   "lights": 32,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use"
+   ],
+   "furniture": 122,
+   "collection": "BLD_canal_twin_tower",
+   "root_object": "BLD_canal_twin_tower",
+   "labels_collection": "LBL_canal_twin_tower",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_canal_twin_tower",
+    "glb": "export/glb/canal_twin_tower.glb",
+    "glb_kb": 31622,
+    "preview_day": "renders/canal_twin_tower_front_day.png",
+    "preview_night": "renders/canal_twin_tower_front.png",
+    "preview_plan": "renders/canal_twin_tower_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "wall": 94,
+    "floor": 23,
+    "light": 32,
+    "light_fixture": 30,
+    "window": 65,
+    "trim": 37,
+    "door": 25,
+    "railing": 37,
+    "collider": 23,
+    "furniture": 122,
+    "stair": 11,
+    "roof": 1,
+    "sign": 7,
+    "structure": 3,
+    "label": 7,
+    "cable": 40,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "capsule_tower",
+   "name_zh": "蜂巢膠囊旅館",
+   "name_en": "Hive Capsule Hotel",
+   "style": "Capsule Hotel Tower",
+   "style_zh": "膠囊旅館",
+   "tier": "budget",
+   "category": "capsule hotel",
+   "game_styles": [
+    "cyberpunk",
+    "anime",
+    "sci-fi",
+    "realistic",
+    "japan"
+   ],
+   "description": "7-storey slim capsule hotel: lobby, floors of stacked bunk capsules + lounges, roof terrace, neon blade sign.",
+   "floors": 7,
+   "plot": [
+    [
+     139.0,
+     -77.8,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    139.0,
+    -77.8,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    14.0,
+    16.0,
+    24.1
+   ],
+   "height_m": 23.7,
+   "entrances": [
+    {
+     "name": "capsule_tower.F1_S2",
+     "side": "S",
+     "a": -2.4,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "capsule_tower.F1_E2",
+     "side": "E",
+     "a": 1.14,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "capsule_tower.PH_W0",
+     "side": "W",
+     "a": 1.14,
+     "z": 20.799999999999997,
+     "interior": false
+    }
+   ],
+   "interior_doors": 14,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -2.4,
+      -8.0,
+      0
+     ]
+    }
+   ],
+   "objects": 449,
+   "triangles_approx": 123456,
+   "lights": 22,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash"
+   ],
+   "furniture": 89,
+   "collection": "BLD_capsule_tower",
+   "root_object": "BLD_capsule_tower",
+   "labels_collection": "LBL_capsule_tower",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_capsule_tower",
+    "glb": "export/glb/capsule_tower.glb",
+    "glb_kb": 22757,
+    "preview_day": "renders/capsule_tower_front_day.png",
+    "preview_night": "renders/capsule_tower_front.png",
+    "preview_plan": "renders/capsule_tower_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 89,
+    "sign": 5,
+    "trim": 33,
+    "floor": 25,
+    "wall": 82,
+    "light": 22,
+    "light_fixture": 22,
+    "door": 17,
+    "window": 83,
+    "stair": 14,
+    "railing": 35,
+    "collider": 14,
+    "label": 7,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "castle_keep",
+   "name_zh": "獅鷲城堡塔",
+   "name_en": "Griffin Castle Keep",
+   "style": "Medieval Castle Keep",
+   "style_zh": "中世紀城堡",
+   "tier": "landmark",
+   "category": "castle",
+   "game_styles": [
+    "fantasy",
+    "medieval",
+    "rpg",
+    "strategy",
+    "realistic"
+   ],
+   "description": "4-storey square stone keep with corner turrets: great hall, armoury/storage, lord's chamber + library, crenellated roof walk with banners.",
+   "floors": 4,
+   "plot": [
+    [
+     -22.0,
+     -101.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -22.0,
+    -101.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    22.0,
+    17.0,
+    21.7
+   ],
+   "height_m": 21.3,
+   "entrances": [
+    {
+     "name": "castle_keep.F1_S3",
+     "side": "S",
+     "a": -2.0,
+     "z": 0.9,
+     "interior": false
+    },
+    {
+     "name": "castle_keep.F1_E2",
+     "side": "E",
+     "a": 1.08,
+     "z": 0.9,
+     "interior": false
+    },
+    {
+     "name": "castle_keep.PH_W0",
+     "side": "W",
+     "a": 1.08,
+     "z": 15.700000000000001,
+     "interior": false
+    }
+   ],
+   "interior_doors": 12,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -2.0,
+      -8.5,
+      0
+     ]
+    }
+   ],
+   "objects": 370,
+   "triangles_approx": 131780,
+   "lights": 17,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 92,
+   "collection": "BLD_castle_keep",
+   "root_object": "BLD_castle_keep",
+   "labels_collection": "LBL_castle_keep",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_castle_keep",
+    "glb": "export/glb/castle_keep.glb",
+    "glb_kb": 32889,
+    "preview_day": "renders/castle_keep_front_day.png",
+    "preview_night": "renders/castle_keep_front.png",
+    "preview_plan": "renders/castle_keep_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "trim": 67,
+    "furniture": 92,
+    "wall": 37,
+    "floor": 16,
+    "light": 17,
+    "light_fixture": 17,
+    "door": 22,
+    "window": 51,
+    "stair": 9,
+    "railing": 20,
+    "collider": 9,
+    "label": 7,
+    "structure": 5,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "concrete_minimal",
+   "name_zh": "清水模住宅",
+   "name_en": "Fair-faced Concrete House",
+   "style": "Japanese Minimalist Concrete",
+   "style_zh": "日式清水模",
+   "tier": "luxury",
+   "category": "house",
+   "game_styles": [
+    "realistic",
+    "modern",
+    "thriller",
+    "zen",
+    "architectural"
+   ],
+   "description": "Introverted fair-faced concrete 2-storey house: few deep windows, minimal interior, flat roof, single maple tree.",
+   "floors": 2,
+   "plot": [
+    [
+     45.5,
+     -78.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    45.5,
+    -78.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    16.37,
+    17.8,
+    7.36
+   ],
+   "height_m": 6.96,
+   "entrances": [
+    {
+     "name": "concrete_minimal.F1_S1",
+     "side": "S",
+     "a": -2.4,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "concrete_minimal.F1_E0",
+     "side": "E",
+     "a": 1.64,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 5,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -2.4,
+      -8.5,
+      0
+     ]
+    }
+   ],
+   "objects": 118,
+   "triangles_approx": 82250,
+   "lights": 7,
+   "interactables": [
+    "cook",
+    "open",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 31,
+   "collection": "BLD_concrete_minimal",
+   "root_object": "BLD_concrete_minimal",
+   "labels_collection": "LBL_concrete_minimal",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_concrete_minimal",
+    "glb": "export/glb/concrete_minimal.glb",
+    "glb_kb": 16865,
+    "preview_day": "renders/concrete_minimal_front_day.png",
+    "preview_night": "renders/concrete_minimal_front.png",
+    "preview_plan": "renders/concrete_minimal_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 31,
+    "floor": 7,
+    "wall": 16,
+    "light": 7,
+    "light_fixture": 7,
+    "trim": 10,
+    "door": 13,
+    "window": 7,
+    "stair": 2,
+    "railing": 5,
+    "collider": 2,
+    "label": 7,
+    "terrain": 1,
+    "spawn": 1,
+    "vegetation": 2
+   }
+  },
+  {
+   "asset_id": "data_center",
+   "name_zh": "雲端資料中心",
+   "name_en": "Nimbus Data Center",
+   "style": "Hyperscale Data Center",
+   "style_zh": "資料中心",
+   "tier": "utility",
+   "category": "data center",
+   "game_styles": [
+    "cyberpunk",
+    "sci-fi",
+    "thriller",
+    "realistic",
+    "hacker"
+   ],
+   "description": "Windowless steel data hall: server rooms with rack rows and consoles, NOC office, roof chillers, backup generators.",
+   "floors": 2,
+   "plot": [
+    [
+     117.0,
+     -79.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    117.0,
+    -79.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    30.0,
+    19.0,
+    10.26
+   ],
+   "height_m": 9.86,
+   "entrances": [
+    {
+     "name": "data_center.F1_S1",
+     "side": "S",
+     "a": -5.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "data_center.F1_E0",
+     "side": "E",
+     "a": 1.8,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 8,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -5.0,
+      -9.5,
+      0
+     ]
+    }
+   ],
+   "objects": 209,
+   "triangles_approx": 110784,
+   "lights": 10,
+   "interactables": [
+    "open",
+    "sit",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 102,
+   "collection": "BLD_data_center",
+   "root_object": "BLD_data_center",
+   "labels_collection": "LBL_data_center",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_data_center",
+    "glb": "export/glb/data_center.glb",
+    "glb_kb": 20592,
+    "preview_day": "renders/data_center_front_day.png",
+    "preview_night": "renders/data_center_front.png",
+    "preview_plan": "renders/data_center_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 102,
+    "floor": 9,
+    "wall": 27,
+    "light": 10,
+    "light_fixture": 10,
+    "trim": 13,
+    "door": 10,
+    "window": 9,
+    "stair": 2,
+    "railing": 5,
+    "collider": 2,
+    "label": 7,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "eco_apartments",
+   "name_zh": "綠廊生態公寓",
+   "name_en": "Green Terrace Eco Apartments",
+   "style": "Biophilic Eco Housing",
+   "style_zh": "綠建築生態宅",
+   "tier": "upscale",
+   "category": "apartment",
+   "game_styles": [
+    "solarpunk",
+    "realistic",
+    "modern",
+    "anime",
+    "utopia"
+   ],
+   "description": "5-storey timber-clad eco block: every flat has a planted balcony with trailing greenery, roof garden with trees and solar.",
+   "floors": 5,
+   "plot": [
+    [
+     -107.5,
+     -101.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -107.5,
+    -101.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    19.0,
+    17.0,
+    19.84
+   ],
+   "height_m": 19.44,
+   "entrances": [
+    {
+     "name": "eco_apartments.F1_S2",
+     "side": "S",
+     "a": -3.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "eco_apartments.F1_E2",
+     "side": "E",
+     "a": 1.64,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "eco_apartments.F2_S1",
+     "side": "S",
+     "a": -2.83,
+     "z": 3.4,
+     "interior": false
+    },
+    {
+     "name": "eco_apartments.F2_S4",
+     "side": "S",
+     "a": 5.37,
+     "z": 3.4,
+     "interior": false
+    },
+    {
+     "name": "eco_apartments.F3_S1",
+     "side": "S",
+     "a": -2.83,
+     "z": 6.6,
+     "interior": false
+    },
+    {
+     "name": "eco_apartments.F3_S4",
+     "side": "S",
+     "a": 5.37,
+     "z": 6.6,
+     "interior": false
+    },
+    {
+     "name": "eco_apartments.F4_S1",
+     "side": "S",
+     "a": -2.83,
+     "z": 9.8,
+     "interior": false
+    },
+    {
+     "name": "eco_apartments.F4_S4",
+     "side": "S",
+     "a": 5.37,
+     "z": 9.8,
+     "interior": false
+    },
+    {
+     "name": "eco_apartments.F5_S1",
+     "side": "S",
+     "a": -2.83,
+     "z": 13.000000000000002,
+     "interior": false
+    },
+    {
+     "name": "eco_apartments.F5_S4",
+     "side": "S",
+     "a": 5.37,
+     "z": 13.000000000000002,
+     "interior": false
+    },
+    {
+     "name": "eco_apartments.PH_W0",
+     "side": "W",
+     "a": 1.64,
+     "z": 16.2,
+     "interior": false
+    }
+   ],
+   "interior_doors": 19,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -3.0,
+      -8.5,
+      0
+     ]
+    }
+   ],
+   "objects": 571,
+   "triangles_approx": 169412,
+   "lights": 25,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 171,
+   "collection": "BLD_eco_apartments",
+   "root_object": "BLD_eco_apartments",
+   "labels_collection": "LBL_eco_apartments",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_eco_apartments",
+    "glb": "export/glb/eco_apartments.glb",
+    "glb_kb": 30678,
+    "preview_day": "renders/eco_apartments_front_day.png",
+    "preview_night": "renders/eco_apartments_front.png",
+    "preview_plan": "renders/eco_apartments_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 171,
+    "floor": 31,
+    "wall": 69,
+    "light": 25,
+    "light_fixture": 25,
+    "trim": 42,
+    "door": 46,
+    "window": 56,
+    "stair": 10,
+    "railing": 49,
+    "collider": 34,
+    "label": 7,
+    "sign": 2,
+    "spawn": 1,
+    "vegetation": 3
+   }
+  },
+  {
+   "asset_id": "fire_station",
+   "name_zh": "海港消防局",
+   "name_en": "Harbor Fire Station",
+   "style": "Civic Fire Station",
+   "style_zh": "消防局",
+   "tier": "civic",
+   "category": "fire station",
+   "game_styles": [
+    "realistic",
+    "rescue-sim",
+    "anime",
+    "action"
+   ],
+   "description": "Brick 2-storey station: double apparatus bay with two ladder trucks behind roller doors, hose tower, upstairs dorm + lounge.",
+   "floors": 2,
+   "plot": [
+    [
+     112.0,
+     -20.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    112.0,
+    -20.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    26.0,
+    22.0,
+    15.8
+   ],
+   "height_m": 15.4,
+   "entrances": [
+    {
+     "name": "fire_station.F1_S0",
+     "side": "S",
+     "a": -4.0,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "fire_station.F1_S1",
+     "side": "S",
+     "a": 3.4,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "fire_station.F1_S2",
+     "side": "S",
+     "a": 7.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "fire_station.F1_E2",
+     "side": "E",
+     "a": 1.52,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 8,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      7.0,
+      -9.5,
+      0
+     ]
+    }
+   ],
+   "objects": 166,
+   "triangles_approx": 82724,
+   "lights": 10,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash"
+   ],
+   "furniture": 38,
+   "collection": "BLD_fire_station",
+   "root_object": "BLD_fire_station",
+   "labels_collection": "LBL_fire_station",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_fire_station",
+    "glb": "export/glb/fire_station.glb",
+    "glb_kb": 16233,
+    "preview_day": "renders/fire_station_front_day.png",
+    "preview_night": "renders/fire_station_front.png",
+    "preview_plan": "renders/fire_station_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 38,
+    "trim": 16,
+    "light": 10,
+    "light_fixture": 10,
+    "floor": 9,
+    "wall": 27,
+    "door": 12,
+    "window": 24,
+    "stair": 2,
+    "railing": 5,
+    "collider": 2,
+    "structure": 1,
+    "label": 7,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "florist_petal",
+   "name_zh": "花語花店",
+   "name_en": "Petal Talk Florist",
+   "style": "Cottage Flower Shop",
+   "style_zh": "鄉村花店",
+   "tier": "standard",
+   "category": "shop + flat",
+   "game_styles": [
+    "cozy",
+    "anime",
+    "romance",
+    "slice-of-life",
+    "ghibli"
+   ],
+   "description": "White clapboard 2-storey flower shop: plant-filled shop floor, flower stands on the pavement, green awning, flat above with flower boxes.",
+   "floors": 2,
+   "plot": [
+    [
+     -41.5,
+     -78.05,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    -41.5,
+    -78.05,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    13.0,
+    15.5,
+    10.45
+   ],
+   "height_m": 10.05,
+   "entrances": [
+    {
+     "name": "florist_petal.F1_S2",
+     "side": "S",
+     "a": -1.8,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "florist_petal.F1_E1",
+     "side": "E",
+     "a": 0.39,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 4,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -1.8,
+      -7.25,
+      0
+     ]
+    }
+   ],
+   "objects": 124,
+   "triangles_approx": 81424,
+   "lights": 6,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 31,
+   "collection": "BLD_florist_petal",
+   "root_object": "BLD_florist_petal",
+   "labels_collection": "LBL_florist_petal",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_florist_petal",
+    "glb": "export/glb/florist_petal.glb",
+    "glb_kb": 19249,
+    "preview_day": "renders/florist_petal_front_day.png",
+    "preview_night": "renders/florist_petal_front.png",
+    "preview_plan": "renders/florist_petal_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "trim": 11,
+    "furniture": 31,
+    "wall": 22,
+    "floor": 7,
+    "light": 6,
+    "light_fixture": 6,
+    "door": 6,
+    "window": 15,
+    "stair": 2,
+    "railing": 5,
+    "collider": 2,
+    "label": 7,
+    "roof": 1,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "galaxy_arcade",
+   "name_zh": "銀河遊戲中心",
+   "name_en": "Galaxy Game Center",
+   "style": "Neon Game Arcade",
+   "style_zh": "霓虹遊樂場",
+   "tier": "standard",
+   "category": "arcade",
+   "game_styles": [
+    "cyberpunk",
+    "anime",
+    "retro",
+    "nightlife",
+    "realistic"
+   ],
+   "description": "2-storey black game centre: rows of arcade cabinets, claw machines, upstairs arcade + bar, neon signage.",
+   "floors": 2,
+   "plot": [
+    [
+     -58.5,
+     -78.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    -58.5,
+    -78.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    19.0,
+    17.0,
+    8.06
+   ],
+   "height_m": 7.66,
+   "entrances": [
+    {
+     "name": "galaxy_arcade.F1_S2",
+     "side": "S",
+     "a": -3.5,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "galaxy_arcade.F1_E1",
+     "side": "E",
+     "a": 1.08,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 7,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -3.5,
+      -8.5,
+      0
+     ]
+    }
+   ],
+   "objects": 171,
+   "triangles_approx": 106524,
+   "lights": 10,
+   "interactables": [
+    "open",
+    "play",
+    "shop",
+    "sit",
+    "use",
+    "wash"
+   ],
+   "furniture": 62,
+   "collection": "BLD_galaxy_arcade",
+   "root_object": "BLD_galaxy_arcade",
+   "labels_collection": "LBL_galaxy_arcade",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_galaxy_arcade",
+    "glb": "export/glb/galaxy_arcade.glb",
+    "glb_kb": 17151,
+    "preview_day": "renders/galaxy_arcade_front_day.png",
+    "preview_night": "renders/galaxy_arcade_front.png",
+    "preview_plan": "renders/galaxy_arcade_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 62,
+    "light": 10,
+    "light_fixture": 10,
+    "sign": 5,
+    "floor": 9,
+    "wall": 18,
+    "trim": 12,
+    "door": 9,
+    "window": 19,
+    "stair": 2,
+    "railing": 5,
+    "collider": 2,
+    "label": 7,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "gas_station",
+   "name_zh": "海港加油站",
+   "name_en": "Harbor Gas & Go",
+   "style": "Roadside Gas Station",
+   "style_zh": "公路加油站",
+   "tier": "budget",
+   "category": "gas station",
+   "game_styles": [
+    "realistic",
+    "road-movie",
+    "survival",
+    "horror",
+    "open-world"
+   ],
+   "description": "Convenience kiosk with shelves and counter, big illuminated canopy over four pumps, price pylon.",
+   "floors": 1,
+   "plot": [
+    [
+     82.0,
+     -36.2,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    82.0,
+    -36.2,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    24.0,
+    25.0,
+    6.9
+   ],
+   "height_m": 6.5,
+   "entrances": [
+    {
+     "name": "gas_station.F1_S2",
+     "side": "S",
+     "a": -2.0,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -2.0,
+      -7.0,
+      0
+     ]
+    }
+   ],
+   "objects": 60,
+   "triangles_approx": 107836,
+   "lights": 3,
+   "interactables": [
+    "open",
+    "shop",
+    "use"
+   ],
+   "furniture": 19,
+   "collection": "BLD_gas_station",
+   "root_object": "BLD_gas_station",
+   "labels_collection": "LBL_gas_station",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_gas_station",
+    "glb": "export/glb/gas_station.glb",
+    "glb_kb": 16160,
+    "preview_day": "renders/gas_station_front_day.png",
+    "preview_night": "renders/gas_station_front.png",
+    "preview_plan": "renders/gas_station_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "structure": 1,
+    "light": 3,
+    "furniture": 19,
+    "wall": 9,
+    "window": 7,
+    "floor": 3,
+    "trim": 2,
+    "door": 1,
+    "light_fixture": 1,
+    "label": 7,
+    "sign": 6,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "glass_cube_office",
+   "name_zh": "黑玻璃創意辦公",
+   "name_en": "Obsidian Cube Offices",
+   "style": "Contemporary Glass Office",
+   "style_zh": "當代玻璃辦公",
+   "tier": "upscale",
+   "category": "office",
+   "game_styles": [
+    "modern",
+    "corporate",
+    "cyberpunk",
+    "realistic",
+    "thriller"
+   ],
+   "description": "4-storey dark glass cube: lobby + café, open-plan offices and meeting rooms, roof terrace with solar canopy.",
+   "floors": 4,
+   "plot": [
+    [
+     64.5,
+     -82.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    64.5,
+    -82.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    21.0,
+    23.0,
+    18.1
+   ],
+   "height_m": 17.7,
+   "entrances": [
+    {
+     "name": "glass_cube_office.F1_S3",
+     "side": "S",
+     "a": -3.6,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "glass_cube_office.F1_E2",
+     "side": "E",
+     "a": 3.08,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "glass_cube_office.PH_W0",
+     "side": "W",
+     "a": 3.08,
+     "z": 14.8,
+     "interior": false
+    }
+   ],
+   "interior_doors": 16,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -3.6,
+      -10.5,
+      0
+     ]
+    }
+   ],
+   "objects": 529,
+   "triangles_approx": 176888,
+   "lights": 21,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 269,
+   "collection": "BLD_glass_cube_office",
+   "root_object": "BLD_glass_cube_office",
+   "labels_collection": "LBL_glass_cube_office",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_glass_cube_office",
+    "glb": "export/glb/glass_cube_office.glb",
+    "glb_kb": 28160,
+    "preview_day": "renders/glass_cube_office_front_day.png",
+    "preview_night": "renders/glass_cube_office_front.png",
+    "preview_plan": "renders/glass_cube_office_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 269,
+    "floor": 19,
+    "wall": 57,
+    "light": 21,
+    "light_fixture": 21,
+    "trim": 29,
+    "door": 19,
+    "window": 48,
+    "stair": 8,
+    "railing": 20,
+    "collider": 8,
+    "label": 7,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "greenhouse_cafe",
+   "name_zh": "玻璃溫室咖啡",
+   "name_en": "Glasshouse Garden Café",
+   "style": "Victorian Glasshouse",
+   "style_zh": "玻璃溫室",
+   "tier": "upscale",
+   "category": "café",
+   "game_styles": [
+    "cozy",
+    "ghibli",
+    "romance",
+    "solarpunk",
+    "realistic"
+   ],
+   "description": "Single-storey white-framed glasshouse with a glass gable roof: café counter, tables among potted palms and ferns.",
+   "floors": 1,
+   "plot": [
+    [
+     -88.5,
+     -102.2,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -88.5,
+    -102.2,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    17.0,
+    15.0,
+    6.52
+   ],
+   "height_m": 6.12,
+   "entrances": [
+    {
+     "name": "greenhouse_cafe.F1_S2",
+     "side": "S",
+     "a": 0.0,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      0.0,
+      -7.0,
+      0
+     ]
+    }
+   ],
+   "objects": 93,
+   "triangles_approx": 86260,
+   "lights": 1,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "use"
+   ],
+   "furniture": 68,
+   "collection": "BLD_greenhouse_cafe",
+   "root_object": "BLD_greenhouse_cafe",
+   "labels_collection": "LBL_greenhouse_cafe",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_greenhouse_cafe",
+    "glb": "export/glb/greenhouse_cafe.glb",
+    "glb_kb": 7464,
+    "preview_day": "renders/greenhouse_cafe_front_day.png",
+    "preview_night": "renders/greenhouse_cafe_front.png",
+    "preview_plan": "renders/greenhouse_cafe_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 68,
+    "floor": 3,
+    "window": 3,
+    "trim": 3,
+    "door": 1,
+    "wall": 4,
+    "light": 1,
+    "light_fixture": 1,
+    "label": 7,
+    "roof": 1,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "hk_tonglau",
+   "name_zh": "旺角唐樓",
+   "name_en": "Hong Kong Tong Lau",
+   "style": "Hong Kong Tenement",
+   "style_zh": "香港唐樓",
+   "tier": "budget",
+   "category": "tenement",
+   "game_styles": [
+    "cyberpunk",
+    "noir",
+    "realistic",
+    "action",
+    "hk-cinema"
+   ],
+   "description": "6-storey mosaic tenement: cha chaan teng diner, caged balconies, AC units, neon blade sign, laundry, rooftop.",
+   "floors": 6,
+   "plot": [
+    [
+     91.5,
+     -16.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    91.5,
+    -16.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    13.0,
+    17.0,
+    24.5
+   ],
+   "height_m": 24.1,
+   "entrances": [
+    {
+     "name": "hk_tonglau.F1_S1",
+     "side": "S",
+     "a": -2.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "hk_tonglau.F1_E2",
+     "side": "E",
+     "a": 1.36,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "hk_tonglau.F2_S1",
+     "side": "S",
+     "a": 0.0,
+     "z": 3.6,
+     "interior": false
+    },
+    {
+     "name": "hk_tonglau.F4_S1",
+     "side": "S",
+     "a": 0.0,
+     "z": 9.6,
+     "interior": false
+    },
+    {
+     "name": "hk_tonglau.F6_S1",
+     "side": "S",
+     "a": 0.0,
+     "z": 15.6,
+     "interior": false
+    },
+    {
+     "name": "hk_tonglau.PH_W0",
+     "side": "W",
+     "a": 1.36,
+     "z": 18.6,
+     "interior": false
+    }
+   ],
+   "interior_doors": 12,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -2.0,
+      -8.5,
+      0
+     ]
+    }
+   ],
+   "objects": 460,
+   "triangles_approx": 126020,
+   "lights": 19,
+   "interactables": [
+    "cook",
+    "open",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 124,
+   "collection": "BLD_hk_tonglau",
+   "root_object": "BLD_hk_tonglau",
+   "labels_collection": "LBL_hk_tonglau",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_hk_tonglau",
+    "glb": "export/glb/hk_tonglau.glb",
+    "glb_kb": 31447,
+    "preview_day": "renders/hk_tonglau_front_day.png",
+    "preview_night": "renders/hk_tonglau_front.png",
+    "preview_plan": "renders/hk_tonglau_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 124,
+    "sign": 5,
+    "trim": 32,
+    "wall": 71,
+    "floor": 24,
+    "light": 19,
+    "light_fixture": 19,
+    "door": 30,
+    "window": 56,
+    "stair": 12,
+    "railing": 39,
+    "collider": 21,
+    "label": 7,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "hospital_general",
+   "name_zh": "仁心綜合醫院",
+   "name_en": "Renxin General Hospital",
+   "style": "Modern Hospital",
+   "style_zh": "現代醫院",
+   "tier": "civic",
+   "category": "hospital",
+   "game_styles": [
+    "realistic",
+    "horror",
+    "medical-drama",
+    "zombie",
+    "anime"
+   ],
+   "description": "3-storey tiled hospital: lobby + triage clinics, wards with beds, exam rooms, roof terrace, drop-off canopy, ambulance, red cross.",
+   "floors": 3,
+   "plot": [
+    [
+     -150.5,
+     -40.2,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -150.5,
+    -40.2,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    27.0,
+    24.0,
+    13.9
+   ],
+   "height_m": 13.5,
+   "entrances": [
+    {
+     "name": "hospital_general.F1_S6",
+     "side": "S",
+     "a": -5.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "hospital_general.F1_E2",
+     "side": "E",
+     "a": 2.58,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "hospital_general.PH_W0",
+     "side": "W",
+     "a": 2.58,
+     "z": 10.6,
+     "interior": false
+    }
+   ],
+   "interior_doors": 15,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -5.0,
+      -10.0,
+      0
+     ]
+    }
+   ],
+   "objects": 320,
+   "triangles_approx": 111996,
+   "lights": 19,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 82,
+   "collection": "BLD_hospital_general",
+   "root_object": "BLD_hospital_general",
+   "labels_collection": "LBL_hospital_general",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_hospital_general",
+    "glb": "export/glb/hospital_general.glb",
+    "glb_kb": 18819,
+    "preview_day": "renders/hospital_general_front_day.png",
+    "preview_night": "renders/hospital_general_front.png",
+    "preview_plan": "renders/hospital_general_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 82,
+    "trim": 27,
+    "structure": 1,
+    "floor": 15,
+    "wall": 47,
+    "light": 19,
+    "light_fixture": 19,
+    "door": 18,
+    "window": 54,
+    "stair": 6,
+    "railing": 15,
+    "collider": 6,
+    "label": 7,
+    "sign": 3,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "hotel_artdeco",
+   "name_zh": "裝飾藝術大飯店",
+   "name_en": "Grand Deco Hotel",
+   "style": "Art Deco Hotel",
+   "style_zh": "裝飾藝術風",
+   "tier": "luxury",
+   "category": "hotel",
+   "game_styles": [
+    "noir",
+    "1920s",
+    "realistic",
+    "mystery",
+    "bioshock-like"
+   ],
+   "description": "6-storey Art Deco hotel: black-marble lobby with reception + bar, restaurant, 24 guest rooms, brass-trimmed stepped crown, vertical fins.",
+   "floors": 6,
+   "plot": [
+    [
+     134.5,
+     -42.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    134.5,
+    -42.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    21.0,
+    21.0,
+    28.6
+   ],
+   "height_m": 28.2,
+   "entrances": [
+    {
+     "name": "hotel_artdeco.F1_S3",
+     "side": "S",
+     "a": -3.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "hotel_artdeco.F1_E2",
+     "side": "E",
+     "a": 1.8,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 34,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -3.0,
+      -9.5,
+      0
+     ]
+    }
+   ],
+   "objects": 609,
+   "triangles_approx": 137704,
+   "lights": 40,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 188,
+   "collection": "BLD_hotel_artdeco",
+   "root_object": "BLD_hotel_artdeco",
+   "labels_collection": "LBL_hotel_artdeco",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_hotel_artdeco",
+    "glb": "export/glb/hotel_artdeco.glb",
+    "glb_kb": 27266,
+    "preview_day": "renders/hotel_artdeco_front_day.png",
+    "preview_night": "renders/hotel_artdeco_front.png",
+    "preview_plan": "renders/hotel_artdeco_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "trim": 57,
+    "furniture": 188,
+    "sign": 5,
+    "structure": 2,
+    "floor": 20,
+    "wall": 89,
+    "light": 40,
+    "light_fixture": 40,
+    "door": 36,
+    "window": 79,
+    "stair": 10,
+    "railing": 25,
+    "collider": 10,
+    "label": 7,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "house_eastasian_tile",
+   "name_zh": "青瓦庭院宅",
+   "name_en": "Slate-Roof Garden House",
+   "style": "East Asian Traditional",
+   "style_zh": "東亞傳統瓦屋",
+   "tier": "upscale",
+   "category": "house",
+   "game_styles": [
+    "realistic",
+    "anime",
+    "wuxia-modern",
+    "cozy",
+    "rpg-village"
+   ],
+   "description": "Stone plinth, dark timber G/F with living/kitchen/bath, half-timbered plaster upper floor with tatami room and bedroom, blue slate hip roofs with upturned corners, covered balcony + outside stair, garden with lantern.",
+   "floors": 2,
+   "plot": [
+    [
+     -82.0,
+     -17.5,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    -82.0,
+    -17.5,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    18.5,
+    17.32,
+    9.62
+   ],
+   "height_m": 9.22,
+   "entrances": [
+    {
+     "name": "house_eastasian_tile.GF_S1",
+     "side": "S",
+     "a": -1.7,
+     "z": 0.6,
+     "interior": false
+    }
+   ],
+   "interior_doors": 4,
+   "spawns": [
+    {
+     "name": "garden_gate",
+     "local": [
+      -1.7,
+      -8.4,
+      0
+     ]
+    }
+   ],
+   "objects": 176,
+   "triangles_approx": 99944,
+   "lights": 9,
+   "interactables": [
+    "cook",
+    "open",
+    "sit",
+    "sleep",
+    "use",
+    "wash"
+   ],
+   "furniture": 46,
+   "collection": "BLD_house_eastasian_tile",
+   "root_object": "BLD_house_eastasian_tile",
+   "labels_collection": "LBL_house_eastasian_tile",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_house_eastasian_tile",
+    "glb": "export/glb/house_eastasian_tile.glb",
+    "glb_kb": 18710,
+    "preview_day": "renders/house_eastasian_tile_front_day.png",
+    "preview_night": "renders/house_eastasian_tile_front.png",
+    "preview_plan": "renders/house_eastasian_tile_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "floor": 7,
+    "structure": 2,
+    "railing": 9,
+    "collider": 8,
+    "furniture": 46,
+    "light": 9,
+    "light_fixture": 8,
+    "door": 7,
+    "wall": 20,
+    "window": 15,
+    "trim": 23,
+    "stair": 3,
+    "label": 7,
+    "sign": 2,
+    "terrain": 1,
+    "roof": 3,
+    "spawn": 1,
+    "vegetation": 5
+   }
+  },
+  {
+   "asset_id": "house_teal_lantern",
+   "name_zh": "青瓦燈籠茶屋",
+   "name_en": "Teal Lantern Teahouse",
+   "style": "Ghibli Seaside Stilt House",
+   "style_zh": "吉卜力海邊高腳屋",
+   "tier": "standard",
+   "category": "house+shop",
+   "game_styles": [
+    "anime",
+    "ghibli",
+    "cozy",
+    "fantasy",
+    "realistic"
+   ],
+   "description": "Teal clapboard 2-storey teahouse on a raised timber deck around an old tree trunk; red-framed bay windows, paper lanterns, roof terrace with antennas.",
+   "floors": 2,
+   "plot": [
+    [
+     -55.0,
+     -18.5,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    -55.0,
+    -18.5,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    18.05,
+    17.67,
+    12.41
+   ],
+   "height_m": 12.01,
+   "entrances": [
+    {
+     "name": "house_teal_lantern.GF_S1",
+     "side": "S",
+     "a": 0.0,
+     "z": 2.4,
+     "interior": false
+    }
+   ],
+   "interior_doors": 1,
+   "spawns": [
+    {
+     "name": "stair_foot",
+     "local": [
+      0.0,
+      -10.16,
+      0
+     ]
+    }
+   ],
+   "objects": 191,
+   "triangles_approx": 114028,
+   "lights": 11,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 39,
+   "collection": "BLD_house_teal_lantern",
+   "root_object": "BLD_house_teal_lantern",
+   "labels_collection": "LBL_house_teal_lantern",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_house_teal_lantern",
+    "glb": "export/glb/house_teal_lantern.glb",
+    "glb_kb": 18165,
+    "preview_day": "renders/house_teal_lantern_front_day.png",
+    "preview_night": "renders/house_teal_lantern_front.png",
+    "preview_plan": "renders/house_teal_lantern_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 39,
+    "trim": 20,
+    "floor": 5,
+    "structure": 2,
+    "railing": 20,
+    "collider": 15,
+    "window": 11,
+    "wall": 18,
+    "light": 11,
+    "light_fixture": 11,
+    "door": 4,
+    "stair": 3,
+    "label": 7,
+    "sign": 2,
+    "spawn": 1,
+    "vegetation": 2,
+    "cable": 20
+   }
+  },
+  {
+   "asset_id": "izakaya_suikei",
+   "name_zh": "居酒屋 酔鯨",
+   "name_en": "Izakaya Drunken Whale",
+   "style": "Japanese Izakaya",
+   "style_zh": "日式居酒屋",
+   "tier": "budget",
+   "category": "bar + flat",
+   "game_styles": [
+    "anime",
+    "slice-of-life",
+    "japan",
+    "realistic",
+    "noir"
+   ],
+   "description": "Timber-fronted izakaya: counter bar with stools, tables, kitchen, red lanterns and noren; small flat above; slate gable.",
+   "floors": 2,
+   "plot": [
+    [
+     153.0,
+     -46.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    153.0,
+    -46.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    14.0,
+    15.0,
+    9.78
+   ],
+   "height_m": 9.38,
+   "entrances": [
+    {
+     "name": "izakaya_suikei.F1_S2",
+     "side": "S",
+     "a": -1.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "izakaya_suikei.F1_E1",
+     "side": "E",
+     "a": 0.64,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 4,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -1.0,
+      -7.5,
+      0
+     ]
+    }
+   ],
+   "objects": 180,
+   "triangles_approx": 74140,
+   "lights": 12,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 43,
+   "collection": "BLD_izakaya_suikei",
+   "root_object": "BLD_izakaya_suikei",
+   "labels_collection": "LBL_izakaya_suikei",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_izakaya_suikei",
+    "glb": "export/glb/izakaya_suikei.glb",
+    "glb_kb": 17401,
+    "preview_day": "renders/izakaya_suikei_front_day.png",
+    "preview_night": "renders/izakaya_suikei_front.png",
+    "preview_plan": "renders/izakaya_suikei_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 43,
+    "light": 12,
+    "light_fixture": 12,
+    "wall": 22,
+    "floor": 7,
+    "trim": 10,
+    "door": 8,
+    "window": 46,
+    "stair": 2,
+    "railing": 5,
+    "collider": 2,
+    "label": 7,
+    "roof": 1,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "karaoke_stardust",
+   "name_zh": "星光KTV",
+   "name_en": "Stardust Karaoke Club",
+   "style": "Neon Karaoke Club",
+   "style_zh": "霓虹KTV",
+   "tier": "standard",
+   "category": "karaoke club",
+   "game_styles": [
+    "cyberpunk",
+    "anime",
+    "nightlife",
+    "realistic",
+    "kdrama"
+   ],
+   "description": "4-storey black KTV: G/F bar, private karaoke lounges on upper floors (sofa + TV), neon floor bands, vertical blade sign.",
+   "floors": 4,
+   "plot": [
+    [
+     -107.5,
+     -78.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    -107.5,
+    -78.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    17.0,
+    17.0,
+    14.26
+   ],
+   "height_m": 13.86,
+   "entrances": [
+    {
+     "name": "karaoke_stardust.F1_S2",
+     "side": "S",
+     "a": -2.5,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "karaoke_stardust.F1_E2",
+     "side": "E",
+     "a": 1.36,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 15,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -2.5,
+      -8.5,
+      0
+     ]
+    }
+   ],
+   "objects": 333,
+   "triangles_approx": 97492,
+   "lights": 20,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "use",
+    "wash"
+   ],
+   "furniture": 91,
+   "collection": "BLD_karaoke_stardust",
+   "root_object": "BLD_karaoke_stardust",
+   "labels_collection": "LBL_karaoke_stardust",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_karaoke_stardust",
+    "glb": "export/glb/karaoke_stardust.glb",
+    "glb_kb": 17046,
+    "preview_day": "renders/karaoke_stardust_front_day.png",
+    "preview_night": "renders/karaoke_stardust_front.png",
+    "preview_plan": "renders/karaoke_stardust_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 91,
+    "sign": 5,
+    "floor": 17,
+    "wall": 52,
+    "light": 20,
+    "light_fixture": 22,
+    "trim": 24,
+    "door": 19,
+    "window": 48,
+    "stair": 6,
+    "railing": 15,
+    "collider": 6,
+    "label": 7,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "kindergarten",
+   "name_zh": "彩虹幼兒園",
+   "name_en": "Rainbow Kindergarten",
+   "style": "Playful Kindergarten",
+   "style_zh": "童趣幼兒園",
+   "tier": "civic",
+   "category": "kindergarten",
+   "game_styles": [
+    "anime",
+    "slice-of-life",
+    "cozy",
+    "horror",
+    "cartoon"
+   ],
+   "description": "Single-storey cheerful kindergarten: classroom + play lounge, red tile gable, playground with slide, swings and sandbox.",
+   "floors": 1,
+   "plot": [
+    [
+     59.5,
+     -42.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    59.5,
+    -42.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    19.0,
+    19.0,
+    7.97
+   ],
+   "height_m": 7.57,
+   "entrances": [
+    {
+     "name": "kindergarten.F1_S4",
+     "side": "S",
+     "a": 0.0,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      0.0,
+      -7.5,
+      0
+     ]
+    }
+   ],
+   "objects": 114,
+   "triangles_approx": 69848,
+   "lights": 2,
+   "interactables": [
+    "open",
+    "play",
+    "sit",
+    "use",
+    "work"
+   ],
+   "furniture": 71,
+   "collection": "BLD_kindergarten",
+   "root_object": "BLD_kindergarten",
+   "labels_collection": "LBL_kindergarten",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_kindergarten",
+    "glb": "export/glb/kindergarten.glb",
+    "glb_kb": 14433,
+    "preview_day": "renders/kindergarten_front_day.png",
+    "preview_night": "renders/kindergarten_front.png",
+    "preview_plan": "renders/kindergarten_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 71,
+    "wall": 9,
+    "window": 12,
+    "floor": 3,
+    "trim": 2,
+    "door": 1,
+    "light": 2,
+    "light_fixture": 2,
+    "label": 7,
+    "terrain": 1,
+    "roof": 1,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "korean_hanok",
+   "name_zh": "韓式韓屋",
+   "name_en": "Korean Hanok",
+   "style": "Korean Hanok",
+   "style_zh": "韓屋",
+   "tier": "upscale",
+   "category": "house",
+   "game_styles": [
+    "historical",
+    "kdrama",
+    "realistic",
+    "anime"
+   ],
+   "description": "Single-storey hanok on a stone plinth: timber posts, raised wooden maru veranda, paper sliding doors, curved tiled hip roof.",
+   "floors": 1,
+   "plot": [
+    [
+     74.5,
+     -16.8,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    74.5,
+    -16.8,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    20.38,
+    16.46,
+    7.81
+   ],
+   "height_m": 7.41,
+   "entrances": [
+    {
+     "name": "korean_hanok.F1_S2",
+     "side": "S",
+     "a": 0.0,
+     "z": 0.6,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      0.0,
+      -7.0,
+      0
+     ]
+    }
+   ],
+   "objects": 97,
+   "triangles_approx": 45234,
+   "lights": 3,
+   "interactables": [
+    "cook",
+    "open",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 21,
+   "collection": "BLD_korean_hanok",
+   "root_object": "BLD_korean_hanok",
+   "labels_collection": "LBL_korean_hanok",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_korean_hanok",
+    "glb": "export/glb/korean_hanok.glb",
+    "glb_kb": 16745,
+    "preview_day": "renders/korean_hanok_front_day.png",
+    "preview_night": "renders/korean_hanok_front.png",
+    "preview_plan": "renders/korean_hanok_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 21,
+    "wall": 10,
+    "window": 27,
+    "floor": 4,
+    "trim": 8,
+    "door": 5,
+    "stair": 1,
+    "collider": 1,
+    "label": 7,
+    "structure": 2,
+    "terrain": 1,
+    "roof": 1,
+    "light": 3,
+    "light_fixture": 3,
+    "spawn": 1,
+    "vegetation": 2
+   }
+  },
+  {
+   "asset_id": "kyoto_machiya",
+   "name_zh": "京都町家",
+   "name_en": "Kyoto Machiya Townhouse",
+   "style": "Japanese Machiya",
+   "style_zh": "日式町家",
+   "tier": "standard",
+   "category": "shop + house",
+   "game_styles": [
+    "anime",
+    "realistic",
+    "slice-of-life",
+    "japan",
+    "cozy"
+   ],
+   "description": "Narrow timber townhouse: G/F sweets shop with noren curtain and lanterns, tatami living above, sliding lattice windows, slate gable.",
+   "floors": 2,
+   "plot": [
+    [
+     151.5,
+     16.3,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    151.5,
+    16.3,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    13.0,
+    17.0,
+    9.25
+   ],
+   "height_m": 8.85,
+   "entrances": [
+    {
+     "name": "kyoto_machiya.F1_S2",
+     "side": "S",
+     "a": -1.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "kyoto_machiya.F1_E2",
+     "side": "E",
+     "a": 1.92,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 4,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -1.0,
+      -8.5,
+      0
+     ]
+    }
+   ],
+   "objects": 154,
+   "triangles_approx": 90484,
+   "lights": 8,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use"
+   ],
+   "furniture": 21,
+   "collection": "BLD_kyoto_machiya",
+   "root_object": "BLD_kyoto_machiya",
+   "labels_collection": "LBL_kyoto_machiya",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_kyoto_machiya",
+    "glb": "export/glb/kyoto_machiya.glb",
+    "glb_kb": 21083,
+    "preview_day": "renders/kyoto_machiya_front_day.png",
+    "preview_night": "renders/kyoto_machiya_front.png",
+    "preview_plan": "renders/kyoto_machiya_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 21,
+    "light": 8,
+    "light_fixture": 8,
+    "wall": 22,
+    "floor": 7,
+    "trim": 10,
+    "door": 8,
+    "window": 50,
+    "stair": 2,
+    "railing": 5,
+    "collider": 2,
+    "label": 7,
+    "roof": 1,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "laundromat_flats",
+   "name_zh": "泡泡自助洗衣",
+   "name_en": "Bubbles Laundromat",
+   "style": "Urban Laundromat Walk-up",
+   "style_zh": "自助洗衣公寓",
+   "tier": "budget",
+   "category": "laundromat + flats",
+   "game_styles": [
+    "slice-of-life",
+    "anime",
+    "realistic",
+    "noir"
+   ],
+   "description": "Narrow 3-storey mosaic block: G/F coin laundry with washer wall and bench, two small flats above.",
+   "floors": 3,
+   "plot": [
+    [
+     -75.5,
+     -77.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    -75.5,
+    -77.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    13.0,
+    15.0,
+    13.1
+   ],
+   "height_m": 12.7,
+   "entrances": [
+    {
+     "name": "laundromat_flats.F1_S1",
+     "side": "S",
+     "a": -2.4,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "laundromat_flats.F1_E1",
+     "side": "E",
+     "a": 0.64,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "laundromat_flats.PH_W0",
+     "side": "W",
+     "a": 0.64,
+     "z": 9.8,
+     "interior": false
+    }
+   ],
+   "interior_doors": 6,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -2.4,
+      -7.5,
+      0
+     ]
+    }
+   ],
+   "objects": 207,
+   "triangles_approx": 102868,
+   "lights": 10,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 52,
+   "collection": "BLD_laundromat_flats",
+   "root_object": "BLD_laundromat_flats",
+   "labels_collection": "LBL_laundromat_flats",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_laundromat_flats",
+    "glb": "export/glb/laundromat_flats.glb",
+    "glb_kb": 21447,
+    "preview_day": "renders/laundromat_flats_front_day.png",
+    "preview_night": "renders/laundromat_flats_front.png",
+    "preview_plan": "renders/laundromat_flats_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 52,
+    "trim": 17,
+    "wall": 38,
+    "floor": 12,
+    "light": 10,
+    "light_fixture": 10,
+    "door": 9,
+    "window": 22,
+    "stair": 6,
+    "railing": 15,
+    "collider": 6,
+    "label": 7,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "library_brutalist",
+   "name_zh": "市立混凝土圖書館",
+   "name_en": "Concrete Public Library",
+   "style": "Brutalist",
+   "style_zh": "粗獷主義",
+   "tier": "civic",
+   "category": "library",
+   "game_styles": [
+    "realistic",
+    "dystopian",
+    "mystery",
+    "anime",
+    "post-apocalyptic"
+   ],
+   "description": "Massive exposed-concrete library: tall reading hall of stacks, upper reading room + meeting room, deep concrete fins and slab crown.",
+   "floors": 2,
+   "plot": [
+    [
+     -92.5,
+     -42.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -92.5,
+    -42.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    23.0,
+    21.0,
+    9.8
+   ],
+   "height_m": 9.4,
+   "entrances": [
+    {
+     "name": "library_brutalist.F1_S4",
+     "side": "S",
+     "a": -3.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "library_brutalist.F1_E1",
+     "side": "E",
+     "a": 1.8,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 6,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -3.0,
+      -9.5,
+      0
+     ]
+    }
+   ],
+   "objects": 167,
+   "triangles_approx": 122576,
+   "lights": 8,
+   "interactables": [
+    "open",
+    "sit",
+    "use",
+    "wash"
+   ],
+   "furniture": 55,
+   "collection": "BLD_library_brutalist",
+   "root_object": "BLD_library_brutalist",
+   "labels_collection": "LBL_library_brutalist",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_library_brutalist",
+    "glb": "export/glb/library_brutalist.glb",
+    "glb_kb": 28920,
+    "preview_day": "renders/library_brutalist_front_day.png",
+    "preview_night": "renders/library_brutalist_front.png",
+    "preview_plan": "renders/library_brutalist_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 55,
+    "structure": 1,
+    "floor": 8,
+    "wall": 25,
+    "light": 8,
+    "light_fixture": 8,
+    "trim": 11,
+    "door": 8,
+    "window": 24,
+    "stair": 2,
+    "railing": 5,
+    "collider": 2,
+    "label": 7,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "lighthouse_cape",
+   "name_zh": "海角燈塔",
+   "name_en": "Cape Lighthouse",
+   "style": "Maritime Lighthouse",
+   "style_zh": "海事燈塔",
+   "tier": "landmark",
+   "category": "lighthouse",
+   "game_styles": [
+    "realistic",
+    "horror",
+    "mystery",
+    "adventure",
+    "ghibli"
+   ],
+   "description": "Red/white striped 5-storey round tower with spiral stair, gallery deck, glazed lantern room with glowing lens; keeper's cottage.",
+   "floors": 5,
+   "plot": [
+    [
+     -56.0,
+     -99.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -56.0,
+    -99.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    18.4,
+    20.0,
+    21.55
+   ],
+   "height_m": 21.15,
+   "entrances": [
+    {
+     "name": "lighthouse_cape.F1_8_0",
+     "side": "S",
+     "a": 0.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "lighthouse_cape.Lantern_8_0",
+     "side": "S",
+     "a": 0.0,
+     "z": 16.25,
+     "interior": false
+    },
+    {
+     "name": "lighthouse_cape.Cottage_S0",
+     "side": "S",
+     "a": 6.0,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      0.0,
+      -5.7,
+      0
+     ]
+    }
+   ],
+   "objects": 418,
+   "triangles_approx": 95048,
+   "lights": 7,
+   "interactables": [
+    "open",
+    "sit",
+    "sleep",
+    "use"
+   ],
+   "furniture": 7,
+   "collection": "BLD_lighthouse_cape",
+   "root_object": "BLD_lighthouse_cape",
+   "labels_collection": "LBL_lighthouse_cape",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_lighthouse_cape",
+    "glb": "export/glb/lighthouse_cape.glb",
+    "glb_kb": 11384,
+    "preview_day": "renders/lighthouse_cape_front_day.png",
+    "preview_night": "renders/lighthouse_cape_front.png",
+    "preview_plan": "renders/lighthouse_cape_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 7,
+    "light": 7,
+    "wall": 140,
+    "window": 22,
+    "trim": 4,
+    "door": 3,
+    "floor": 9,
+    "light_fixture": 6,
+    "roof": 2,
+    "stair": 5,
+    "railing": 205,
+    "label": 7,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "london_terrace",
+   "name_zh": "倫敦紅磚聯排",
+   "name_en": "London Victorian Terrace",
+   "style": "Victorian Terrace",
+   "style_zh": "維多利亞聯排屋",
+   "tier": "standard",
+   "category": "townhouse",
+   "game_styles": [
+    "realistic",
+    "detective",
+    "europe",
+    "steampunk",
+    "horror"
+   ],
+   "description": "Red-brick 3-storey Victorian terrace: bay window, black front door with fanlight, slate gable roof, chimney stacks.",
+   "floors": 3,
+   "plot": [
+    [
+     -118.0,
+     15.8,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -118.0,
+    15.8,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    14.0,
+    16.0,
+    15.6
+   ],
+   "height_m": 15.2,
+   "entrances": [
+    {
+     "name": "london_terrace.F1_S1",
+     "side": "S",
+     "a": 1.2,
+     "z": 0.6,
+     "interior": false
+    },
+    {
+     "name": "london_terrace.F1_E1",
+     "side": "E",
+     "a": 1.14,
+     "z": 0.6,
+     "interior": false
+    }
+   ],
+   "interior_doors": 6,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      1.2,
+      -8.0,
+      0
+     ]
+    }
+   ],
+   "objects": 188,
+   "triangles_approx": 83848,
+   "lights": 11,
+   "interactables": [
+    "cook",
+    "open",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 36,
+   "collection": "BLD_london_terrace",
+   "root_object": "BLD_london_terrace",
+   "labels_collection": "LBL_london_terrace",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_london_terrace",
+    "glb": "export/glb/london_terrace.glb",
+    "glb_kb": 17337,
+    "preview_day": "renders/london_terrace_front_day.png",
+    "preview_night": "renders/london_terrace_front.png",
+    "preview_plan": "renders/london_terrace_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "trim": 17,
+    "window": 23,
+    "furniture": 36,
+    "light": 11,
+    "light_fixture": 11,
+    "wall": 33,
+    "floor": 13,
+    "door": 14,
+    "stair": 5,
+    "railing": 10,
+    "collider": 5,
+    "label": 7,
+    "structure": 1,
+    "roof": 1,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "med_villa",
+   "name_zh": "地中海白屋",
+   "name_en": "Mediterranean White House",
+   "style": "Mediterranean",
+   "style_zh": "地中海風",
+   "tier": "upscale",
+   "category": "house",
+   "game_styles": [
+    "realistic",
+    "summer",
+    "romance",
+    "anime"
+   ],
+   "description": "Whitewashed 2-storey house with blue door and shutters, terracotta hip roof, balcony, bougainvillea boxes.",
+   "floors": 2,
+   "plot": [
+    [
+     -150.5,
+     -15.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    -150.5,
+    -15.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    17.0,
+    15.0,
+    9.4
+   ],
+   "height_m": 9.0,
+   "entrances": [
+    {
+     "name": "med_villa.F1_S2",
+     "side": "S",
+     "a": -1.13,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "med_villa.F1_E1",
+     "side": "E",
+     "a": 0.64,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "med_villa.F2_S1",
+     "side": "S",
+     "a": -1.45,
+     "z": 3.4,
+     "interior": false
+    },
+    {
+     "name": "med_villa.F2_S3",
+     "side": "S",
+     "a": 4.33,
+     "z": 3.4,
+     "interior": false
+    }
+   ],
+   "interior_doors": 8,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -1.13,
+      -7.5,
+      0
+     ]
+    }
+   ],
+   "objects": 191,
+   "triangles_approx": 76794,
+   "lights": 10,
+   "interactables": [
+    "cook",
+    "open",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 50,
+   "collection": "BLD_med_villa",
+   "root_object": "BLD_med_villa",
+   "labels_collection": "LBL_med_villa",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_med_villa",
+    "glb": "export/glb/med_villa.glb",
+    "glb_kb": 20000,
+    "preview_day": "renders/med_villa_front_day.png",
+    "preview_night": "renders/med_villa_front.png",
+    "preview_plan": "renders/med_villa_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 50,
+    "floor": 10,
+    "wall": 26,
+    "light": 10,
+    "light_fixture": 10,
+    "trim": 21,
+    "door": 16,
+    "window": 17,
+    "stair": 2,
+    "railing": 11,
+    "collider": 8,
+    "label": 7,
+    "terrain": 1,
+    "roof": 1,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "medieval_tavern",
+   "name_zh": "躍馬旅店",
+   "name_en": "The Prancing Stag Tavern",
+   "style": "Medieval Fantasy Tavern",
+   "style_zh": "中世紀酒館",
+   "tier": "standard",
+   "category": "tavern + inn",
+   "game_styles": [
+    "fantasy",
+    "medieval",
+    "rpg",
+    "realistic",
+    "anime"
+   ],
+   "description": "Stone-and-timber tavern: great hearth, bar, kitchen; half-timbered guest rooms upstairs; slate roof, hanging sign, ale barrels, well.",
+   "floors": 2,
+   "plot": [
+    [
+     22.0,
+     -102.2,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    22.0,
+    -102.2,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    26.0,
+    16.3,
+    14.35
+   ],
+   "height_m": 13.95,
+   "entrances": [
+    {
+     "name": "medieval_tavern.F1_S3",
+     "side": "S",
+     "a": -1.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "medieval_tavern.F1_E1",
+     "side": "E",
+     "a": 1.14,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 9,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -1.0,
+      -8.0,
+      0
+     ]
+    }
+   ],
+   "objects": 199,
+   "triangles_approx": 88780,
+   "lights": 13,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 68,
+   "collection": "BLD_medieval_tavern",
+   "root_object": "BLD_medieval_tavern",
+   "labels_collection": "LBL_medieval_tavern",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_medieval_tavern",
+    "glb": "export/glb/medieval_tavern.glb",
+    "glb_kb": 16578,
+    "preview_day": "renders/medieval_tavern_front_day.png",
+    "preview_night": "renders/medieval_tavern_front.png",
+    "preview_plan": "renders/medieval_tavern_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 68,
+    "trim": 17,
+    "wall": 27,
+    "floor": 8,
+    "light": 13,
+    "light_fixture": 13,
+    "door": 14,
+    "window": 19,
+    "stair": 2,
+    "railing": 5,
+    "collider": 2,
+    "sign": 2,
+    "label": 7,
+    "roof": 1,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "midcentury_house",
+   "name_zh": "中世紀現代宅",
+   "name_en": "Palm Springs Mid-Century House",
+   "style": "Mid-Century Modern",
+   "style_zh": "中世紀現代",
+   "tier": "upscale",
+   "category": "house",
+   "game_styles": [
+    "retro",
+    "realistic",
+    "mad-men",
+    "modern",
+    "gta-like"
+   ],
+   "description": "Low single-storey timber house with floor-to-ceiling glass, butterfly-flat shed roof with deep eaves, stone chimney, carport.",
+   "floors": 1,
+   "plot": [
+    [
+     23.0,
+     -77.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    23.0,
+    -77.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    30.0,
+    15.0,
+    5.1
+   ],
+   "height_m": 4.7,
+   "entrances": [
+    {
+     "name": "midcentury_house.F1_S3",
+     "side": "S",
+     "a": -2.0,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -2.0,
+      -7.5,
+      0
+     ]
+    }
+   ],
+   "objects": 70,
+   "triangles_approx": 72408,
+   "lights": 3,
+   "interactables": [
+    "cook",
+    "open",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 24,
+   "collection": "BLD_midcentury_house",
+   "root_object": "BLD_midcentury_house",
+   "labels_collection": "LBL_midcentury_house",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_midcentury_house",
+    "glb": "export/glb/midcentury_house.glb",
+    "glb_kb": 13870,
+    "preview_day": "renders/midcentury_house_front_day.png",
+    "preview_night": "renders/midcentury_house_front.png",
+    "preview_plan": "renders/midcentury_house_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 24,
+    "structure": 1,
+    "wall": 10,
+    "window": 10,
+    "floor": 2,
+    "trim": 2,
+    "door": 5,
+    "label": 7,
+    "terrain": 1,
+    "roof": 1,
+    "light": 3,
+    "light_fixture": 3,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "moroccan_riad",
+   "name_zh": "摩洛哥庭園宅",
+   "name_en": "Moroccan Riad House",
+   "style": "Moroccan Riad",
+   "style_zh": "摩洛哥風",
+   "tier": "upscale",
+   "category": "guesthouse",
+   "game_styles": [
+    "fantasy",
+    "desert",
+    "realistic",
+    "adventure"
+   ],
+   "description": "Ochre 2-storey riad: carved arch door, mashrabiya grilles, tiled lounge, guest rooms, roof terrace with lanterns.",
+   "floors": 2,
+   "plot": [
+    [
+     -110.5,
+     -16.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    -110.5,
+    -16.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    17.0,
+    17.0,
+    9.9
+   ],
+   "height_m": 9.5,
+   "entrances": [
+    {
+     "name": "moroccan_riad.F1_S2",
+     "side": "S",
+     "a": -2.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "moroccan_riad.F1_E2",
+     "side": "E",
+     "a": 1.64,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "moroccan_riad.PH_W0",
+     "side": "W",
+     "a": 1.64,
+     "z": 6.6,
+     "interior": false
+    }
+   ],
+   "interior_doors": 8,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -2.0,
+      -8.5,
+      0
+     ]
+    }
+   ],
+   "objects": 203,
+   "triangles_approx": 87348,
+   "lights": 15,
+   "interactables": [
+    "cook",
+    "open",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 51,
+   "collection": "BLD_moroccan_riad",
+   "root_object": "BLD_moroccan_riad",
+   "labels_collection": "LBL_moroccan_riad",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_moroccan_riad",
+    "glb": "export/glb/moroccan_riad.glb",
+    "glb_kb": 21603,
+    "preview_day": "renders/moroccan_riad_front_day.png",
+    "preview_night": "renders/moroccan_riad_front.png",
+    "preview_plan": "renders/moroccan_riad_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "trim": 17,
+    "furniture": 51,
+    "floor": 11,
+    "wall": 31,
+    "light": 15,
+    "light_fixture": 15,
+    "door": 14,
+    "window": 23,
+    "stair": 4,
+    "railing": 10,
+    "collider": 4,
+    "label": 7,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "nordic_cabin",
+   "name_zh": "北歐黑木小屋",
+   "name_en": "Nordic Black Cabin",
+   "style": "Scandinavian Cabin",
+   "style_zh": "北歐小屋",
+   "tier": "standard",
+   "category": "cabin",
+   "game_styles": [
+    "realistic",
+    "survival",
+    "horror",
+    "cozy",
+    "winter"
+   ],
+   "description": "Single-storey black-timber cabin with a steep slate gable, big picture window, fireplace, firewood stack.",
+   "floors": 1,
+   "plot": [
+    [
+     137.5,
+     14.8,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    137.5,
+    14.8,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    13.0,
+    14.0,
+    8.3
+   ],
+   "height_m": 7.9,
+   "entrances": [
+    {
+     "name": "nordic_cabin.F1_S2",
+     "side": "S",
+     "a": 0.0,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      0.0,
+      -7.0,
+      0
+     ]
+    }
+   ],
+   "objects": 60,
+   "triangles_approx": 61480,
+   "lights": 4,
+   "interactables": [
+    "open",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 18,
+   "collection": "BLD_nordic_cabin",
+   "root_object": "BLD_nordic_cabin",
+   "labels_collection": "LBL_nordic_cabin",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_nordic_cabin",
+    "glb": "export/glb/nordic_cabin.glb",
+    "glb_kb": 14138,
+    "preview_day": "renders/nordic_cabin_front_day.png",
+    "preview_night": "renders/nordic_cabin_front.png",
+    "preview_plan": "renders/nordic_cabin_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 18,
+    "light": 4,
+    "light_fixture": 4,
+    "wall": 9,
+    "window": 8,
+    "floor": 2,
+    "trim": 2,
+    "door": 3,
+    "label": 7,
+    "terrain": 1,
+    "roof": 1,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "nyc_brownstone",
+   "name_zh": "紐約褐石排屋",
+   "name_en": "Brooklyn Brownstone",
+   "style": "New York Brownstone",
+   "style_zh": "紐約褐石屋",
+   "tier": "upscale",
+   "category": "townhouse",
+   "game_styles": [
+    "realistic",
+    "noir",
+    "sitcom",
+    "crime",
+    "urban"
+   ],
+   "description": "Narrow 4-storey brownstone with raised stoop, double timber door, cornice, sash windows, flat roof with water tank.",
+   "floors": 4,
+   "plot": [
+    [
+     -132.5,
+     18.3,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -132.5,
+    18.3,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    13.0,
+    19.5,
+    16.6
+   ],
+   "height_m": 16.2,
+   "entrances": [
+    {
+     "name": "nyc_brownstone.F1_S1",
+     "side": "S",
+     "a": -1.6,
+     "z": 1.4,
+     "interior": false
+    },
+    {
+     "name": "nyc_brownstone.F1_E2",
+     "side": "E",
+     "a": 2.14,
+     "z": 1.4,
+     "interior": false
+    }
+   ],
+   "interior_doors": 8,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -1.6,
+      -9.0,
+      0
+     ]
+    }
+   ],
+   "objects": 254,
+   "triangles_approx": 93460,
+   "lights": 14,
+   "interactables": [
+    "cook",
+    "open",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 54,
+   "collection": "BLD_nyc_brownstone",
+   "root_object": "BLD_nyc_brownstone",
+   "labels_collection": "LBL_nyc_brownstone",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_nyc_brownstone",
+    "glb": "export/glb/nyc_brownstone.glb",
+    "glb_kb": 19966,
+    "preview_day": "renders/nyc_brownstone_front_day.png",
+    "preview_night": "renders/nyc_brownstone_front.png",
+    "preview_plan": "renders/nyc_brownstone_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "trim": 22,
+    "furniture": 54,
+    "light": 14,
+    "light_fixture": 14,
+    "wall": 45,
+    "floor": 14,
+    "door": 13,
+    "window": 40,
+    "stair": 7,
+    "railing": 15,
+    "collider": 7,
+    "label": 7,
+    "structure": 1,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "observatory_dome",
+   "name_zh": "星穹天文台",
+   "name_en": "Starvault Observatory",
+   "style": "Domed Observatory",
+   "style_zh": "圓頂天文台",
+   "tier": "landmark",
+   "category": "observatory",
+   "game_styles": [
+    "sci-fi",
+    "realistic",
+    "mystery",
+    "anime",
+    "academy"
+   ],
+   "description": "12-sided white drum: visitor/lab floor, control room, telescope floor under a copper dome with an opening slit and a large telescope.",
+   "floors": 2,
+   "plot": [
+    [
+     78.0,
+     -101.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    78.0,
+    -101.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    14.0,
+    16.0,
+    13.21
+   ],
+   "height_m": 12.81,
+   "entrances": [
+    {
+     "name": "observatory_dome.F1_8_0",
+     "side": "S",
+     "a": 0.0,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      0.0,
+      -7.5,
+      0
+     ]
+    }
+   ],
+   "objects": 168,
+   "triangles_approx": 75716,
+   "lights": 3,
+   "interactables": [
+    "open",
+    "sit",
+    "use",
+    "work"
+   ],
+   "furniture": 14,
+   "collection": "BLD_observatory_dome",
+   "root_object": "BLD_observatory_dome",
+   "labels_collection": "LBL_observatory_dome",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_observatory_dome",
+    "glb": "export/glb/observatory_dome.glb",
+    "glb_kb": 9837,
+    "preview_day": "renders/observatory_dome_front_day.png",
+    "preview_night": "renders/observatory_dome_front.png",
+    "preview_plan": "renders/observatory_dome_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 14,
+    "roof": 1,
+    "light": 3,
+    "light_fixture": 3,
+    "window": 8,
+    "trim": 12,
+    "door": 1,
+    "wall": 48,
+    "floor": 4,
+    "stair": 2,
+    "railing": 64,
+    "label": 7,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "office_glass_tower",
+   "name_zh": "海港金融中心",
+   "name_en": "Harbor Finance Tower",
+   "style": "Modern Glass High-rise",
+   "style_zh": "現代玻璃帷幕大樓",
+   "tier": "luxury",
+   "category": "office high-rise",
+   "game_styles": [
+    "realistic",
+    "modern",
+    "corporate",
+    "thriller",
+    "cyberpunk"
+   ],
+   "description": "20x20 m, 10 floors: marble lobby + reception, 2 elevator shafts (car objects with level data) + fire stair, open-plan offices / meeting / pantry / server room, 5 vacant shell floors for custom fit-out, executive suite, roof with helipad and plant.",
+   "floors": 10,
+   "plot": [
+    [
+     20.0,
+     20.5,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    20.0,
+    20.5,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    26.0,
+    25.5,
+    42.3
+   ],
+   "height_m": 41.9,
+   "entrances": [
+    {
+     "name": "office_glass_tower.F1_S1",
+     "side": "S",
+     "a": -1.02,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "office_glass_tower.F1_S2",
+     "side": "S",
+     "a": 1.02,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "office_glass_tower.F1_N1",
+     "side": "N",
+     "a": 5.6,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "office_glass_tower.RoofCore_S0",
+     "side": "S",
+     "a": -2.4,
+     "z": 36.9,
+     "interior": false
+    }
+   ],
+   "interior_doors": 23,
+   "spawns": [
+    {
+     "name": "forecourt",
+     "local": [
+      0.0,
+      -14.0,
+      0
+     ]
+    }
+   ],
+   "objects": 1205,
+   "triangles_approx": 290760,
+   "lights": 105,
+   "interactables": [
+    "cook",
+    "elevator",
+    "elevator_call",
+    "open",
+    "shop",
+    "sit",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 479,
+   "collection": "BLD_office_glass_tower",
+   "root_object": "BLD_office_glass_tower",
+   "labels_collection": "LBL_office_glass_tower",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_office_glass_tower",
+    "glb": "export/glb/office_glass_tower.glb",
+    "glb_kb": 56096,
+    "preview_day": "renders/office_glass_tower_front_day.png",
+    "preview_night": "renders/office_glass_tower_front.png",
+    "preview_plan": "renders/office_glass_tower_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "sign": 10,
+    "furniture": 479,
+    "structure": 1,
+    "light_fixture": 106,
+    "elevator": 2,
+    "wall": 190,
+    "trim": 68,
+    "door": 67,
+    "window": 42,
+    "light": 105,
+    "floor": 37,
+    "stair": 20,
+    "railing": 50,
+    "collider": 20,
+    "label": 7,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "paris_haussmann",
+   "name_zh": "巴黎奧斯曼公寓",
+   "name_en": "Parisian Haussmann Apartment",
+   "style": "Haussmann Parisian",
+   "style_zh": "巴黎奧斯曼式",
+   "tier": "upscale",
+   "category": "apartment",
+   "game_styles": [
+    "realistic",
+    "romance",
+    "anime",
+    "noir",
+    "europe"
+   ],
+   "description": "Cream stone 4-storey block: corner café with terrace, wrought-iron balconies, mansard slate roof with dormers, cornice.",
+   "floors": 4,
+   "plot": [
+    [
+     -149.5,
+     17.3,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -149.5,
+    17.3,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    19.0,
+    17.5,
+    18.0
+   ],
+   "height_m": 17.6,
+   "entrances": [
+    {
+     "name": "paris_haussmann.F1_S2",
+     "side": "S",
+     "a": -4.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "paris_haussmann.F1_E1",
+     "side": "E",
+     "a": 0.58,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "paris_haussmann.F2_S1",
+     "side": "S",
+     "a": 0.0,
+     "z": 4.0,
+     "interior": false
+    },
+    {
+     "name": "paris_haussmann.F2_S2",
+     "side": "S",
+     "a": 4.52,
+     "z": 4.0,
+     "interior": false
+    },
+    {
+     "name": "paris_haussmann.F3_S1",
+     "side": "S",
+     "a": 0.0,
+     "z": 7.3,
+     "interior": false
+    },
+    {
+     "name": "paris_haussmann.F3_S2",
+     "side": "S",
+     "a": 4.52,
+     "z": 7.3,
+     "interior": false
+    },
+    {
+     "name": "paris_haussmann.F4_S1",
+     "side": "S",
+     "a": 0.0,
+     "z": 10.6,
+     "interior": false
+    },
+    {
+     "name": "paris_haussmann.F4_S2",
+     "side": "S",
+     "a": 4.52,
+     "z": 10.6,
+     "interior": false
+    }
+   ],
+   "interior_doors": 15,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -4.0,
+      -8.0,
+      0
+     ]
+    }
+   ],
+   "objects": 412,
+   "triangles_approx": 136908,
+   "lights": 19,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 121,
+   "collection": "BLD_paris_haussmann",
+   "root_object": "BLD_paris_haussmann",
+   "labels_collection": "LBL_paris_haussmann",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_paris_haussmann",
+    "glb": "export/glb/paris_haussmann.glb",
+    "glb_kb": 27894,
+    "preview_day": "renders/paris_haussmann_front_day.png",
+    "preview_night": "renders/paris_haussmann_front.png",
+    "preview_plan": "renders/paris_haussmann_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "trim": 40,
+    "furniture": 121,
+    "floor": 23,
+    "wall": 51,
+    "light": 19,
+    "light_fixture": 19,
+    "door": 31,
+    "window": 33,
+    "stair": 6,
+    "railing": 33,
+    "collider": 24,
+    "label": 7,
+    "roof": 2,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "pod_solar",
+   "name_zh": "日光艙屋",
+   "name_en": "Solar Pod Home",
+   "style": "Sci-Fi Off-Grid Module",
+   "style_zh": "科幻離網艙屋",
+   "tier": "upscale",
+   "category": "house",
+   "game_styles": [
+    "sci-fi",
+    "solarpunk",
+    "post-apocalyptic",
+    "anime",
+    "realistic"
+   ],
+   "description": "Raised copper module house: pipe-frame base + deck, lower glazed kitchen/lab pod, interior stair to an upper sleeping module with wrap balcony, roof hatch, two large tilting solar panels, antenna mast, hydroponic planters.",
+   "floors": 2,
+   "plot": [
+    [
+     56.0,
+     -17.0,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    56.0,
+    -17.0,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    18.0,
+    16.0,
+    11.78
+   ],
+   "height_m": 11.38,
+   "entrances": [
+    {
+     "name": "pod_solar.Lo_S1",
+     "side": "S",
+     "a": 0.9,
+     "z": 0.9,
+     "interior": false
+    },
+    {
+     "name": "pod_solar.Up_S1",
+     "side": "S",
+     "a": 0.7,
+     "z": 3.8,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "deck_stair",
+     "local": [
+      1.2,
+      -6.32,
+      0
+     ]
+    }
+   ],
+   "objects": 117,
+   "triangles_approx": 75152,
+   "lights": 5,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 24,
+   "collection": "BLD_pod_solar",
+   "root_object": "BLD_pod_solar",
+   "labels_collection": "LBL_pod_solar",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_pod_solar",
+    "glb": "export/glb/pod_solar.glb",
+    "glb_kb": 16645,
+    "preview_day": "renders/pod_solar_front_day.png",
+    "preview_night": "renders/pod_solar_front.png",
+    "preview_plan": "renders/pod_solar_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 24,
+    "structure": 1,
+    "trim": 12,
+    "floor": 5,
+    "light": 5,
+    "railing": 14,
+    "collider": 10,
+    "stair": 2,
+    "label": 7,
+    "wall": 16,
+    "window": 8,
+    "light_fixture": 6,
+    "door": 3,
+    "terrain": 1,
+    "spawn": 1,
+    "vegetation": 2
+   }
+  },
+  {
+   "asset_id": "police_station",
+   "name_zh": "海港警察局",
+   "name_en": "Harbor Police Station",
+   "style": "Civic Police Station",
+   "style_zh": "警察局",
+   "tier": "civic",
+   "category": "police station",
+   "game_styles": [
+    "realistic",
+    "crime",
+    "action",
+    "detective",
+    "anime"
+   ],
+   "description": "Concrete 2-storey precinct: public lobby with front desk, squad office, holding/storage, upstairs open office, briefing room, server room.",
+   "floors": 2,
+   "plot": [
+    [
+     136.5,
+     -20.8,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    136.5,
+    -20.8,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    23.0,
+    22.0,
+    10.4
+   ],
+   "height_m": 10.0,
+   "entrances": [
+    {
+     "name": "police_station.F1_S5",
+     "side": "S",
+     "a": -4.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "police_station.F1_E2",
+     "side": "E",
+     "a": 1.86,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 8,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -4.0,
+      -9.0,
+      0
+     ]
+    }
+   ],
+   "objects": 245,
+   "triangles_approx": 118340,
+   "lights": 13,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 109,
+   "collection": "BLD_police_station",
+   "root_object": "BLD_police_station",
+   "labels_collection": "LBL_police_station",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_police_station",
+    "glb": "export/glb/police_station.glb",
+    "glb_kb": 22103,
+    "preview_day": "renders/police_station_front_day.png",
+    "preview_night": "renders/police_station_front.png",
+    "preview_plan": "renders/police_station_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 109,
+    "light": 13,
+    "light_fixture": 12,
+    "floor": 9,
+    "wall": 27,
+    "trim": 13,
+    "door": 10,
+    "window": 33,
+    "stair": 2,
+    "railing": 5,
+    "collider": 2,
+    "label": 7,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "post_office",
+   "name_zh": "海港郵局",
+   "name_en": "Harbor Post Office",
+   "style": "Civic Post Office",
+   "style_zh": "郵局",
+   "tier": "civic",
+   "category": "post office",
+   "game_styles": [
+    "realistic",
+    "slice-of-life",
+    "anime",
+    "rpg-village"
+   ],
+   "description": "Single-storey cream-brick post office: counter hall with rope queue, parcel storage, green post box, flag.",
+   "floors": 1,
+   "plot": [
+    [
+     -51.5,
+     -46.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -51.5,
+    -46.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    17.0,
+    15.0,
+    5.06
+   ],
+   "height_m": 4.66,
+   "entrances": [
+    {
+     "name": "post_office.F1_S3",
+     "side": "S",
+     "a": -2.0,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -2.0,
+      -7.5,
+      0
+     ]
+    }
+   ],
+   "objects": 52,
+   "triangles_approx": 62204,
+   "lights": 2,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "use"
+   ],
+   "furniture": 10,
+   "collection": "BLD_post_office",
+   "root_object": "BLD_post_office",
+   "labels_collection": "LBL_post_office",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_post_office",
+    "glb": "export/glb/post_office.glb",
+    "glb_kb": 10002,
+    "preview_day": "renders/post_office_front_day.png",
+    "preview_night": "renders/post_office_front.png",
+    "preview_plan": "renders/post_office_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "trim": 3,
+    "furniture": 10,
+    "wall": 10,
+    "window": 11,
+    "floor": 3,
+    "door": 1,
+    "light": 2,
+    "light_fixture": 2,
+    "label": 7,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "power_gym",
+   "name_zh": "能量健身工廠",
+   "name_en": "PowerHouse Gym",
+   "style": "Industrial Fitness Hall",
+   "style_zh": "工業風健身房",
+   "tier": "standard",
+   "category": "gym",
+   "game_styles": [
+    "realistic",
+    "sports",
+    "slice-of-life",
+    "anime"
+   ],
+   "description": "Steel-clad sawtooth hall full of treadmills and weight benches, glass front, neon sign.",
+   "floors": 1,
+   "plot": [
+    [
+     38.5,
+     -45.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    38.5,
+    -45.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    21.0,
+    17.0,
+    7.2
+   ],
+   "height_m": 6.8,
+   "entrances": [
+    {
+     "name": "power_gym.F1_S4",
+     "side": "S",
+     "a": -5.0,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -5.0,
+      -8.5,
+      0
+     ]
+    }
+   ],
+   "objects": 57,
+   "triangles_approx": 67128,
+   "lights": 1,
+   "interactables": [
+    "open",
+    "use"
+   ],
+   "furniture": 20,
+   "collection": "BLD_power_gym",
+   "root_object": "BLD_power_gym",
+   "labels_collection": "LBL_power_gym",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_power_gym",
+    "glb": "export/glb/power_gym.glb",
+    "glb_kb": 6797,
+    "preview_day": "renders/power_gym_front_day.png",
+    "preview_night": "renders/power_gym_front.png",
+    "preview_plan": "renders/power_gym_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "wall": 8,
+    "window": 11,
+    "floor": 3,
+    "trim": 1,
+    "door": 1,
+    "light": 1,
+    "light_fixture": 1,
+    "label": 7,
+    "furniture": 20,
+    "roof": 1,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "school_primary",
+   "name_zh": "海港國民小學",
+   "name_en": "Harbor Primary School",
+   "style": "Asian Public School",
+   "style_zh": "公立學校",
+   "tier": "civic",
+   "category": "school",
+   "game_styles": [
+    "slice-of-life",
+    "anime",
+    "horror",
+    "realistic",
+    "school-life"
+   ],
+   "description": "3-storey brick school: classrooms with desks/whiteboards on every floor, library, front-yard basketball court, flagpole, clock.",
+   "floors": 3,
+   "plot": [
+    [
+     -120.5,
+     -38.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -120.5,
+    -38.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    31.0,
+    24.5,
+    11.46
+   ],
+   "height_m": 11.06,
+   "entrances": [
+    {
+     "name": "school_primary.F1_S8",
+     "side": "S",
+     "a": 0.4,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "school_primary.F1_E2",
+     "side": "E",
+     "a": 1.86,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 15,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      0.4,
+      -9.0,
+      0
+     ]
+    }
+   ],
+   "objects": 718,
+   "triangles_approx": 141760,
+   "lights": 18,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 497,
+   "collection": "BLD_school_primary",
+   "root_object": "BLD_school_primary",
+   "labels_collection": "LBL_school_primary",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_school_primary",
+    "glb": "export/glb/school_primary.glb",
+    "glb_kb": 28734,
+    "preview_day": "renders/school_primary_front_day.png",
+    "preview_night": "renders/school_primary_front.png",
+    "preview_plan": "renders/school_primary_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "trim": 26,
+    "furniture": 497,
+    "sign": 3,
+    "floor": 14,
+    "wall": 43,
+    "light": 18,
+    "light_fixture": 18,
+    "door": 17,
+    "window": 56,
+    "stair": 4,
+    "railing": 10,
+    "collider": 4,
+    "label": 7,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "seaview_motel",
+   "name_zh": "海景汽車旅館",
+   "name_en": "Seaview Motor Inn",
+   "style": "American Roadside Motel",
+   "style_zh": "公路汽車旅館",
+   "tier": "budget",
+   "category": "motel",
+   "game_styles": [
+    "road-movie",
+    "horror",
+    "noir",
+    "realistic",
+    "retro"
+   ],
+   "description": "Two-storey motel strip: office/lobby, rows of guest rooms each with its own balcony walkway, neon MOTEL sign, parking.",
+   "floors": 2,
+   "plot": [
+    [
+     108.5,
+     -41.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    108.5,
+    -41.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    29.0,
+    20.12,
+    7.16
+   ],
+   "height_m": 6.76,
+   "entrances": [
+    {
+     "name": "seaview_motel.F1_S6",
+     "side": "S",
+     "a": -9.6,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "seaview_motel.F1_E1",
+     "side": "E",
+     "a": 0.64,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "seaview_motel.F2_S0",
+     "side": "S",
+     "a": -9.42,
+     "z": 3.2,
+     "interior": false
+    },
+    {
+     "name": "seaview_motel.F2_S1",
+     "side": "S",
+     "a": -4.71,
+     "z": 3.2,
+     "interior": false
+    },
+    {
+     "name": "seaview_motel.F2_S2",
+     "side": "S",
+     "a": 0.0,
+     "z": 3.2,
+     "interior": false
+    },
+    {
+     "name": "seaview_motel.F2_S3",
+     "side": "S",
+     "a": 4.71,
+     "z": 3.2,
+     "interior": false
+    },
+    {
+     "name": "seaview_motel.F2_S4",
+     "side": "S",
+     "a": 9.42,
+     "z": 3.2,
+     "interior": false
+    }
+   ],
+   "interior_doors": 18,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -9.6,
+      -7.5,
+      0
+     ]
+    }
+   ],
+   "objects": 315,
+   "triangles_approx": 117340,
+   "lights": 20,
+   "interactables": [
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 100,
+   "collection": "BLD_seaview_motel",
+   "root_object": "BLD_seaview_motel",
+   "labels_collection": "LBL_seaview_motel",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_seaview_motel",
+    "glb": "export/glb/seaview_motel.glb",
+    "glb_kb": 22556,
+    "preview_day": "renders/seaview_motel_front_day.png",
+    "preview_night": "renders/seaview_motel_front.png",
+    "preview_plan": "renders/seaview_motel_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 100,
+    "floor": 13,
+    "wall": 37,
+    "light": 20,
+    "light_fixture": 20,
+    "trim": 28,
+    "door": 25,
+    "window": 20,
+    "stair": 2,
+    "railing": 20,
+    "collider": 17,
+    "label": 7,
+    "sign": 5,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "shinto_shrine",
+   "name_zh": "朱鳥神社",
+   "name_en": "Vermilion Bird Shrine",
+   "style": "Japanese Shinto Shrine",
+   "style_zh": "日式神社",
+   "tier": "landmark",
+   "category": "shrine",
+   "game_styles": [
+    "anime",
+    "japan",
+    "fantasy",
+    "horror",
+    "realistic"
+   ],
+   "description": "Vermilion shrine hall on a stone plinth with sliding paper doors and a curved slate gable; torii gate, stone lanterns, offering box, bell, sacred tree.",
+   "floors": 1,
+   "plot": [
+    [
+     95.0,
+     -96.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    95.0,
+    -96.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    20.31,
+    20.0,
+    7.22
+   ],
+   "height_m": 6.82,
+   "entrances": [
+    {
+     "name": "shinto_shrine.F1_S2",
+     "side": "S",
+     "a": 0.0,
+     "z": 0.9,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      0.0,
+      -6.5,
+      0
+     ]
+    }
+   ],
+   "objects": 69,
+   "triangles_approx": 60756,
+   "lights": 1,
+   "interactables": [
+    "open",
+    "sit",
+    "use"
+   ],
+   "furniture": 12,
+   "collection": "BLD_shinto_shrine",
+   "root_object": "BLD_shinto_shrine",
+   "labels_collection": "LBL_shinto_shrine",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_shinto_shrine",
+    "glb": "export/glb/shinto_shrine.glb",
+    "glb_kb": 9203,
+    "preview_day": "renders/shinto_shrine_front_day.png",
+    "preview_night": "renders/shinto_shrine_front.png",
+    "preview_plan": "renders/shinto_shrine_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 12,
+    "trim": 5,
+    "wall": 8,
+    "window": 21,
+    "floor": 5,
+    "door": 2,
+    "light": 1,
+    "light_fixture": 1,
+    "stair": 1,
+    "collider": 1,
+    "label": 7,
+    "structure": 2,
+    "roof": 1,
+    "spawn": 1,
+    "vegetation": 1
+   }
+  },
+  {
+   "asset_id": "shop_neon_corner",
+   "name_zh": "藍調轉角雜貨",
+   "name_en": "Blue Corner Bodega",
+   "style": "Neon Corner Shop Diorama",
+   "style_zh": "霓虹轉角店",
+   "tier": "budget",
+   "category": "shop + flat",
+   "game_styles": [
+    "cyberpunk",
+    "anime",
+    "slice-of-life",
+    "diorama",
+    "realistic"
+   ],
+   "description": "Corner shop with open frontage (raised roller shutters) on two streets: record & game corner, snack counter, shelves, arcade. Upper blue flat with wrap balcony and LED under-glow, rooftop garden with palms.",
+   "floors": 2,
+   "plot": [
+    [
+     62.5,
+     14.6,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    62.5,
+    14.6,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    15.5,
+    14.0,
+    10.39
+   ],
+   "height_m": 9.99,
+   "entrances": [
+    {
+     "name": "shop_neon_corner.GF_S0",
+     "side": "S",
+     "a": -2.7,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "shop_neon_corner.GF_S1",
+     "side": "S",
+     "a": 2.35,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "shop_neon_corner.GF_E0",
+     "side": "E",
+     "a": -2.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "shop_neon_corner.GF_E1",
+     "side": "E",
+     "a": 1.5,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "shop_neon_corner.UF_S1",
+     "side": "S",
+     "a": -1.1,
+     "z": 3.4,
+     "interior": false
+    },
+    {
+     "name": "shop_neon_corner.UF_W0",
+     "side": "W",
+     "a": 0.0,
+     "z": 3.4,
+     "interior": false
+    }
+   ],
+   "interior_doors": 1,
+   "spawns": [
+    {
+     "name": "corner",
+     "local": [
+      6.5,
+      -6.0,
+      0
+     ]
+    }
+   ],
+   "objects": 151,
+   "triangles_approx": 111104,
+   "lights": 7,
+   "interactables": [
+    "climb",
+    "open",
+    "play",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 50,
+   "collection": "BLD_shop_neon_corner",
+   "root_object": "BLD_shop_neon_corner",
+   "labels_collection": "LBL_shop_neon_corner",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_shop_neon_corner",
+    "glb": "export/glb/shop_neon_corner.glb",
+    "glb_kb": 18955,
+    "preview_day": "renders/shop_neon_corner_front_day.png",
+    "preview_night": "renders/shop_neon_corner_front.png",
+    "preview_plan": "renders/shop_neon_corner_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 50,
+    "floor": 6,
+    "railing": 7,
+    "collider": 6,
+    "light_fixture": 9,
+    "sign": 5,
+    "structure": 1,
+    "wall": 19,
+    "trim": 8,
+    "door": 4,
+    "light": 7,
+    "stair": 1,
+    "window": 6,
+    "label": 7,
+    "ladder": 1,
+    "spawn": 1,
+    "vegetation": 3,
+    "cable": 10
+   }
+  },
+  {
+   "asset_id": "spanish_hacienda",
+   "name_zh": "西班牙莊園",
+   "name_en": "Spanish Hacienda",
+   "style": "Spanish Colonial",
+   "style_zh": "西班牙殖民風",
+   "tier": "upscale",
+   "category": "house",
+   "game_styles": [
+    "western",
+    "realistic",
+    "telenovela",
+    "rpg-village"
+   ],
+   "description": "Long single-storey stucco ranch house with arched veranda, terracotta roof, living/dining/kitchen/bedrooms.",
+   "floors": 1,
+   "plot": [
+    [
+     -130.5,
+     -18.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    -130.5,
+    -18.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    21.0,
+    18.5,
+    5.96
+   ],
+   "height_m": 5.56,
+   "entrances": [
+    {
+     "name": "spanish_hacienda.F1_S3",
+     "side": "S",
+     "a": 0.0,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      0.0,
+      -8.0,
+      0
+     ]
+    }
+   ],
+   "objects": 93,
+   "triangles_approx": 67898,
+   "lights": 6,
+   "interactables": [
+    "cook",
+    "open",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 30,
+   "collection": "BLD_spanish_hacienda",
+   "root_object": "BLD_spanish_hacienda",
+   "labels_collection": "LBL_spanish_hacienda",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_spanish_hacienda",
+    "glb": "export/glb/spanish_hacienda.glb",
+    "glb_kb": 16899,
+    "preview_day": "renders/spanish_hacienda_front_day.png",
+    "preview_night": "renders/spanish_hacienda_front.png",
+    "preview_plan": "renders/spanish_hacienda_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "structure": 1,
+    "furniture": 30,
+    "light": 6,
+    "light_fixture": 6,
+    "wall": 11,
+    "window": 13,
+    "floor": 4,
+    "trim": 6,
+    "door": 6,
+    "label": 7,
+    "roof": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "station_arctic",
+   "name_zh": "極光貨櫃研究站",
+   "name_en": "Aurora Container Research Station",
+   "style": "Polar Container Outpost",
+   "style_zh": "極地貨櫃前哨站",
+   "tier": "utility",
+   "category": "research station",
+   "game_styles": [
+    "realistic",
+    "survival",
+    "sci-fi",
+    "thriller",
+    "post-apocalyptic"
+   ],
+   "description": "Four containers (blue 20ft bunks, yellow 40ft lab, grey 20ft mess, grey 40ft comms/lounge) on stilts around a glass stair tower; twin front stairs, upper balcony walkway + slanted canopy, antenna mast, dish, fuel drums.",
+   "floors": 2,
+   "plot": [
+    [
+     -2.0,
+     86.0,
+     7.0
+    ],
+    0
+   ],
+   "position": [
+    -2.0,
+    86.0,
+    7.0
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    28.63,
+    15.69,
+    11.25
+   ],
+   "height_m": 10.65,
+   "entrances": [
+    {
+     "name": "station_arctic.Tower_S1",
+     "side": "S",
+     "a": -1.5,
+     "z": 1.7200000000000002,
+     "interior": false
+    },
+    {
+     "name": "station_arctic.Bunks_S1",
+     "side": "S",
+     "a": -5.5,
+     "z": 1.7200000000000002,
+     "interior": false
+    },
+    {
+     "name": "station_arctic.Lab_S1",
+     "side": "S",
+     "a": 5.1,
+     "z": 1.7200000000000002,
+     "interior": false
+    },
+    {
+     "name": "station_arctic.Comms_S1",
+     "side": "S",
+     "a": 4.5,
+     "z": 4.31,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "stairs_left",
+     "local": [
+      -5.5,
+      -6.14,
+      0
+     ]
+    }
+   ],
+   "objects": 203,
+   "triangles_approx": 110954,
+   "lights": 14,
+   "interactables": [
+    "cook",
+    "open",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 31,
+   "collection": "BLD_station_arctic",
+   "root_object": "BLD_station_arctic",
+   "labels_collection": "LBL_station_arctic",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_station_arctic",
+    "glb": "export/glb/station_arctic.glb",
+    "glb_kb": 16509,
+    "preview_day": "renders/station_arctic_front_day.png",
+    "preview_night": "renders/station_arctic_front.png",
+    "preview_plan": "renders/station_arctic_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 31,
+    "floor": 15,
+    "wall": 36,
+    "trim": 17,
+    "window": 16,
+    "door": 6,
+    "light": 14,
+    "light_fixture": 14,
+    "structure": 2,
+    "cable": 3,
+    "label": 7,
+    "terrain": 1,
+    "spawn": 1,
+    "stair": 4,
+    "railing": 20,
+    "collider": 11,
+    "sign": 2,
+    "vegetation": 3
+   }
+  },
+  {
+   "asset_id": "steampunk_works",
+   "name_zh": "齒輪蒸汽工坊",
+   "name_en": "Cog & Steam Works",
+   "style": "Steampunk Workshop",
+   "style_zh": "蒸汽龐克工坊",
+   "tier": "standard",
+   "category": "workshop",
+   "game_styles": [
+    "steampunk",
+    "fantasy",
+    "victorian",
+    "anime",
+    "rpg"
+   ],
+   "description": "3-storey copper-and-brick workshop: machine shop, drafting library, inventor's loft; giant brass gears, steam pipes, smokestacks, airship mooring mast.",
+   "floors": 3,
+   "plot": [
+    [
+     61.0,
+     -102.2,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    61.0,
+    -102.2,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    20.0,
+    16.0,
+    20.93
+   ],
+   "height_m": 20.53,
+   "entrances": [
+    {
+     "name": "steampunk_works.F1_S3",
+     "side": "S",
+     "a": 1.8,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "steampunk_works.F1_E1",
+     "side": "E",
+     "a": 0.58,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 8,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      1.8,
+      -8.0,
+      0
+     ]
+    }
+   ],
+   "objects": 226,
+   "triangles_approx": 111756,
+   "lights": 13,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 42,
+   "collection": "BLD_steampunk_works",
+   "root_object": "BLD_steampunk_works",
+   "labels_collection": "LBL_steampunk_works",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_steampunk_works",
+    "glb": "export/glb/steampunk_works.glb",
+    "glb_kb": 23203,
+    "preview_day": "renders/steampunk_works_front_day.png",
+    "preview_night": "renders/steampunk_works_front.png",
+    "preview_plan": "renders/steampunk_works_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 42,
+    "floor": 11,
+    "wall": 35,
+    "light": 13,
+    "light_fixture": 13,
+    "trim": 36,
+    "door": 15,
+    "window": 32,
+    "stair": 4,
+    "railing": 10,
+    "collider": 4,
+    "label": 7,
+    "roof": 1,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "stone_chapel",
+   "name_zh": "海角石砌教堂",
+   "name_en": "Cape Stone Chapel",
+   "style": "Gothic Revival Chapel",
+   "style_zh": "哥德復興教堂",
+   "tier": "landmark",
+   "category": "chapel",
+   "game_styles": [
+    "realistic",
+    "horror",
+    "romance",
+    "fantasy",
+    "wedding"
+   ],
+   "description": "Stone nave with tall lancet windows, rows of pews and altar, steep slate gable, square bell tower with brass bell and spire.",
+   "floors": 1,
+   "plot": [
+    [
+     18.0,
+     -43.2,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    18.0,
+    -43.2,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    21.19,
+    22.85,
+    20.1
+   ],
+   "height_m": 19.7,
+   "entrances": [
+    {
+     "name": "stone_chapel.F1_S2",
+     "side": "S",
+     "a": 0.0,
+     "z": 0.5,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      0.0,
+      -11.0,
+      0
+     ]
+    }
+   ],
+   "objects": 74,
+   "triangles_approx": 67556,
+   "lights": 1,
+   "interactables": [
+    "open",
+    "sit",
+    "use"
+   ],
+   "furniture": 27,
+   "collection": "BLD_stone_chapel",
+   "root_object": "BLD_stone_chapel",
+   "labels_collection": "LBL_stone_chapel",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_stone_chapel",
+    "glb": "export/glb/stone_chapel.glb",
+    "glb_kb": 9999,
+    "preview_day": "renders/stone_chapel_front_day.png",
+    "preview_night": "renders/stone_chapel_front.png",
+    "preview_plan": "renders/stone_chapel_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 27,
+    "structure": 2,
+    "wall": 8,
+    "window": 13,
+    "floor": 3,
+    "trim": 3,
+    "door": 2,
+    "light": 1,
+    "light_fixture": 1,
+    "stair": 1,
+    "collider": 1,
+    "label": 7,
+    "terrain": 1,
+    "roof": 1,
+    "spawn": 1,
+    "vegetation": 2
+   }
+  },
+  {
+   "asset_id": "supermarket",
+   "name_zh": "好鄰居超市",
+   "name_en": "Good Neighbor Supermarket",
+   "style": "Suburban Supermarket",
+   "style_zh": "郊區超市",
+   "tier": "standard",
+   "category": "supermarket",
+   "game_styles": [
+    "realistic",
+    "survival",
+    "zombie",
+    "slice-of-life",
+    "sims"
+   ],
+   "description": "Large steel-clad supermarket: aisles of double shelves, wall of drink fridges, checkout counters, carts, front parking.",
+   "floors": 1,
+   "plot": [
+    [
+     -131.5,
+     -89.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    -131.5,
+    -89.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    29.0,
+    31.0,
+    6.26
+   ],
+   "height_m": 5.86,
+   "entrances": [
+    {
+     "name": "supermarket.F1_S2",
+     "side": "S",
+     "a": -6.0,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -6.0,
+      -11.5,
+      0
+     ]
+    }
+   ],
+   "objects": 148,
+   "triangles_approx": 339100,
+   "lights": 1,
+   "interactables": [
+    "open",
+    "shop",
+    "use"
+   ],
+   "furniture": 107,
+   "collection": "BLD_supermarket",
+   "root_object": "BLD_supermarket",
+   "labels_collection": "LBL_supermarket",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_supermarket",
+    "glb": "export/glb/supermarket.glb",
+    "glb_kb": 76933,
+    "preview_day": "renders/supermarket_front_day.png",
+    "preview_night": "renders/supermarket_front.png",
+    "preview_plan": "renders/supermarket_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 107,
+    "wall": 9,
+    "window": 13,
+    "floor": 3,
+    "trim": 3,
+    "door": 1,
+    "light": 1,
+    "light_fixture": 1,
+    "label": 7,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "swiss_chalet",
+   "name_zh": "阿爾卑斯木屋",
+   "name_en": "Alpine Swiss Chalet",
+   "style": "Swiss Alpine Chalet",
+   "style_zh": "瑞士山屋",
+   "tier": "upscale",
+   "category": "house",
+   "game_styles": [
+    "realistic",
+    "cozy",
+    "winter",
+    "anime",
+    "europe"
+   ],
+   "description": "Stone base + log upper storey, wide low gable with deep eaves, wrap balcony with flower boxes, red shutters.",
+   "floors": 2,
+   "plot": [
+    [
+     123.0,
+     15.3,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    123.0,
+    15.3,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    16.0,
+    15.0,
+    10.43
+   ],
+   "height_m": 10.03,
+   "entrances": [
+    {
+     "name": "swiss_chalet.F1_S2",
+     "side": "S",
+     "a": -1.13,
+     "z": 0.6,
+     "interior": false
+    },
+    {
+     "name": "swiss_chalet.F1_E1",
+     "side": "E",
+     "a": 0.64,
+     "z": 0.6,
+     "interior": false
+    },
+    {
+     "name": "swiss_chalet.F2_S1",
+     "side": "S",
+     "a": -1.32,
+     "z": 3.8000000000000003,
+     "interior": false
+    },
+    {
+     "name": "swiss_chalet.F2_S3",
+     "side": "S",
+     "a": 3.96,
+     "z": 3.8000000000000003,
+     "interior": false
+    }
+   ],
+   "interior_doors": 7,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -1.13,
+      -7.5,
+      0
+     ]
+    }
+   ],
+   "objects": 178,
+   "triangles_approx": 76692,
+   "lights": 9,
+   "interactables": [
+    "cook",
+    "open",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 44,
+   "collection": "BLD_swiss_chalet",
+   "root_object": "BLD_swiss_chalet",
+   "labels_collection": "LBL_swiss_chalet",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_swiss_chalet",
+    "glb": "export/glb/swiss_chalet.glb",
+    "glb_kb": 19108,
+    "preview_day": "renders/swiss_chalet_front_day.png",
+    "preview_night": "renders/swiss_chalet_front.png",
+    "preview_plan": "renders/swiss_chalet_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 44,
+    "trim": 18,
+    "floor": 11,
+    "wall": 21,
+    "light": 9,
+    "light_fixture": 9,
+    "door": 17,
+    "window": 15,
+    "stair": 3,
+    "railing": 11,
+    "collider": 9,
+    "label": 7,
+    "structure": 1,
+    "terrain": 1,
+    "roof": 1,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "temple_pagoda",
+   "name_zh": "天界樓閣",
+   "name_en": "Heaven Gate Pavilion",
+   "style": "Chinese Pagoda Temple (neo-oriental)",
+   "style_zh": "中式樓閣廟宇",
+   "tier": "landmark",
+   "category": "temple / landmark",
+   "game_styles": [
+    "wuxia",
+    "fantasy",
+    "cyberpunk-oriental",
+    "anime",
+    "realistic"
+   ],
+   "description": "Stone podium with front stair, 3-storey timber pavilion (altar hall / scripture library / lookout) linked by interior stairs, verandas with red columns, triple curled hip roofs, neon-lit paifang gate and red lantern strings.",
+   "floors": 3,
+   "plot": [
+    [
+     -28.0,
+     -27.0,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    -28.0,
+    -27.0,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    24.0,
+    30.0,
+    20.88
+   ],
+   "height_m": 20.48,
+   "entrances": [
+    {
+     "name": "temple_pagoda.T1_S6",
+     "side": "S",
+     "a": 0.0,
+     "z": 1.2,
+     "interior": false
+    },
+    {
+     "name": "temple_pagoda.T2_S4",
+     "side": "S",
+     "a": 0.0,
+     "z": 7.4,
+     "interior": false
+    },
+    {
+     "name": "temple_pagoda.T2_N4",
+     "side": "N",
+     "a": -2.1,
+     "z": 7.4,
+     "interior": false
+    },
+    {
+     "name": "temple_pagoda.T2_W2",
+     "side": "W",
+     "a": 2.1,
+     "z": 7.4,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "gate",
+     "local": [
+      0.0,
+      -18.0,
+      0
+     ]
+    }
+   ],
+   "objects": 243,
+   "triangles_approx": 133308,
+   "lights": 11,
+   "interactables": [
+    "open",
+    "sit",
+    "use"
+   ],
+   "furniture": 18,
+   "collection": "BLD_temple_pagoda",
+   "root_object": "BLD_temple_pagoda",
+   "labels_collection": "LBL_temple_pagoda",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_temple_pagoda",
+    "glb": "export/glb/temple_pagoda.glb",
+    "glb_kb": 17362,
+    "preview_day": "renders/temple_pagoda_front_day.png",
+    "preview_night": "renders/temple_pagoda_front.png",
+    "preview_plan": "renders/temple_pagoda_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 18,
+    "structure": 5,
+    "trim": 39,
+    "stair": 3,
+    "collider": 17,
+    "sign": 2,
+    "light": 11,
+    "roof": 6,
+    "label": 7,
+    "cable": 24,
+    "floor": 6,
+    "railing": 20,
+    "spawn": 1,
+    "light_fixture": 20,
+    "window": 36,
+    "door": 8,
+    "wall": 12,
+    "vegetation": 8
+   }
+  },
+  {
+   "asset_id": "tower_cyber_narrow",
+   "name_zh": "霓虹窄塔",
+   "name_en": "Neon Sliver Tower",
+   "style": "Cyberpunk Vertical Block",
+   "style_zh": "賽博龐克窄樓",
+   "tier": "budget",
+   "category": "mixed-use tower",
+   "game_styles": [
+    "cyberpunk",
+    "sci-fi",
+    "neo-noir",
+    "realistic"
+   ],
+   "description": "6x7 m five-storey neon tower: G/F DVD & gadget shop, 2F hacker den with servers, 3F capsule hostel, 4F neon bar, 5F loft, roof hut with antennas. Grimy steel cladding, fans, pipes, vertical neon signs.",
+   "floors": 5,
+   "plot": [
+    [
+     44.0,
+     12.5,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    44.0,
+    12.5,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    9.2,
+    10.0,
+    22.55
+   ],
+   "height_m": 22.15,
+   "entrances": [
+    {
+     "name": "tower_cyber_narrow.F1_S1",
+     "side": "S",
+     "a": -0.2,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "tower_cyber_narrow.F1_S2",
+     "side": "S",
+     "a": 1.75,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "tower_cyber_narrow.Hut_W0",
+     "side": "W",
+     "a": -1.15,
+     "z": 15.4,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -0.2,
+      -5.1,
+      0
+     ]
+    }
+   ],
+   "objects": 318,
+   "triangles_approx": 119132,
+   "lights": 14,
+   "interactables": [
+    "open",
+    "play",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "work"
+   ],
+   "furniture": 53,
+   "collection": "BLD_tower_cyber_narrow",
+   "root_object": "BLD_tower_cyber_narrow",
+   "labels_collection": "LBL_tower_cyber_narrow",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_tower_cyber_narrow",
+    "glb": "export/glb/tower_cyber_narrow.glb",
+    "glb_kb": 22410,
+    "preview_day": "renders/tower_cyber_narrow_front_day.png",
+    "preview_night": "renders/tower_cyber_narrow_front.png",
+    "preview_plan": "renders/tower_cyber_narrow_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 53,
+    "sign": 10,
+    "cable": 60,
+    "wall": 44,
+    "floor": 13,
+    "light": 14,
+    "light_fixture": 14,
+    "window": 18,
+    "trim": 26,
+    "door": 2,
+    "stair": 10,
+    "railing": 31,
+    "collider": 15,
+    "label": 7,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "treehouse_oak",
+   "name_zh": "老橡樹樹屋",
+   "name_en": "Old Oak Treehouse",
+   "style": "Storybook Treehouse",
+   "style_zh": "童話樹屋",
+   "tier": "standard",
+   "category": "treehouse",
+   "game_styles": [
+    "cozy",
+    "ghibli",
+    "adventure",
+    "cartoon",
+    "fantasy"
+   ],
+   "description": "Giant oak with a wrap deck at 4.5 m reached by a timber stair, a gabled cabin (bed, desk, lantern) and a rope ladder to a crow's-nest lookout.",
+   "floors": 2,
+   "plot": [
+    [
+     43.0,
+     -96.2,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    43.0,
+    -96.2,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    16.16,
+    19.01,
+    18.32
+   ],
+   "height_m": 17.92,
+   "entrances": [
+    {
+     "name": "treehouse_oak.Cabin_S0",
+     "side": "S",
+     "a": 2.35,
+     "z": 4.5,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      2.35,
+      -6.1,
+      0
+     ]
+    }
+   ],
+   "objects": 73,
+   "triangles_approx": 70380,
+   "lights": 7,
+   "interactables": [
+    "climb",
+    "open",
+    "play",
+    "sleep",
+    "work"
+   ],
+   "furniture": 3,
+   "collection": "BLD_treehouse_oak",
+   "root_object": "BLD_treehouse_oak",
+   "labels_collection": "LBL_treehouse_oak",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_treehouse_oak",
+    "glb": "export/glb/treehouse_oak.glb",
+    "glb_kb": 9071,
+    "preview_day": "renders/treehouse_oak_front_day.png",
+    "preview_night": "renders/treehouse_oak_front.png",
+    "preview_plan": "renders/treehouse_oak_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 3,
+    "trim": 7,
+    "wall": 6,
+    "window": 2,
+    "door": 1,
+    "light": 7,
+    "light_fixture": 1,
+    "roof": 1,
+    "vegetation": 1,
+    "floor": 2,
+    "railing": 24,
+    "collider": 5,
+    "structure": 2,
+    "label": 7,
+    "terrain": 1,
+    "ladder": 1,
+    "spawn": 1,
+    "stair": 1
+   }
+  },
+  {
+   "asset_id": "tudor_inn",
+   "name_zh": "皇冠都鐸酒館",
+   "name_en": "The Crown Tudor Inn",
+   "style": "English Tudor",
+   "style_zh": "英式都鐸",
+   "tier": "standard",
+   "category": "pub + inn",
+   "game_styles": [
+    "medieval",
+    "fantasy",
+    "rpg-village",
+    "realistic",
+    "europe"
+   ],
+   "description": "Stone ground-floor pub with bar and booths, half-timbered upper floor of guest rooms, steep tile gable, lanterns, hanging sign.",
+   "floors": 2,
+   "plot": [
+    [
+     105.5,
+     15.8,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    105.5,
+    15.8,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    17.0,
+    16.0,
+    13.91
+   ],
+   "height_m": 13.51,
+   "entrances": [
+    {
+     "name": "tudor_inn.F1_S2",
+     "side": "S",
+     "a": -1.13,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "tudor_inn.F1_E1",
+     "side": "E",
+     "a": 1.14,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 6,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -1.13,
+      -8.0,
+      0
+     ]
+    }
+   ],
+   "objects": 164,
+   "triangles_approx": 67900,
+   "lights": 10,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 49,
+   "collection": "BLD_tudor_inn",
+   "root_object": "BLD_tudor_inn",
+   "labels_collection": "LBL_tudor_inn",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_tudor_inn",
+    "glb": "export/glb/tudor_inn.glb",
+    "glb_kb": 15490,
+    "preview_day": "renders/tudor_inn_front_day.png",
+    "preview_night": "renders/tudor_inn_front.png",
+    "preview_plan": "renders/tudor_inn_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 49,
+    "trim": 13,
+    "floor": 8,
+    "wall": 24,
+    "light": 10,
+    "light_fixture": 10,
+    "door": 11,
+    "window": 19,
+    "stair": 2,
+    "railing": 5,
+    "collider": 2,
+    "sign": 2,
+    "label": 7,
+    "roof": 1,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "villa_luxury_modern",
+   "name_zh": "白崖現代豪宅",
+   "name_en": "White Cliff Modern Villa",
+   "style": "Luxury Modernist Villa",
+   "style_zh": "奢華現代主義別墅",
+   "tier": "luxury",
+   "category": "villa",
+   "game_styles": [
+    "realistic",
+    "modern",
+    "thriller",
+    "life-sim",
+    "anime"
+   ],
+   "description": "Glass-walled concrete living pavilion (living/dining/kitchen island), floating stair, cantilevered upper volume with master suite + ensuite, 2nd bedroom, study, garage with car, roof terrace, infinity pool & deck.",
+   "floors": 2,
+   "plot": [
+    [
+     -82.0,
+     19.0,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -82.0,
+    19.0,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    31.83,
+    25.31,
+    9.25
+   ],
+   "height_m": 7.75,
+   "entrances": [
+    {
+     "name": "villa_luxury_modern.A_S1",
+     "side": "S",
+     "a": 1.8,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "villa_luxury_modern.B_S0",
+     "side": "S",
+     "a": 7.0,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "villa_luxury_modern.B_W0",
+     "side": "W",
+     "a": 1.95,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "villa_luxury_modern.C_E0",
+     "side": "E",
+     "a": 4.35,
+     "z": 3.6,
+     "interior": false
+    }
+   ],
+   "interior_doors": 4,
+   "spawns": [
+    {
+     "name": "front_gate",
+     "local": [
+      1.8,
+      -12.5,
+      0
+     ]
+    }
+   ],
+   "objects": 188,
+   "triangles_approx": 92416,
+   "lights": 15,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 64,
+   "collection": "BLD_villa_luxury_modern",
+   "root_object": "BLD_villa_luxury_modern",
+   "labels_collection": "LBL_villa_luxury_modern",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_villa_luxury_modern",
+    "glb": "export/glb/villa_luxury_modern.glb",
+    "glb_kb": 19279,
+    "preview_day": "renders/villa_luxury_modern_front_day.png",
+    "preview_night": "renders/villa_luxury_modern_front.png",
+    "preview_plan": "renders/villa_luxury_modern_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "window": 10,
+    "floor": 10,
+    "light": 15,
+    "light_fixture": 10,
+    "trim": 12,
+    "door": 15,
+    "stair": 1,
+    "railing": 7,
+    "collider": 6,
+    "wall": 22,
+    "furniture": 64,
+    "sign": 2,
+    "label": 7,
+    "water": 1,
+    "spawn": 1,
+    "vegetation": 5
+   }
+  },
+  {
+   "asset_id": "villa_neon_circuit",
+   "name_zh": "霓光電路別墅",
+   "name_en": "Neon Circuit Villa",
+   "style": "Near-Future Tech Villa",
+   "style_zh": "近未來科技別墅",
+   "tier": "luxury",
+   "category": "villa",
+   "game_styles": [
+    "cyberpunk",
+    "sci-fi",
+    "near-future",
+    "realistic",
+    "anime"
+   ],
+   "description": "Charcoal composite villa with cyan circuit-trace lighting: gated courtyard, glowing steps, G/F lounge + kitchen + game room, 2F suite with balcony, west wing with roof terrace reached by an outside stair.",
+   "floors": 2,
+   "plot": [
+    [
+     26.0,
+     -20.5,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    26.0,
+    -20.5,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    24.0,
+    23.0,
+    7.73
+   ],
+   "height_m": 7.33,
+   "entrances": [
+    {
+     "name": "villa_neon_circuit.M_S1",
+     "side": "S",
+     "a": 1.6,
+     "z": 0.45,
+     "interior": false
+    },
+    {
+     "name": "villa_neon_circuit.M_W0",
+     "side": "W",
+     "a": 5.5,
+     "z": 0.45,
+     "interior": false
+    },
+    {
+     "name": "villa_neon_circuit.U_S1",
+     "side": "S",
+     "a": 3.6,
+     "z": 3.85,
+     "interior": false
+    },
+    {
+     "name": "villa_neon_circuit.U_W0",
+     "side": "W",
+     "a": 5.0,
+     "z": 3.85,
+     "interior": false
+    },
+    {
+     "name": "villa_neon_circuit.Wg_S1",
+     "side": "S",
+     "a": -5.0,
+     "z": 0.45,
+     "interior": false
+    }
+   ],
+   "interior_doors": 3,
+   "spawns": [
+    {
+     "name": "gate",
+     "local": [
+      0.0,
+      -11.5,
+      0
+     ]
+    }
+   ],
+   "objects": 180,
+   "triangles_approx": 79288,
+   "lights": 15,
+   "interactables": [
+    "cook",
+    "open",
+    "play",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 45,
+   "collection": "BLD_villa_neon_circuit",
+   "root_object": "BLD_villa_neon_circuit",
+   "labels_collection": "LBL_villa_neon_circuit",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_villa_neon_circuit",
+    "glb": "export/glb/villa_neon_circuit.glb",
+    "glb_kb": 16232,
+    "preview_day": "renders/villa_neon_circuit_front_day.png",
+    "preview_night": "renders/villa_neon_circuit_front.png",
+    "preview_plan": "renders/villa_neon_circuit_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 45,
+    "light_fixture": 14,
+    "light": 15,
+    "door": 11,
+    "stair": 3,
+    "collider": 12,
+    "trim": 12,
+    "label": 7,
+    "wall": 27,
+    "window": 11,
+    "floor": 8,
+    "railing": 13,
+    "spawn": 1,
+    "vegetation": 1
+   }
+  },
+  {
+   "asset_id": "warehouse_loft",
+   "name_zh": "紅磚倉庫Loft",
+   "name_en": "Red-Brick Warehouse Lofts",
+   "style": "Industrial Warehouse Loft",
+   "style_zh": "工業倉庫改建",
+   "tier": "standard",
+   "category": "loft + workshop",
+   "game_styles": [
+    "realistic",
+    "industrial",
+    "crime",
+    "cyberpunk",
+    "post-apocalyptic"
+   ],
+   "description": "Converted brick warehouse: G/F workshop and garage bay with roller door, two double-height studio lofts above, sawtooth glazed roof.",
+   "floors": 2,
+   "plot": [
+    [
+     88.5,
+     -79.3,
+     0.15
+    ],
+    180
+   ],
+   "position": [
+    88.5,
+    -79.3,
+    0.15
+   ],
+   "rotation_z_deg": 180,
+   "size_m": [
+    25.0,
+    19.0,
+    11.2
+   ],
+   "height_m": 10.8,
+   "entrances": [
+    {
+     "name": "warehouse_loft.F1_S2",
+     "side": "S",
+     "a": 4.6,
+     "z": 0,
+     "interior": false
+    },
+    {
+     "name": "warehouse_loft.F1_S3",
+     "side": "S",
+     "a": -2.4,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "warehouse_loft.F1_E1",
+     "side": "E",
+     "a": 1.24,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 8,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      -2.4,
+      -9.5,
+      0
+     ]
+    }
+   ],
+   "objects": 167,
+   "triangles_approx": 100752,
+   "lights": 10,
+   "interactables": [
+    "cook",
+    "open",
+    "shop",
+    "sit",
+    "sleep",
+    "use",
+    "wash",
+    "work"
+   ],
+   "furniture": 42,
+   "collection": "BLD_warehouse_loft",
+   "root_object": "BLD_warehouse_loft",
+   "labels_collection": "LBL_warehouse_loft",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_warehouse_loft",
+    "glb": "export/glb/warehouse_loft.glb",
+    "glb_kb": 19270,
+    "preview_day": "renders/warehouse_loft_front_day.png",
+    "preview_night": "renders/warehouse_loft_front.png",
+    "preview_plan": "renders/warehouse_loft_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 42,
+    "trim": 14,
+    "floor": 9,
+    "wall": 26,
+    "light": 10,
+    "light_fixture": 10,
+    "door": 14,
+    "window": 22,
+    "stair": 2,
+    "railing": 5,
+    "collider": 2,
+    "label": 7,
+    "roof": 1,
+    "sign": 2,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "windmill_dutch",
+   "name_zh": "風車磨坊",
+   "name_en": "Old Dutch Windmill",
+   "style": "Dutch Tower Windmill",
+   "style_zh": "荷蘭風車",
+   "tier": "landmark",
+   "category": "windmill",
+   "game_styles": [
+    "rpg-village",
+    "fantasy",
+    "cozy",
+    "farming-sim",
+    "realistic"
+   ],
+   "description": "8-sided brick windmill: grain store, millstone floor with reefing gallery, miller's loft; timber cap with four lattice sails (rotate prop).",
+   "floors": 3,
+   "plot": [
+    [
+     -40.0,
+     -101.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -40.0,
+    -101.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    15.2,
+    16.0,
+    17.6
+   ],
+   "height_m": 17.2,
+   "entrances": [
+    {
+     "name": "windmill_dutch.F1_5_0",
+     "side": "S",
+     "a": 0.0,
+     "z": 0.0,
+     "interior": false
+    },
+    {
+     "name": "windmill_dutch.F2_5_0",
+     "side": "S",
+     "a": 0.0,
+     "z": 3.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      0.0,
+      -5.9,
+      0
+     ]
+    }
+   ],
+   "objects": 201,
+   "triangles_approx": 64816,
+   "lights": 4,
+   "interactables": [
+    "open",
+    "sleep",
+    "use"
+   ],
+   "furniture": 9,
+   "collection": "BLD_windmill_dutch",
+   "root_object": "BLD_windmill_dutch",
+   "labels_collection": "LBL_windmill_dutch",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_windmill_dutch",
+    "glb": "export/glb/windmill_dutch.glb",
+    "glb_kb": 11715,
+    "preview_day": "renders/windmill_dutch_front_day.png",
+    "preview_night": "renders/windmill_dutch_front.png",
+    "preview_plan": "renders/windmill_dutch_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 9,
+    "roof": 1,
+    "railing": 104,
+    "window": 9,
+    "trim": 4,
+    "door": 2,
+    "wall": 48,
+    "floor": 6,
+    "light": 4,
+    "light_fixture": 4,
+    "stair": 2,
+    "label": 7,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "wizard_tower",
+   "name_zh": "星辰法師塔",
+   "name_en": "Starlight Wizard Tower",
+   "style": "High-Fantasy Wizard Tower",
+   "style_zh": "奇幻法師塔",
+   "tier": "landmark",
+   "category": "tower",
+   "game_styles": [
+    "fantasy",
+    "rpg",
+    "anime",
+    "magic-school",
+    "ghibli"
+   ],
+   "description": "12-sided stone tower: library, alchemy lab, bedchamber and star-gazing study linked by a spiral stair; tall blue cone roof, glowing crystals.",
+   "floors": 4,
+   "plot": [
+    [
+     -72.0,
+     -101.7,
+     0.15
+    ],
+    0
+   ],
+   "position": [
+    -72.0,
+    -101.7,
+    0.15
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    14.0,
+    16.0,
+    22.53
+   ],
+   "height_m": 22.13,
+   "entrances": [
+    {
+     "name": "wizard_tower.F1_8_0",
+     "side": "S",
+     "a": 0.0,
+     "z": 0.0,
+     "interior": false
+    }
+   ],
+   "interior_doors": 0,
+   "spawns": [
+    {
+     "name": "front",
+     "local": [
+      0.0,
+      -6.7,
+      0
+     ]
+    }
+   ],
+   "objects": 294,
+   "triangles_approx": 91672,
+   "lights": 6,
+   "interactables": [
+    "cook",
+    "open",
+    "sleep",
+    "use"
+   ],
+   "furniture": 17,
+   "collection": "BLD_wizard_tower",
+   "root_object": "BLD_wizard_tower",
+   "labels_collection": "LBL_wizard_tower",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_wizard_tower",
+    "glb": "export/glb/wizard_tower.glb",
+    "glb_kb": 13963,
+    "preview_day": "renders/wizard_tower_front_day.png",
+    "preview_night": "renders/wizard_tower_front.png",
+    "preview_plan": "renders/wizard_tower_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "furniture": 17,
+    "roof": 1,
+    "light_fixture": 9,
+    "light": 6,
+    "window": 16,
+    "trim": 1,
+    "door": 5,
+    "wall": 96,
+    "floor": 6,
+    "stair": 3,
+    "railing": 126,
+    "label": 7,
+    "spawn": 1
+   }
+  },
+  {
+   "asset_id": "island_town",
+   "name_zh": "海港小鎮島",
+   "name_en": "Harbor Town Island",
+   "style": "Environment",
+   "style_zh": "環境",
+   "tier": "template",
+   "category": "environment",
+   "game_styles": [
+    "any"
+   ],
+   "description": "Island terrain + streets + lamps + trees that hosts every TownKit building.",
+   "floors": 0,
+   "plot": [
+    0,
+    0
+   ],
+   "position": [
+    0,
+    0,
+    0
+   ],
+   "rotation_z_deg": 0,
+   "size_m": [
+    1200.0,
+    1200.0,
+    19.62
+   ],
+   "height_m": 13.62,
+   "entrances": [],
+   "interior_doors": 0,
+   "spawns": [],
+   "objects": 349,
+   "triangles_approx": 347072,
+   "lights": 104,
+   "interactables": [],
+   "furniture": 104,
+   "collection": "BLD_island_town",
+   "root_object": "BLD_island_town",
+   "labels_collection": "LBL_island_town",
+   "files": {
+    "blend": "TownKit.blend",
+    "blend_collection": "BLD_island_town",
+    "glb": "export/glb/island_town.glb",
+    "glb_kb": 19187,
+    "preview_day": "renders/island_town_front_day.png",
+    "preview_night": "renders/island_town_front.png",
+    "preview_plan": "renders/island_town_cut_day.png"
+   },
+   "object_counts": {
+    "empty": 1,
+    "trim": 2,
+    "road": 1,
+    "water": 1,
+    "sidewalk": 1,
+    "furniture": 104,
+    "light": 104,
+    "terrain": 1,
+    "vegetation": 135
+   }
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TownKit Island — 開車 / 散步</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/",
+  "three-mesh-bvh": "https://cdn.jsdelivr.net/npm/three-mesh-bvh@0.8.3/build/index.module.js"
+} }
+</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<div id="loading">
+  <h1>TownKit 海港小鎮島</h1>
+  <p class="sub">67 棟可進入建築 · 開車最高 300 km/h · 散步 / 跑步</p>
+  <div class="bar"><div id="loadbar"></div></div>
+  <p id="loadtxt">載入中…</p>
+  <button id="start" disabled>載入中…</button>
+  <div class="keys">
+    <b>步行</b> WASD 移動 · Shift 跑步 · Space 跳 · 滑鼠 視角 · 滾輪 拉近<br>
+    <b>開車</b> F 上/下車 · W 油門 · S 煞車/倒車 · A/D 轉向 · Space 手煞車 · M 手/自排 · Q/E 降/升檔<br>
+    <b>其他</b> N 日/夜 · V 第一/三人稱 · R 重置車輛 · P 陰影 · H 說明 · Esc 釋放滑鼠
+  </div>
+</div>
+
+<div id="hud" class="hidden">
+  <div id="where"><div id="bname"></div><div id="bstyle"></div></div>
+  <div id="prompt"></div>
+  <canvas id="minimap" width="220" height="220"></canvas>
+  <div id="dash" class="hidden">
+    <canvas id="gauge" width="300" height="300"></canvas>
+    <div id="speed"><span id="kmh">0</span><small>km/h</small></div>
+    <div id="gear">N</div>
+    <div id="mode">AUTO</div>
+  </div>
+  <div id="help" class="hidden">
+    <b>步行</b> WASD · Shift 跑 · Space 跳 · F 上車(靠近車)<br>
+    <b>開車</b> W/S 油門/煞車 · A/D 轉向 · Space 手煞車<br>
+    M 手/自排切換 · Q/E 降/升檔 · R 車輛重置<br>
+    N 日夜 · V 視角 · P 陰影 · H 關閉說明
+  </div>
+  <div id="fps"></div>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
